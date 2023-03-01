@@ -1,0 +1,18 @@
+void main() {
+  
+  hochzahl(2,10); 
+  //Die erste Zahl ist der Faktor und die zweite die Hochzahl.
+}
+
+void hochzahl(int faktor, int exponent){
+  
+  int altprodukt = 1; 
+  int produkt = 0;
+  
+ for(int i=1; i<=exponent; i++){ //Multipliziert mal den Faktor solange i <= dem Exponent ist
+   produkt = altprodukt * faktor; //Das Endprodukt besteht aus einer Multiplikation des Altprodukts und des Faktors
+   altprodukt = altprodukt * faktor; //Altprodukt erhält und speichert den letzten erhaltenen Wert
+ }
+  
+  print(produkt); //Gibt das Endprodukt aus  
+}
