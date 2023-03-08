@@ -1,4 +1,22 @@
 # Android Timer App
+## Mittwoch 8.3.2023
+
+Da wir beim letzten Mal ziemlich viele Themen behandelt haben, haben wir heute nochmal eine Wiederholung durchgeführt für:
+
+* `for`-Schleifen
+* Verzweigungen
+* Listen
+* Methoden und Funktionen
+
+Danach haben wir in der [Dart](Dart.pptx) weitergemacht und die nächsten Themen angeschaut:
+
+* Named Arguments
+* Scope
+* Shadowing
+* Callbacks
+
+Wir sind bis Folie 70 gekommen.
+
 ## Mittwoch 1.3.2023
 
 Nachdem wir beim letzten Mal das Android Studio installiert haben, konnten wie heute damit beginnen, uns die Programmiersprache [Dart](Dart.pptx) anzuschauen.
