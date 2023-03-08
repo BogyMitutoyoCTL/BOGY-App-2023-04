@@ -1,4 +1,29 @@
 # Android Timer App
+## Mittwoch 1.3.2023
+
+Nachdem wir beim letzten Mal das Android Studio installiert haben, konnten wie heute damit beginnen, uns die Programmiersprache [Dart](Dart.pptx) anzuschauen.
+
+Dart ist von der Syntax her ähnlich zu Arduino, weswegen viele Dinge schon bekannt vorkamen.
+
+Die behandelten die Themen:
+
+* kurzer Überblick über unterschiedliche Programmiersprachen
+* Dateiformat von Dart
+* Rechtschreibprüfung in Android Studio
+* Rechnen in Dart
+* Bibliotheken
+* Code Formatierung (Coding Guidelines)
+* Strings (Texte) verarbeiten
+* Code Templates
+* `for`-Schleife
+* Booleans (Wahrheitswerte)
+* Verzweigungen
+* Listen
+* Maps / Dictionaries
+* Methoden und Funktionen
+
+Wir haben es heute geschafft bis Folie 51 und machen dort nächstes Mal wieder weiter.
+
 ## Mittwoch 15.2.2023
 
 Zu Beginn des BOGYs steht natürlich die Vorstellungsrunde, damit sich die Teilnehmer des Praktikums und Betreuer kennenlernen. Direkt danach haben wir eine Führung durch das Gebäude gemacht, damit die örtlichen Gegebenheiten bekannt sind.
