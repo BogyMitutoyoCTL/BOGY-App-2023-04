@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'Data.dart';
+import 'SplashScreen.dart';
+
+Data data = new Data();
+SharedPreferences? prefs;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  prefs = await SharedPreferences.getInstance();
+
+  var myApp = MultiTimerApp();
+  runApp(myApp);
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MultiTimerApp extends StatelessWidget {
+  const MultiTimerApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -28,31 +39,6 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: const SplashScreen(),
-    );
-  }
-}
-
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
-
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: new Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          new Text(
-            AppLocalizations.of(context)!.appname,
-            textScaleFactor: 3,
-          ),
-          new Placeholder()
-        ],
-      ),
     );
   }
 }
