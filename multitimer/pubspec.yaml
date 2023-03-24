@@ -1,5 +1,5 @@
 name: multitimer
-description: A new Flutter project.
+description: Running multiple user-defined timers.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -29,9 +29,14 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter_localizations:
+    sdk: flutter
   flutter:
     sdk: flutter
-
+  intl: ^0.17.0
+  shared_preferences: 2.0.13
+  localstorage: ^4.0.0+1
+  vibration: ^1.7.6
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -53,7 +58,10 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  generate: true
+  assets:
+    - i18n/en.json
+    - i18n/de.json
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
