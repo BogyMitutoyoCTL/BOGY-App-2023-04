@@ -1,4 +1,25 @@
 # Android Timer App
+## Mittwoch 22.3.2023
+
+Zum Einstieg haben wir eine Dart-Aufgabe von [Codewars](https://www.codewars.com) gelöst.
+
+Anschließend haben wir [Flutter](Flutter.pptx) wiederholt und uns nochmal ein paar Widgets angeschaut.
+
+Wir haben und dann weitere Beispiele programmiert, die etwas fortgeschrittenere Konzepte mit Layouts benutzen. Bis Folie 26 sind wir gekommen.
+
+## Mittwoch 15.3.2023
+
+Wir haben heute das Thema [Dart](Dart.pptx) abgeschlossen. Neu waren:
+
+* Lambdas
+* Klassen und Objekte
+
+Wir konnten dann mit [Flutter](Flutter.pptx) beginnen und haben uns bis Folie 8 durchgearbeitet. Die Themen waren:
+
+* Was ist ein Widget?
+* Beispiele für Widgets
+* Unser erstes stateless Widget
+
 ## Mittwoch 8.3.2023
 
 Da wir beim letzten Mal ziemlich viele Themen behandelt haben, haben wir heute nochmal eine Wiederholung durchgeführt für:
