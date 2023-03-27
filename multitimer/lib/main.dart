@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'Data.dart';
+import 'data/Data.dart';
 import 'SplashScreen.dart';
 
 Data data = new Data();
