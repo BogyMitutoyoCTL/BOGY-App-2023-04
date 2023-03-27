@@ -5,9 +5,9 @@ import 'package:multitimer/data/Data.dart';
 import 'package:path_provider/path_provider.dart';
 
 class Storage {
-  Future<void> save() async {
+  Future<void> save(Data data) async {
     File file = await _getDataFile();
-    await file.writeAsString(jsonEncode(this));
+    await file.writeAsString(jsonEncode(data));
   }
 
   Future<Data> load() async {
