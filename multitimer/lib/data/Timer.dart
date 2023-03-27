@@ -1,4 +1,6 @@
+import 'Section.dart';
+
 class Timer {
-  List<Duration> durations = [];
+  List<Section> sections = [];
   String name = "";
 }
