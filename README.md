@@ -1,11 +1,52 @@
 # Android Timer App
 ## Montag 27.3.2023
 
-Nach einigen organisatorischen Dingen wie z.B. der Bestellung von Mittagessen haben wir das Widget von Folie 26 fertiggestellt.
+Nach einigen organisatorischen Dingen wie z.B. der Bestellung von Mittagessen haben wir das Widget von Folie 26 fertiggestellt, Navigation eingebaut und gelernt, wie wir Daten von einem Widget zum nächsten transferieren.
 
-Wir haben das Live Template `stless` so modifiziert, dass wir in Zukunft automatisch ein Scaffold, eine AppBar und eine Column bekommen.
+Um unsere Arbeit zu vereinfachen, haben wir uns ein paar Live Templates erstellt:
 
+* Wir haben das Live Template `stless` so modifiziert, dass wir in Zukunft automatisch ein Scaffold, eine AppBar und eine Column bekommen.
 
+* Wir haben uns Live Templates für TextField und den dazugehörigen TextEditingController angelegt.
+
+Damit wir eine grobe Vorstellung haben, was wir diese Woche programmieren müssen, haben wir zunächst die Widgets von Hand gezeichnet.
+
+Folgende Widgets haben wir identifiziert:
+
+* SplashScreen mit dem Logo unserer App
+* Startbildschirm (Main menu)
+  * Button für Einstellungen
+  * Button für Benutzerprofile (?)
+  * Navigation zu den verfügbaren Kategorien
+* Widget für Einstellungen
+  * Dark Mode / Light Mode
+  * Spende ans Entwicklerteam
+* Widget für Benutzerprofile (?)
+  * ?
+* Anzeige der verfügbaren Kategorien
+  * Liste der Kategorien
+  * je Button zum Löschen einer Kategorie
+  * je 1 Button zum Editieren einer Kategorie (Bleistift Icon)
+  * 1 Button zum Anlegen eines neuen Timers
+* Anlegen/Bearbeiten eines Timers
+  * Textfeld zum Eingeben des Namens des Timers
+  * Auswahl oder Eingabe der Kategorie für diesen Timer
+  * je Abschnitt 1 Eingabefeld zum Festlegen der Dauer dieses Timers
+  * Textfeld für die auszuführende Aktion
+  * Button zum Hinzufügen einer weiteren Dauer (zusätzlicher Abschnitt mit +/- Button)
+  * Button zum Speichern
+* Anzeige der Timer innerhalb einer Kategorie
+  * Button zum Starten eines Timers
+  * Button zum Editieren eines Timers
+  * Button zum Löschen eines Timers
+* Anzeige bei Ablauf eines Timers
+  * Liste der abgelaufenen Timer
+  * Name der auszuführenden Aktion
+  * je 1 Bestätigungsbutton zum Fortsetzen bzw. Beenden des Timers
+* Anzeige der aktiven Timer
+  * Name und Dauer des Timers
+  * Abbrechen eines Timers
+* Meldungen auf dem Sperrbildschirm
 
 ## Mittwoch 22.3.2023
 
