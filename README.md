@@ -1,4 +1,12 @@
 # Android Timer App
+## Montag 27.3.2023
+
+Nach einigen organisatorischen Dingen wie z.B. der Bestellung von Mittagessen haben wir das Widget von Folie 26 fertiggestellt.
+
+Wir haben das Live Template `stless` so modifiziert, dass wir in Zukunft automatisch ein Scaffold, eine AppBar und eine Column bekommen.
+
+
+
 ## Mittwoch 22.3.2023
 
 Zum Einstieg haben wir eine Dart-Aufgabe von [Codewars](https://www.codewars.com) gelöst.
