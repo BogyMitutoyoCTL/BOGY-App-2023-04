@@ -1,4 +1,45 @@
 # Android Timer App
+## Dienstag 28.3.2023
+
+Wir haben mit der Implementierung von Widgets weitergemacht.
+
+### Speichern von Daten als JSON
+
+Wir Betreuer haben festgestellt, dass unser Wissen über Dart schon wieder veraltet ist. Das alte `flutter generate` wurde mittlerweile durch `dart pub run build_runner` ersetzt. Das ist allerdings auch schon wieder veraltet und heißt nun `dart run build_runner build`. Mit dem Befehl werden dann Teile von Klassen automatisch generiert.
+
+Klassen, die als JSON gespeichert werden sollen, brauchen:
+
+* das Paket `import 'package:json_annotation/json_annotation.dart';` 
+
+* einen anderen, automatisch generierten Teil der Klasse `part 'Klassenname.g.dart';`
+
+* direkt oberhalb der Klasse `@JsonSerializable(explicitToJson: true, includeIfNull: true)` 
+
+* ```dart
+  @override
+  String toString() => toJson().toString();
+  
+  factory Klassenname.fromJson(Map<String, dynamic> json) => _$KlassennameFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$KlassennameToJson(this);
+  ```
+
+Nach diesen Änderungen muss der Befehl `dart run build_runner build` ausgeführt werden, um die Datei `Klassenname.g.dart` zu erzeugen, die mit Punkt 2 der obigen Liste eingebunden wird.
+
+### Versionsnummern in pubspec.yaml
+
+`^` bedeutet: es sind auch alle neueren Versionen dieser Bibliothek zugelassen, die garantiert rückwärtskompatibel mit dieser Version sind.
+
+`>=` bedeutet: diese Version oder neuer
+
+### Themes
+
+Bei der Erstellung von Themes ist uns aufgefallen, dass die Hintergrundfarbe des Themes nicht angewandt wurde. Als Lösung haben wir die Eigenschaft `scaffoldBackgroundColor` gefunden.
+
+### Navigation
+
+
+
 ## Montag 27.3.2023
 
 Nach einigen organisatorischen Dingen wie z.B. der Bestellung von Mittagessen haben wir das Widget von Folie 26 fertiggestellt, Navigation eingebaut und gelernt, wie wir Daten von einem Widget zum nächsten transferieren.
@@ -47,6 +88,8 @@ Folgende Widgets haben wir identifiziert:
   * Name und Dauer des Timers
   * Abbrechen eines Timers
 * Meldungen auf dem Sperrbildschirm
+
+Die Aufgaben zur Erstellung dieser Widgets haben wir als [Issues](issues) in Github hinterlegt.
 
 ## Mittwoch 22.3.2023
 
