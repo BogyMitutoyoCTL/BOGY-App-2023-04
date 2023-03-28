@@ -29,7 +29,7 @@ class _MainmenuState extends State<Mainmenu> {
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: new Image.asset(
-                'assets/images/Logo.jpg',
+                'assets/images/Logo.png',
                 width: 200,
               ),
             ),
