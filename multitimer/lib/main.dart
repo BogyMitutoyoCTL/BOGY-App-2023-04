@@ -8,23 +8,24 @@ import 'SplashScreen.dart';
 import 'data/Data.dart';
 import 'data/Storage.dart';
 
-Data data = new Data();
 SharedPreferences? prefs;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   prefs = await SharedPreferences.getInstance();
   var storage = new Storage();
-  data = await storage.load();
+  Data data = await storage.load();
   print(jsonEncode(data));
-  var myApp = MultiTimerApp();
+  var myApp = MultiTimerApp(data);
   myApp.themeChanger = data.themeChanger;
   runApp(myApp);
 }
 
 class MultiTimerApp extends StatelessWidget {
   ValueNotifier<ThemeMode> themeChanger = ValueNotifier(ThemeMode.light);
-  MultiTimerApp({super.key});
+
+  Data data;
+  MultiTimerApp(Data this.data, {super.key});
 
   // This widget is the root of your application.
   @override
@@ -73,7 +74,7 @@ class MultiTimerApp extends StatelessWidget {
                     onSurface: Colors.white)),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            home: const SplashScreen(),
+            home: SplashScreen(data),
           );
         });
   }

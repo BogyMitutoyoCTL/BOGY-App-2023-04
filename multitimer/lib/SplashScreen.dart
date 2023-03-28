@@ -2,18 +2,21 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:multitimer/data/Data.dart';
 
 import 'Mainmenu.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  Data data;
+
+  SplashScreen(Data this.data, {Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState(data);
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  _SplashScreenState() {
+  _SplashScreenState(Data data) {
     Timer timer = Timer(const Duration(seconds: 2), () {
       Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (context) => Mainmenu()));
