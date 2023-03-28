@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CreateTimer extends StatefulWidget {
@@ -137,11 +138,13 @@ class _CreateTimerState extends State<CreateTimer> {
             Container(
               width: 80,
               child: new TextFormField(
-                controller: controller4,
-                decoration: InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: AppLocalizations.of(context)!.time),
-              ),
+                  controller: controller4,
+                  decoration: InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: AppLocalizations.of(context)!.time),
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+                  ]),
             ),
             new Text("min"),
             new Container(height: 30),
