@@ -8,6 +8,7 @@
   "category": "Kategorie",
   "time": "Zeit",
   "name": "Name des Zeitabschnitts",
-  "save": "Speichern"
+  "save": "Speichern",
+  "cook": "Kochen"
 
 }
