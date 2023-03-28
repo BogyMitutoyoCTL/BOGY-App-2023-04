@@ -3,11 +3,12 @@ part 'Section.g.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: true)
 class Section {
-  Section() {}
+  Section({String this.message = ""}) {}
 
+  @JsonKey(required: true)
   Duration duration = Duration.zero;
   @JsonKey(required: true)
-  String message = "";
+  String message;
 
   @override
   String toString() => toJson().toString();

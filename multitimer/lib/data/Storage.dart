@@ -5,6 +5,10 @@ import 'Data.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
+import 'Group.dart';
+import 'Section.dart';
+import 'Timer.dart';
+
 class Storage {
   Future<void> save(Data data) async {
     if (kIsWeb) {
@@ -19,7 +23,16 @@ class Storage {
   Future<Data> load() async {
     if (kIsWeb) {
       // for web projects, storage via dart:io is not available
-      return new Data();
+      var data = new Data();
+      data.groups.add(new Group(name: "Kochen"));
+      data.groups[0].timers.add(new Timer(name: "Nudeln"));
+      data.groups[0].timers[0].sections
+          .add(new Section(message: "Wasser erhitzen"));
+      data.groups[0].timers[0].sections[0].duration = new Duration(minutes: 2);
+      data.groups[0].timers[0].sections
+          .add(new Section(message: "Nudeln kochen"));
+      data.groups[0].timers[0].sections[1].duration = new Duration(minutes: 8);
+      return data;
     }
 
     File file = await _getDataFile();
