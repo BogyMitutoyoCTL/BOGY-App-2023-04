@@ -1,12 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'data/Storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'SplashScreen.dart';
 import 'data/Data.dart';
-
-import 'dart:convert';
+import 'data/Storage.dart';
 
 Data data = new Data();
 SharedPreferences? prefs;
@@ -30,15 +30,7 @@ class MultiTimerApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
+          appBarTheme: AppBarTheme(centerTitle: true),
           primarySwatch: Colors.blue,
           scaffoldBackgroundColor: Colors.blueGrey,
           colorScheme: new ColorScheme(
