@@ -6,6 +6,7 @@
   "aktimer": "Aktive Timer",
   "settings": "Einstellungen",
   "category": "Kategorie",
-  "time": "Zeit"
+  "time": "Zeit",
+  "name": "Name des Zeitabschnitts"
 
 }
