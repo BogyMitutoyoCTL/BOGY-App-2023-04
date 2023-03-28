@@ -71,7 +71,7 @@ class _MainmenuState extends State<Mainmenu> {
                 width: 300,
                 height: 43,
                 child: ElevatedButton.icon(
-                  onPressed: onClick,
+                  onPressed: onPress,
                   icon: Icon(
                     Icons.hourglass_bottom,
                     size: 24.0,
@@ -86,7 +86,7 @@ class _MainmenuState extends State<Mainmenu> {
                 width: 300,
                 height: 43,
                 child: ElevatedButton.icon(
-                  onPressed: onClick,
+                  onPressed: onActivate,
                   icon: Icon(
                     Icons.settings,
                     size: 24.0,
