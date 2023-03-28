@@ -38,6 +38,7 @@ dependencies:
   localstorage: ^4.0.0+1
 
   vibration: ^1.7.6
+  google_fonts: ^2.0.0
 
   # Saving objects as JSON
   json_annotation: ^4.8.0
@@ -68,7 +69,8 @@ flutter:
   assets:
     - i18n/en.json
     - i18n/de.json
-    - assets/images/Logo.jpg
+    - assets/images/Logo.png
+    - assets/images/LogoM.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
