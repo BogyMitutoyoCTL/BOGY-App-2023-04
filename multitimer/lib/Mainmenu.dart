@@ -31,8 +31,8 @@ class _MainmenuState extends State<Mainmenu> {
             Padding(
               padding: const EdgeInsets.all(30.0),
               child: new Text(
-                "Mitutimer",
-                textScaleFactor: 3,
+                AppLocalizations.of(context)!.appname,
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
             Padding(
