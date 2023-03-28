@@ -18,6 +18,7 @@ Future<void> main() async {
   data = await storage.load();
   print(jsonEncode(data));
   var myApp = MultiTimerApp();
+  myApp.themeChanger = data.themeChanger;
   runApp(myApp);
 }
 
