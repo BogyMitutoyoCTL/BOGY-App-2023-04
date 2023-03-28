@@ -24,14 +24,26 @@ class Storage {
     if (kIsWeb) {
       // for web projects, storage via dart:io is not available
       var data = new Data();
-      data.groups.add(new Group(name: "Kochen"));
-      data.groups[0].timers.add(new Timer(name: "Nudeln"));
-      data.groups[0].timers[0].sections
-          .add(new Section(message: "Wasser erhitzen"));
-      data.groups[0].timers[0].sections[0].duration = new Duration(minutes: 2);
-      data.groups[0].timers[0].sections
-          .add(new Section(message: "Nudeln kochen"));
-      data.groups[0].timers[0].sections[1].duration = new Duration(minutes: 8);
+      var kochen = new Group(name: "Kochen");
+      data.groups.add(kochen);
+
+      var nudeltimer = new Timer(name: "Nudeln");
+      var erhitzen = new Section(
+          message: "Wasser erhitzen", duration: new Duration(minutes: 2));
+      var nudelnkochen = new Section(
+          message: "Nudeln kochen", duration: new Duration(minutes: 8));
+      nudeltimer.sections.add(erhitzen);
+      nudeltimer.sections.add(nudelnkochen);
+      kochen.timers.add(nudeltimer);
+
+      var broetchentimer = new Timer(name: "Brötchen backen");
+      kochen.timers.add(broetchentimer);
+      var backen =
+          new Section(message: "backen", duration: new Duration(minutes: 10));
+      broetchentimer.sections.add(backen);
+
+      data.groups.add(new Group(name: "Sport"));
+
       return data;
     }
 
