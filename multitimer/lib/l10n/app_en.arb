@@ -7,6 +7,7 @@
   "settings": "Settings",
   "category": "Category",
   "time": "Time",
-  "name": "Time period name"
+  "name": "Time period name",
+  "save": "Save"
 
 }

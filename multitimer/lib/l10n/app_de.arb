@@ -7,6 +7,7 @@
   "settings": "Einstellungen",
   "category": "Kategorie",
   "time": "Zeit",
-  "name": "Name des Zeitabschnitts"
+  "name": "Name des Zeitabschnitts",
+  "save": "Speichern"
 
 }
