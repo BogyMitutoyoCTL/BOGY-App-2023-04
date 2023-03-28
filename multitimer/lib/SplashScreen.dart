@@ -1,5 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'Mainmenu.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -10,10 +14,10 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   _SplashScreenState() {
-    // Timer timer = Timer(const Duration(seconds: 5), () {
-    //   Navigator.of(context)
-    //       .push(MaterialPageRoute(builder: (context) => Mainmenu()));
-    // });
+    Timer timer = Timer(const Duration(seconds: 2), () {
+      Navigator.of(context)
+          .pushReplacement(MaterialPageRoute(builder: (context) => Mainmenu()));
+    });
   }
   @override
   Widget build(BuildContext context) {
@@ -27,7 +31,8 @@ class _SplashScreenState extends State<SplashScreen> {
               padding: const EdgeInsets.all(30.0),
               child: new Text(
                 AppLocalizations.of(context)!.appname,
-                textScaleFactor: 3,
+                textScaleFactor: 5,
+                style: TextStyle(fontFamily: "Lobster"),
               ),
             ),
             new Image.asset("assets/images/Logo.png", width: 200),
