@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'data/Storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data/Data.dart';
 import 'SplashScreen.dart';
 
+import 'dart:convert';
+
 Data data = new Data();
 SharedPreferences? prefs;
 
 Future<void> main() async {
+  print(jsonEncode(data));
+
   WidgetsFlutterBinding.ensureInitialized();
   prefs = await SharedPreferences.getInstance();
-
+  var storage = new Storage();
+  data = await storage.load();
   var myApp = MultiTimerApp();
   runApp(myApp);
 }

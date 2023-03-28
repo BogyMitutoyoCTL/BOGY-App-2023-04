@@ -1,21 +1,36 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:multitimer/data/Data.dart';
+import 'Data.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class Storage {
   Future<void> save(Data data) async {
+    if (kIsWeb) {
+      // for web projects, storage via dart:io is not available
+      return;
+    }
+
     File file = await _getDataFile();
     await file.writeAsString(jsonEncode(data));
   }
 
   Future<Data> load() async {
+    if (kIsWeb) {
+      // for web projects, storage via dart:io is not available
+      return new Data();
+    }
+
     File file = await _getDataFile();
-    String jsonString = await file.readAsString();
-    // TODO: convert JSON to data
-    var data = new Data();
-    return data;
+    if (await file.exists()) {
+      String jsonString = await file.readAsString();
+      Map<String, dynamic> json = jsonDecode(jsonString);
+      var data = Data.fromJson(json);
+      return data;
+    } else {
+      return new Data();
+    }
   }
 
   Future<File> _getDataFile() async {
