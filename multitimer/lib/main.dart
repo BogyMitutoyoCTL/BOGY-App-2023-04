@@ -12,12 +12,11 @@ Data data = new Data();
 SharedPreferences? prefs;
 
 Future<void> main() async {
-  print(jsonEncode(data));
-
   WidgetsFlutterBinding.ensureInitialized();
   prefs = await SharedPreferences.getInstance();
   var storage = new Storage();
   data = await storage.load();
+  print(jsonEncode(data));
   var myApp = MultiTimerApp();
   runApp(myApp);
 }

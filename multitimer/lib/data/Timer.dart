@@ -4,12 +4,12 @@ part 'Timer.g.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: true)
 class Timer {
-  Timer() {}
+  Timer({String this.name = ""}) {}
 
   @JsonKey(defaultValue: [])
   List<Section> sections = [];
   @JsonKey(required: true)
-  String name = "";
+  String name;
 
   @override
   String toString() => toJson().toString();

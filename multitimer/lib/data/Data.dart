@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import 'Group.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -9,6 +11,9 @@ class Data {
 
   @JsonKey(defaultValue: [])
   List<Group> groups = [];
+
+  @JsonKey()
+  ThemeMode theme = ThemeMode.light;
 
   @override
   String toString() => toJson().toString();

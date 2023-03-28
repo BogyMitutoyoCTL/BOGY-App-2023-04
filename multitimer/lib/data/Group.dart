@@ -4,7 +4,7 @@ part 'Group.g.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: true)
 class Group {
-  Group() {}
+  Group({String this.name = ""}) {}
 
   @JsonKey(defaultValue: [])
   List<Timer> timers = [];
