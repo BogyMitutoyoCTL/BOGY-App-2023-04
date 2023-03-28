@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'GroupColors.dart';
 
 import 'Group.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -16,6 +17,11 @@ class Data {
   ThemeMode theme = ThemeMode.light;
 
   ValueNotifier<ThemeMode> themeChanger = ValueNotifier(ThemeMode.light);
+
+  Color colorOf(Group group) {
+    var index = groups.indexOf(group);
+    return GroupColors().getColor(index);
+  }
 
   @override
   String toString() => toJson().toString();

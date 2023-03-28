@@ -8,6 +8,7 @@ class Group {
 
   @JsonKey(defaultValue: [])
   List<Timer> timers = [];
+
   @JsonKey(required: true)
   String name = "";
 
