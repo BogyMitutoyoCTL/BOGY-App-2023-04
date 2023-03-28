@@ -11,6 +11,8 @@ class Timer {
   @JsonKey(required: true)
   String name;
 
+  bool isActive = false;
+
   @override
   String toString() => toJson().toString();
 
