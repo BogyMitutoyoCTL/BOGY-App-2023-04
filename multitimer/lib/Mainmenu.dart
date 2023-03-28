@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:multitimer/Settings.dart';
 
 class Mainmenu extends StatefulWidget {
   const Mainmenu({Key? key}) : super(key: key);
@@ -29,8 +30,9 @@ class _MainmenuState extends State<Mainmenu> {
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: new Image.asset(
-                'assets/images/Logo.jpg',
+                'assets/images/Hourglass.png',
                 width: 200,
+                height: 150,
               ),
             ),
             Padding(
@@ -69,7 +71,7 @@ class _MainmenuState extends State<Mainmenu> {
                 width: 300,
                 height: 43,
                 child: ElevatedButton.icon(
-                  onPressed: onClick,
+                  onPressed: onPress,
                   icon: Icon(
                     Icons.hourglass_bottom,
                     size: 24.0,
@@ -84,7 +86,7 @@ class _MainmenuState extends State<Mainmenu> {
                 width: 300,
                 height: 43,
                 child: ElevatedButton.icon(
-                  onPressed: onClick,
+                  onPressed: onActivate,
                   icon: Icon(
                     Icons.settings,
                     size: 24.0,
@@ -116,6 +118,6 @@ class _MainmenuState extends State<Mainmenu> {
 
   void onActivate() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => Mainmenu()));
+        .push(MaterialPageRoute(builder: (context) => Settings()));
   }
 }
