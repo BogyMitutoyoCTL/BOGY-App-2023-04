@@ -38,7 +38,11 @@ Bei der Erstellung von Themes ist uns aufgefallen, dass die Hintergrundfarbe des
 
 ### Navigation
 
+Neben `.push(...)` und `.pop()` haben wir noch `pushReplacement(...)` entdeckt, das verhindert, dass man z.B. wieder zum Splashscreen zurück navigieren kann.
 
+### Flutter Upgrade
+
+Manche Betreuer mussten eine bestehende Flutter Installation mit `flutter upgrade --force` aktualisieren.
 
 ## Montag 27.3.2023
 
