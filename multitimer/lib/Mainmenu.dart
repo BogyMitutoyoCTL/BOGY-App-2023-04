@@ -2,15 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/ActiveTimers.dart';
 import 'package:multitimer/Settings.dart';
+import 'package:multitimer/data/Data.dart';
 
 class Mainmenu extends StatefulWidget {
-  const Mainmenu({Key? key}) : super(key: key);
+  Data data;
+
+  Mainmenu(Data this.data, {Key? key}) : super(key: key);
 
   @override
-  State<Mainmenu> createState() => _MainmenuState();
+  State<Mainmenu> createState() => _MainmenuState(data);
 }
 
 class _MainmenuState extends State<Mainmenu> {
+  Data data;
+
+  _MainmenuState(Data this.data);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,12 +115,12 @@ class _MainmenuState extends State<Mainmenu> {
 
   void onClick() {
     Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => Mainmenu())); //Neuer Timer
+        MaterialPageRoute(builder: (context) => Mainmenu(data))); //Neuer Timer
   }
 
   void onTouch() {
     Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => Mainmenu())); //Meine Timer
+        MaterialPageRoute(builder: (context) => Mainmenu(data))); //Meine Timer
   }
 
   void onPress() {

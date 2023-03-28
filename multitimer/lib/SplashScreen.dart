@@ -18,8 +18,8 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   _SplashScreenState(Data data) {
     Timer timer = Timer(const Duration(seconds: 2), () {
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => Mainmenu()));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => Mainmenu(data)));
     });
   }
   @override
