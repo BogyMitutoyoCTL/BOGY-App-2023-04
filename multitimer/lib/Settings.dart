@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:multitimer/data/Data.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class Settings extends StatefulWidget {
-  Settings({Key? key}) : super(key: key);
+  Data data;
+
+  Settings(Data this.data, {Key? key}) : super(key: key);
 
   @override
-  State<Settings> createState() => _SettingsState();
+  State<Settings> createState() => _SettingsState(data);
 }
 
 class _SettingsState extends State<Settings> {
@@ -14,6 +17,10 @@ class _SettingsState extends State<Settings> {
   Color color = Colors.black87;
   Color textcolor = Colors.white;
   Color appbar = Colors.blue;
+
+  Data data;
+
+  _SettingsState(Data this.data);
 
   @override
   Widget build(BuildContext context) {

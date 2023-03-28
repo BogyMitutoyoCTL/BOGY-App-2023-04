@@ -129,7 +129,7 @@ class _MainmenuState extends State<Mainmenu> {
   }
 
   void onActivate() {
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => Settings())); //Einstellungen
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => Settings(data))); //Einstellungen
   }
 }
