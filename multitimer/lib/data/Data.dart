@@ -15,6 +15,8 @@ class Data {
   @JsonKey()
   ThemeMode theme = ThemeMode.light;
 
+  ValueNotifier<ThemeMode> themeChanger = ValueNotifier(ThemeMode.light);
+
   @override
   String toString() => toJson().toString();
 
