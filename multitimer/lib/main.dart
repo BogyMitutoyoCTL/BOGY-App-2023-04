@@ -30,7 +30,8 @@ class MultiTimerApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          appBarTheme: AppBarTheme(centerTitle: true),
+          appBarTheme: AppBarTheme(
+              centerTitle: true, titleTextStyle: TextStyle(fontSize: 42)),
           primarySwatch: Colors.blue,
           scaffoldBackgroundColor: Colors.blueGrey,
           colorScheme: new ColorScheme(
