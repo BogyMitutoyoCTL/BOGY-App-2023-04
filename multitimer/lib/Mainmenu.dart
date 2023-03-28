@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:multitimer/Settings.dart';
 
 class Mainmenu extends StatefulWidget {
   const Mainmenu({Key? key}) : super(key: key);
@@ -117,6 +118,6 @@ class _MainmenuState extends State<Mainmenu> {
 
   void onActivate() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => Mainmenu()));
+        .push(MaterialPageRoute(builder: (context) => Settings()));
   }
 }
