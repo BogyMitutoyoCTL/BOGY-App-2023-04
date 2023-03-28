@@ -18,7 +18,6 @@ Future<void> main() async {
   data = await storage.load();
   print(jsonEncode(data));
   var myApp = MultiTimerApp();
-  myApp.themeChanger = data.themeChanger;
   runApp(myApp);
 }
 
@@ -37,6 +36,7 @@ class MultiTimerApp extends StatelessWidget {
             theme: ThemeData(
                 appBarTheme: AppBarTheme(
                     centerTitle: true, titleTextStyle: TextStyle(fontSize: 42)),
+                textTheme: TextTheme(bodyLarge: TextStyle(fontSize: 42)),
                 primarySwatch: Colors.blue,
                 scaffoldBackgroundColor: Colors.blueGrey,
                 colorScheme: new ColorScheme(
