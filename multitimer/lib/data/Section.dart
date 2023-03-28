@@ -3,10 +3,10 @@ part 'Section.g.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: true)
 class Section {
-  Section({String this.message = ""}) {}
+  Section({String this.message = "", Duration this.duration = Duration.zero}) {}
 
   @JsonKey(required: true)
-  Duration duration = Duration.zero;
+  Duration duration;
   @JsonKey(required: true)
   String message;
 
