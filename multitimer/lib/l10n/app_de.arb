@@ -1,3 +1,9 @@
 {
-  "appname": "Mehrfach-Erinnerung"
+  "appname": "Mehrfach-Erinnerung",
+  "mainmenu": "Hauptmenü",
+  "newtimer": "Neuer Timer",
+  "mytimer": "Meine Timer",
+  "aktimer": "Aktive Timer",
+  "settings": "Einstellungen"
+
 }

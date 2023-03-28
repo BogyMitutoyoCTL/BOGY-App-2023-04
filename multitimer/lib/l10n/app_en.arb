@@ -1,3 +1,8 @@
 {
-  "appname": "Multi-Timer"
+  "appname": "Multi-Timer",
+  "mainmenu": "Main Menu",
+  "newtimer": "New Timer",
+  "mytimer": "My Timers",
+  "aktimer": "Active Timers",
+  "settings": "Settings"
 }
