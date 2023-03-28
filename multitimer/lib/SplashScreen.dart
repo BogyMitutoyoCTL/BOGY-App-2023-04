@@ -9,6 +9,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  _SplashScreenState() {
+    // Timer timer = Timer(const Duration(seconds: 5), () {
+    //   Navigator.of(context)
+    //       .push(MaterialPageRoute(builder: (context) => Mainmenu()));
+    // });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +32,10 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             new Image.asset("assets/images/Logo.png", width: 200),
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 100, 0, 185),
+              padding: const EdgeInsets.fromLTRB(0, 100, 0, 0),
               child: new Text("    Loading . . .", textScaleFactor: 2),
             ),
+            new Expanded(child: new Container()),
             new Row(mainAxisAlignment: MainAxisAlignment.end, children: [
               Padding(
                 padding: const EdgeInsets.all(10.0),
