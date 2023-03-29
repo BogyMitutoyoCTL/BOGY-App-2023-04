@@ -26,7 +26,11 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
                 padding: EdgeInsets.all(20),
               ),
             ),
-            ExpiredTimer()
+            Expanded(
+              child: Column(
+                children: [ExpiredTimer(), ExpiredTimer(), ExpiredTimer()],
+              ),
+            ),
           ],
         ));
   }
