@@ -10,6 +10,8 @@ part 'Data.g.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: true)
 class Data {
+  ValueNotifier<Color> appBarColor = ValueNotifier(Colors.red);
+
   Data() {}
 
   @JsonKey(defaultValue: [])

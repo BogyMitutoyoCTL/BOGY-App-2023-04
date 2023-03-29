@@ -94,76 +94,84 @@ class _CreateTimerState extends State<CreateTimer> {
           new AppBar(title: new Text(AppLocalizations.of(context)!.newtimer)),
       body: Padding(
         padding: const EdgeInsets.all(40.0),
-        child:
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
             new Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          new Text(
-            "Name: ",
-            textScaleFactor: 2,
-          ),
-          new Container(
-            width: 200,
-            height: 10,
-          ),
-          new TextField(controller: controller),
-          new Container(
-            width: 200,
-            height: 50,
-          ),
-          new Text(AppLocalizations.of(context)!.category + ":",
-              textScaleFactor: 2),
-          new Container(width: 200, height: 10),
-          new TextField(
-            controller: controller2,
-          ),
-          new Container(
-            width: 200,
-            height: 70,
-          ),
-          new Text(AppLocalizations.of(context)!.time + ":",
-              textScaleFactor: 2),
-          new Container(
-            width: 200,
-            height: 10,
-          ),
-          Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-            Container(
-              width: 240,
-              child: new TextFormField(
-                  controller: controller3,
-                  decoration: InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: AppLocalizations.of(context)!.name)),
+              new Text(
+                "Name: ",
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              new Container(
+                width: 200,
+                height: 10,
+              ),
+              new TextField(controller: controller),
+              new Container(
+                width: 200,
+                height: 50,
+              ),
+              new Text(
+                AppLocalizations.of(context)!.category + ":",
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              new Container(width: 200, height: 10),
+              new TextField(
+                controller: controller2,
+              ),
+              new Container(
+                width: 200,
+                height: 70,
+              ),
+              new Text(
+                AppLocalizations.of(context)!.time + ":",
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              new Container(
+                width: 200,
+                height: 10,
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                Container(
+                  width: 240,
+                  child: new TextFormField(
+                      controller: controller3,
+                      decoration: InputDecoration(
+                          border: UnderlineInputBorder(),
+                          labelText: AppLocalizations.of(context)!.name)),
+                ),
+                Expanded(child: new Container(width: 75)),
+                Container(
+                  width: 80,
+                  child: new TextFormField(
+                      controller: controller4,
+                      decoration: InputDecoration(
+                          border: UnderlineInputBorder(),
+                          labelText: AppLocalizations.of(context)!.time),
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+                      ]),
+                ),
+                new Text("min", style: Theme.of(context).textTheme.bodySmall),
+                new Container(height: 30),
+              ]),
+              new Container(height: 20),
+              ElevatedButton(
+                onPressed: onNeueZeile,
+                child: Icon(Icons.add),
+                style: ElevatedButton.styleFrom(
+                  shape: CircleBorder(),
+                  padding: EdgeInsets.all(20),
+                ),
+              ),
+            ]),
+            Center(
+              child: new ElevatedButton(
+                  onPressed: onSave,
+                  child: new Text(AppLocalizations.of(context)!.save)),
             ),
-            new Container(width: 75),
-            Container(
-              width: 80,
-              child: new TextFormField(
-                  controller: controller4,
-                  decoration: InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: AppLocalizations.of(context)!.time),
-                  inputFormatters: [
-                    FilteringTextInputFormatter.allow(RegExp("[0-9]")),
-                  ]),
-            ),
-            new Text("min"),
-            new Container(height: 30),
-          ]),
-          new Container(height: 20),
-          ElevatedButton(
-            onPressed: onNeueZeile,
-            child: Icon(Icons.add),
-            style: ElevatedButton.styleFrom(
-              shape: CircleBorder(),
-              padding: EdgeInsets.all(20),
-            ),
-          ),
-          Center(
-            child: new ElevatedButton(
-                onPressed: onSave,
-                child: new Text(AppLocalizations.of(context)!.save)),
-          ),
-        ]),
+          ],
+        ),
       ),
     );
   }
