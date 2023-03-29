@@ -7,7 +7,7 @@
   "settings": "Einstellungen",
   "changetheme": "Ändere das Theme der App:",
   "red": "Rot",
-  "orange": "Oransche",
+  "orange": "Orange",
   "blue": "Blau",
   "green": "Grün",
   "redaccent": "Betontes Rot",
@@ -21,6 +21,11 @@
   "extimer": "Abgelaufene Timer",
   "cookn": "Nudeln kochen",
   "cooke": "Eier kochen",
-  "cookr": "Brötchen aufbacken"
+  "cookr": "Brötchen aufbacken",
+  "discard": "Verwerfen",
+  "restart": "Neustart",
+  "finish": "Fertig",
+  "next": "Nächste Phase"
+
 
 }

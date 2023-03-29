@@ -71,7 +71,7 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
                                         padding: EdgeInsets.all(20),
                                       ),
                                     ),
-                                    new Text("Nächste Phase",
+                                    new Text(AppLocalizations.of(context)!.next,
                                         style: Theme.of(context)
                                             .textTheme
                                             .labelSmall)
@@ -89,7 +89,8 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
                                           shape: CircleBorder(),
                                           padding: EdgeInsets.all(20),
                                         )),
-                                    new Text("Fertig",
+                                    new Text(
+                                        AppLocalizations.of(context)!.finish,
                                         style: Theme.of(context)
                                             .textTheme
                                             .labelSmall)

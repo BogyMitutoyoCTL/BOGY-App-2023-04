@@ -21,6 +21,10 @@
   "extimer": "Expired Timers",
   "cookn": "Cooking Noodles",
   "cooke": "Cooking Eggs",
-  "cookr": "Baking up rolls"
+  "cookr": "Baking up rolls",
+  "discard": "Discard",
+  "restart": "Restart",
+    "finish": "Done",
+    "next": "Next Phase"
 
 }
