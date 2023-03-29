@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/SubWidgets/CategWidget.dart';
+import 'package:multitimer/data/Data.dart';
 
 import 'data/Category.dart';
 
 class Categories extends StatefulWidget {
-  Categories({Key? key}) : super(key: key);
+  Data data;
+
+  Categories(Data this.data, {Key? key}) : super(key: key);
 
   @override
-  State<Categories> createState() => _CategoriesState();
+  State<Categories> createState() => _CategoriesState(data);
 }
 
 class _CategoriesState extends State<Categories> {
+  Data data;
+
+  _CategoriesState(Data this.data);
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
