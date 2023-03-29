@@ -16,7 +16,6 @@ class _SettingsState extends State<Settings> {
   ThemeMode theme = ThemeMode.light;
   Color color = Colors.black87;
   Color textcolor = Colors.white;
-  Color appbar = Colors.red;
 
   Data data;
 
@@ -43,7 +42,6 @@ class _SettingsState extends State<Settings> {
           ],
         ),
         centerTitle: true,
-        backgroundColor: appbar,
       ),
       body: Column(
         children: [
@@ -110,7 +108,7 @@ class _SettingsState extends State<Settings> {
                 children: [
                   Radio(
                       value: Colors.red,
-                      groupValue: appbar,
+                      groupValue: data.appBarColor,
                       onChanged: setAppBarColor),
                   ElevatedButton(
                     onPressed: onClickRed,
@@ -126,7 +124,7 @@ class _SettingsState extends State<Settings> {
                 children: [
                   Radio(
                       value: Colors.amber,
-                      groupValue: appbar,
+                      groupValue: data.appBarColor,
                       onChanged: setAppBarColor),
                   ElevatedButton(
                     onPressed: onClickOrange,
@@ -142,7 +140,7 @@ class _SettingsState extends State<Settings> {
                 children: [
                   Radio(
                       value: Colors.blue,
-                      groupValue: appbar,
+                      groupValue: data.appBarColor,
                       onChanged: setAppBarColor),
                   ElevatedButton(
                     onPressed: onClickBlue,
@@ -158,7 +156,7 @@ class _SettingsState extends State<Settings> {
                 children: [
                   Radio(
                       value: Colors.lightGreen,
-                      groupValue: appbar,
+                      groupValue: data.appBarColor,
                       onChanged: setAppBarColor),
                   ElevatedButton(
                     onPressed: onClickGreen,
@@ -174,7 +172,7 @@ class _SettingsState extends State<Settings> {
                 children: [
                   Radio(
                       value: Colors.redAccent,
-                      groupValue: appbar,
+                      groupValue: data.appBarColor,
                       onChanged: setAppBarColor),
                   ElevatedButton(
                     onPressed: onClickRedAccent,
@@ -196,7 +194,7 @@ class _SettingsState extends State<Settings> {
                 child: TextButton(
                   onPressed: onClickDonate,
                   child: Container(
-                    color: textcolor,
+                    color: Colors.white,
                     child: Text(
                       AppLocalizations.of(context)!.donate,
                       style: TextStyle(
@@ -241,6 +239,12 @@ class _SettingsState extends State<Settings> {
     });
   }
 
+  void setValue(ThemeMode? value) {
+    setState(() {
+      value = theme;
+    });
+  }
+
   void onClickRed() {
     setAppBarColor(Colors.red);
   }
@@ -263,8 +267,8 @@ class _SettingsState extends State<Settings> {
 
   void setAppBarColor(Color? value) {
     setState(() {
-      appbar = value!;
-      data.appBarColorChanger.value = appbar;
+      data.appBarColor = value!;
+      data.appBarColorChanger.value = data.appBarColor;
     });
   }
 }
