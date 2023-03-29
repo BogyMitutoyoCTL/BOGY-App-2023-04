@@ -2,9 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:multitimer/Categories.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'Settings.dart';
+import 'SplashScreen.dart';
 import 'data/Data.dart';
 import 'data/Storage.dart';
 
@@ -17,28 +18,30 @@ Future<void> main() async {
   Data data = await storage.load();
   print(jsonEncode(data));
   var myApp = MultiTimerApp(data);
-  myApp.themeChanger = data.themeChanger;
   runApp(myApp);
 }
 
 class MultiTimerApp extends StatelessWidget {
-  ValueNotifier<ThemeMode> themeChanger = ValueNotifier(ThemeMode.light);
-
   Data data;
-  MultiTimerApp(Data this.data, {super.key});
+  MultiTimerApp(this.data, {super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<ThemeMode>(
-        valueListenable: themeChanger,
+        valueListenable: data.themeChanger,
         builder: (_, mode, __) {
           return MaterialApp(
-            title: 'Flutter Demo',
+            title: "MituTimer",
+            themeMode: mode,
             theme: ThemeData(
                 appBarTheme: AppBarTheme(
-                    centerTitle: true, titleTextStyle: TextStyle(fontSize: 42)),
-                textTheme: TextTheme(bodyLarge: TextStyle(fontSize: 42)),
+                    centerTitle: true, titleTextStyle: TextStyle(fontSize: 36)),
+                textTheme: TextTheme(
+                  bodyLarge: TextStyle(fontSize: 48.0),
+                  bodyMedium: TextStyle(fontSize: 28.0),
+                  bodySmall: TextStyle(fontSize: 18.0),
+                  labelSmall: TextStyle(fontSize: 8.0),
+                ),
                 primarySwatch: Colors.blue,
                 scaffoldBackgroundColor: Colors.blueGrey,
                 colorScheme: new ColorScheme(
@@ -74,7 +77,7 @@ class MultiTimerApp extends StatelessWidget {
                     onSurface: Colors.white)),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            home: Categories(),
+            home: SplashScreen(data),
           );
         });
   }

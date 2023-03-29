@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/ActiveTimers.dart';
+import 'package:multitimer/CreateTimer.dart';
 import 'package:multitimer/Settings.dart';
 import 'package:multitimer/data/Data.dart';
 
@@ -28,13 +29,15 @@ class _MainmenuState extends State<Mainmenu> {
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Expanded(child: new Container()),
             Padding(
               padding: const EdgeInsets.all(30.0),
               child: new Text(
-                "Mitutimer",
-                textScaleFactor: 3,
+                AppLocalizations.of(context)!.appname,
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
+            Expanded(child: new Container()),
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: new Image.asset(
@@ -43,6 +46,7 @@ class _MainmenuState extends State<Mainmenu> {
                 height: 150,
               ),
             ),
+            Expanded(child: new Container()),
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Container(
@@ -59,6 +63,7 @@ class _MainmenuState extends State<Mainmenu> {
                 ),
               ),
             ),
+            Expanded(child: new Container()),
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Container(
@@ -75,6 +80,7 @@ class _MainmenuState extends State<Mainmenu> {
                 ),
               ),
             ),
+            Expanded(child: new Container()),
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Container(
@@ -87,10 +93,13 @@ class _MainmenuState extends State<Mainmenu> {
                     Icons.hourglass_bottom,
                     size: 24.0,
                   ),
-                  label: Text(AppLocalizations.of(context)!.aktimer),
+                  label: Text(AppLocalizations.of(context)!.aktimer +
+                      "/" +
+                      AppLocalizations.of(context)!.extimer),
                 ),
               ),
             ),
+            Expanded(child: new Container()),
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Container(
@@ -115,7 +124,7 @@ class _MainmenuState extends State<Mainmenu> {
 
   void onClick() {
     Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => Mainmenu(data))); //Neuer Timer
+        MaterialPageRoute(builder: (context) => CreateTimer())); //Neuer Timer
   }
 
   void onTouch() {

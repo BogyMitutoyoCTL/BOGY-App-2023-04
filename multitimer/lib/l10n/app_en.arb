@@ -5,10 +5,19 @@
   "mytimer": "My Timers",
   "aktimer": "Active Timers",
   "settings": "Settings",
+  "changetheme": "Change the theme of the App:",
+  "red": "Red",
+  "orange": "Orange",
+  "blue": "Blue",
+  "green": "Green",
+  "redaccent": "Red Accent",
+  "donate": "Donate to the devs",
   "category": "Category",
   "time": "Time",
   "name": "Time period name",
   "save": "Save",
-  "cook": "Cooking"
+  "cook": "Cooking",
+  "edit": "Edit",
+  "extimer": "Expired Timers"
 
 }
