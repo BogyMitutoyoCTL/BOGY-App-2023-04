@@ -133,7 +133,7 @@ class _CreateTimerState extends State<CreateTimer> {
               ),
               Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                 Container(
-                  width: 240,
+                  width: 200,
                   child: new TextFormField(
                       controller: controller3,
                       decoration: InputDecoration(
