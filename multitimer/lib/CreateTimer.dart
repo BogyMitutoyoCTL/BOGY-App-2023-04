@@ -22,57 +22,28 @@ class _CreateTimerState extends State<CreateTimer> {
   @override
   void initState() {
     super.initState();
+
     controller.text = text;
     controller.addListener(() {
       setState(() {
         text = controller.text;
       });
     });
-  }
 
-  @override
-  void dispose() {
-    super.dispose();
-    controller.dispose();
-  }
-
-  @override
-  void initState2() {
-    super.initState();
     controller2.text = text2;
     controller2.addListener(() {
       setState(() {
         text2 = controller2.text;
       });
     });
-  }
 
-  @override
-  void dispose2() {
-    super.dispose();
-    controller2.dispose();
-  }
-
-  @override
-  void initState3() {
-    super.initState();
     controller3.text = text3;
     controller3.addListener(() {
       setState(() {
         text3 = controller3.text;
       });
     });
-  }
 
-  @override
-  void dispose3() {
-    super.dispose();
-    controller3.dispose();
-  }
-
-  @override
-  void initState4() {
-    super.initState();
     controller4.text = text4;
     controller4.addListener(() {
       setState(() {
@@ -82,8 +53,11 @@ class _CreateTimerState extends State<CreateTimer> {
   }
 
   @override
-  void dispose4() {
+  void dispose() {
     super.dispose();
+    controller.dispose();
+    controller2.dispose();
+    controller3.dispose();
     controller4.dispose();
   }
 
