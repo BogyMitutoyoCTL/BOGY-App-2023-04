@@ -20,75 +20,83 @@ class _TimersInCategoriesState extends State<TimersInCategories> {
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              //Nudeln kochen
-              padding: const EdgeInsets.all(30.0),
-              child: Row(
-                children: [
-                  new Container(
-                    width: 290,
-                    height: 145,
-                    color: Colors.yellow,
-                    child: Center(
-                      child: Column(
-                        children: [
-                          new Text(AppLocalizations.of(context)!.cookn),
-                          new Text("1.)", textScaleFactor: 0.75),
-                        ],
+            Expanded(
+              child: Padding(
+                //Nudeln kochen
+                padding: const EdgeInsets.all(30.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: new Container(
+                        width: 290,
+                        height: 145,
+                        color: Colors.yellow,
+                        child: Center(
+                          child: Column(
+                            children: [
+                              new Text(AppLocalizations.of(context)!.cookn,
+                                  style:
+                                      Theme.of(context).textTheme.labelMedium),
+                              new Text("1.)",
+                                  style:
+                                      Theme.of(context).textTheme.bodyMedium),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  new Container(
-                    width: 1,
-                    height: 145,
-                    color: Colors.black,
-                  ),
-                  new Container(
-                    width: 100,
-                    height: 145,
-                    color: Colors.yellow,
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: 100,
-                            height: 48,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Icon(Icons.play_arrow),
-                              style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(),
-                                padding: EdgeInsets.all(20),
+                    new Container(
+                      width: 1,
+                      height: 145,
+                      color: Colors.black,
+                    ),
+                    new Container(
+                      width: 100,
+                      height: 145,
+                      color: Colors.yellow,
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 100,
+                              height: 48,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Icon(Icons.play_arrow),
+                                style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(),
+                                  padding: EdgeInsets.all(20),
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 100,
-                            height: 48,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Icon(Icons.edit),
-                              style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(),
-                                padding: EdgeInsets.all(20),
+                            SizedBox(
+                              width: 100,
+                              height: 48,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Icon(Icons.edit),
+                                style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(),
+                                  padding: EdgeInsets.all(20),
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 100,
-                            height: 49,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Icon(CupertinoIcons.trash),
-                              style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(),
-                                padding: EdgeInsets.all(20),
+                            SizedBox(
+                              width: 100,
+                              height: 49,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Icon(CupertinoIcons.trash),
+                                style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(),
+                                  padding: EdgeInsets.all(20),
+                                ),
                               ),
-                            ),
-                          )
-                        ]),
-                  )
-                ],
+                            )
+                          ]),
+                    )
+                  ],
+                ),
               ),
             ),
             Padding(
@@ -96,16 +104,20 @@ class _TimersInCategoriesState extends State<TimersInCategories> {
               padding: const EdgeInsets.all(30.0),
               child: Row(
                 children: [
-                  new Container(
-                    width: 290,
-                    height: 145,
-                    color: Colors.yellow,
-                    child: Center(
-                      child: Column(
-                        children: [
-                          new Text(AppLocalizations.of(context)!.cooke),
-                          new Text("1.)", textScaleFactor: 0.75)
-                        ],
+                  Expanded(
+                    child: new Container(
+                      width: 290,
+                      height: 145,
+                      color: Colors.yellow,
+                      child: Center(
+                        child: Column(
+                          children: [
+                            new Text(AppLocalizations.of(context)!.cooke,
+                                style: Theme.of(context).textTheme.labelMedium),
+                            new Text("1.)",
+                                style: Theme.of(context).textTheme.bodyMedium)
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -167,16 +179,20 @@ class _TimersInCategoriesState extends State<TimersInCategories> {
               padding: const EdgeInsets.all(30.0),
               child: Row(
                 children: [
-                  new Container(
-                    width: 290,
-                    height: 145,
-                    color: Colors.yellow,
-                    child: Center(
-                      child: Column(
-                        children: [
-                          new Text(AppLocalizations.of(context)!.cookr),
-                          new Text("1.)", textScaleFactor: 0.75)
-                        ],
+                  Expanded(
+                    child: new Container(
+                      width: 290,
+                      height: 145,
+                      color: Colors.yellow,
+                      child: Center(
+                        child: Column(
+                          children: [
+                            new Text(AppLocalizations.of(context)!.cookr,
+                                style: Theme.of(context).textTheme.labelMedium),
+                            new Text("1.)",
+                                style: Theme.of(context).textTheme.bodyMedium)
+                          ],
+                        ),
                       ),
                     ),
                   ),
