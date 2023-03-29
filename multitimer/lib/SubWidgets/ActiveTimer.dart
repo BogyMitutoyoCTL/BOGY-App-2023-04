@@ -9,7 +9,7 @@ class ActiveTimer extends StatelessWidget {
     return new Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
           child: new Container(
             color: Colors.yellow,
             child: Padding(
