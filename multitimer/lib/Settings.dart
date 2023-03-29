@@ -65,7 +65,7 @@ class _SettingsState extends State<Settings> {
               children: [
                 Radio(
                   value: ThemeMode.light,
-                  groupValue: theme,
+                  groupValue: data.theme,
                   onChanged: setTheme,
                 ),
                 ElevatedButton(
@@ -84,7 +84,7 @@ class _SettingsState extends State<Settings> {
                 ),
                 Radio(
                     value: ThemeMode.dark,
-                    groupValue: theme,
+                    groupValue: data.theme,
                     onChanged: setTheme),
                 ElevatedButton(
                   onPressed: onClickBlack,
@@ -234,14 +234,14 @@ class _SettingsState extends State<Settings> {
 
   void setTheme(ThemeMode? value) {
     setState(() {
-      theme = value!;
-      data.themeChanger.value = theme;
+      data.theme = value!;
+      data.themeChanger.value = data.theme;
     });
   }
 
   void setValue(ThemeMode? value) {
     setState(() {
-      value = theme;
+      value = data.theme;
     });
   }
 
