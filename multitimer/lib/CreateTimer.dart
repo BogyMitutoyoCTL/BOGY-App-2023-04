@@ -137,8 +137,10 @@ class _CreateTimerState extends State<CreateTimer> {
                   child: new TextFormField(
                       controller: controller3,
                       decoration: InputDecoration(
-                          border: UnderlineInputBorder(),
-                          labelText: AppLocalizations.of(context)!.name)),
+                        border: UnderlineInputBorder(),
+                        labelText: AppLocalizations.of(context)!.name,
+                        labelStyle: Theme.of(context).textTheme.labelSmall,
+                      )),
                 ),
                 Expanded(child: new Container(width: 75)),
                 Container(
@@ -146,8 +148,10 @@ class _CreateTimerState extends State<CreateTimer> {
                   child: new TextFormField(
                       controller: controller4,
                       decoration: InputDecoration(
-                          border: UnderlineInputBorder(),
-                          labelText: AppLocalizations.of(context)!.time),
+                        border: UnderlineInputBorder(),
+                        labelText: AppLocalizations.of(context)!.time,
+                        labelStyle: Theme.of(context).textTheme.labelSmall,
+                      ),
                       inputFormatters: [
                         FilteringTextInputFormatter.allow(RegExp("[0-9]")),
                       ]),

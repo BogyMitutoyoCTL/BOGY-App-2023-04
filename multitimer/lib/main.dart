@@ -33,6 +33,7 @@ class MultiTimerApp extends StatelessWidget {
               valueListenable: data.themeChanger,
               builder: (_, mode, __) {
                 var black = Colors.black;
+                var white = Colors.white;
                 return MaterialApp(
                   title: "MituTimer",
                   themeMode: mode,
@@ -43,9 +44,9 @@ class MultiTimerApp extends StatelessWidget {
                           backgroundColor: appbarColor),
                       textTheme: TextTheme(
                         bodyLarge: TextStyle(fontSize: 48.0, color: black),
-                        bodyMedium: TextStyle(fontSize: 24.0),
-                        bodySmall: TextStyle(fontSize: 20.0),
-                        labelSmall: TextStyle(fontSize: 14.0),
+                        bodyMedium: TextStyle(fontSize: 24.0, color: black),
+                        bodySmall: TextStyle(fontSize: 20.0, color: black),
+                        labelSmall: TextStyle(fontSize: 14.0, color: black),
                       ),
                       primarySwatch: Colors.blue,
                       scaffoldBackgroundColor: Colors.blueGrey,
@@ -59,7 +60,7 @@ class MultiTimerApp extends StatelessWidget {
                           onError: black,
                           background: Colors.blueGrey,
                           onBackground: black,
-                          surface: Colors.white,
+                          surface: white,
                           onSurface: black)),
                   darkTheme: ThemeData(
                       appBarTheme: AppBarTheme(
@@ -67,11 +68,10 @@ class MultiTimerApp extends StatelessWidget {
                           titleTextStyle: TextStyle(fontSize: 42),
                           backgroundColor: appbarColor),
                       textTheme: TextTheme(
-                        bodyLarge:
-                            TextStyle(fontSize: 48.0, color: Colors.white),
-                        bodyMedium: TextStyle(fontSize: 24.0),
-                        bodySmall: TextStyle(fontSize: 20.0),
-                        labelSmall: TextStyle(fontSize: 14.0),
+                        bodyLarge: TextStyle(fontSize: 48.0, color: white),
+                        bodyMedium: TextStyle(fontSize: 24.0, color: white),
+                        bodySmall: TextStyle(fontSize: 20.0, color: white),
+                        labelSmall: TextStyle(fontSize: 14.0, color: white),
                       ),
                       primarySwatch: Colors.blue,
                       scaffoldBackgroundColor: Colors.grey[850],
@@ -83,10 +83,10 @@ class MultiTimerApp extends StatelessWidget {
                           onSecondary: black,
                           error: Colors.red,
                           onError: black,
-                          background: Colors.white,
-                          onBackground: Colors.white,
+                          background: white,
+                          onBackground: white,
                           surface: black,
-                          onSurface: Colors.white)),
+                          onSurface: white)),
                   localizationsDelegates:
                       AppLocalizations.localizationsDelegates,
                   supportedLocales: AppLocalizations.supportedLocales,
