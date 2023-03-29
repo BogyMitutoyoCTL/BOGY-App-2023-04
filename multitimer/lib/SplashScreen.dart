@@ -17,7 +17,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   _SplashScreenState(Data data) {
-    Timer timer = Timer(const Duration(seconds: 2), () {
+    Timer(const Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => Mainmenu(data)));
     });
@@ -34,14 +34,14 @@ class _SplashScreenState extends State<SplashScreen> {
               padding: const EdgeInsets.all(30.0),
               child: new Text(
                 AppLocalizations.of(context)!.appname,
-                textScaleFactor: 5,
+                textScaleFactor: 2.5,
                 style: TextStyle(fontFamily: "Lobster"),
               ),
             ),
             new Image.asset("assets/images/Logo.png", width: 200),
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 100, 0, 0),
-              child: new Text("    Loading . . .", textScaleFactor: 2),
+              child: new Text("    Loading . . .", textScaleFactor: 1),
             ),
             new Expanded(child: new Container()),
             new Row(mainAxisAlignment: MainAxisAlignment.end, children: [
