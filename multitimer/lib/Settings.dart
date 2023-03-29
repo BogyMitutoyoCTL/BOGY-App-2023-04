@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:multitimer/data/Data.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Settings extends StatefulWidget {
   Data data;
@@ -34,7 +35,7 @@ class _SettingsState extends State<Settings> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: new Text(
-                "Settings",
+                AppLocalizations.of(context)!.settings,
                 style: TextStyle(color: textcolor),
               ),
             ),
@@ -55,7 +56,7 @@ class _SettingsState extends State<Settings> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 new Text(
-                  "Change the theme of the App:",
+                  AppLocalizations.of(context)!.changetheme,
                   textScaleFactor: 1.7,
                   style: TextStyle(color: textcolor),
                 ),
@@ -116,7 +117,7 @@ class _SettingsState extends State<Settings> {
                       onChanged: onChangeAppBar),
                   ElevatedButton(
                     onPressed: onClickRed,
-                    child: Text("Red"),
+                    child: Text(AppLocalizations.of(context)!.red),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
                     ),
@@ -132,7 +133,7 @@ class _SettingsState extends State<Settings> {
                       onChanged: onChangeAppBar),
                   ElevatedButton(
                     onPressed: onClickOrange,
-                    child: Text("Orange"),
+                    child: Text(AppLocalizations.of(context)!.orange),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.amber,
                     ),
@@ -148,7 +149,7 @@ class _SettingsState extends State<Settings> {
                       onChanged: onChangeAppBar),
                   ElevatedButton(
                     onPressed: onClickBlue,
-                    child: Text("Blue"),
+                    child: Text(AppLocalizations.of(context)!.blue),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
                     ),
@@ -164,7 +165,7 @@ class _SettingsState extends State<Settings> {
                       onChanged: onChangeAppBar),
                   ElevatedButton(
                     onPressed: onClickGreen,
-                    child: Text("Green"),
+                    child: Text(AppLocalizations.of(context)!.green),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.lightGreen,
                     ),
@@ -180,7 +181,7 @@ class _SettingsState extends State<Settings> {
                       onChanged: onChangeAppBar),
                   ElevatedButton(
                     onPressed: onClickRedAccent,
-                    child: Text("Red Accent"),
+                    child: Text(AppLocalizations.of(context)!.redaccent),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.redAccent,
                     ),
@@ -200,7 +201,7 @@ class _SettingsState extends State<Settings> {
                   child: Container(
                     color: textcolor,
                     child: Text(
-                      "Donate to the devs",
+                      AppLocalizations.of(context)!.donate,
                       style: TextStyle(
                           color: Colors.blue[800], fontFamily: 'Shyler'),
                     ),
