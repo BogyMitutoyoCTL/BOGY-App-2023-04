@@ -1,17 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'Group.dart';
+part of 'Category.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Group _$GroupFromJson(Map<String, dynamic> json) {
+Category _$CategoryFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     requiredKeys: const ['name'],
   );
-  return Group(
+  return Category(
     name: json['name'] as String? ?? "",
   )..timers = (json['timers'] as List<dynamic>?)
           ?.map((e) => Timer.fromJson(e as Map<String, dynamic>))
@@ -19,7 +19,7 @@ Group _$GroupFromJson(Map<String, dynamic> json) {
       [];
 }
 
-Map<String, dynamic> _$GroupToJson(Group instance) => <String, dynamic>{
+Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
       'timers': instance.timers.map((e) => e.toJson()).toList(),
       'name': instance.name,
     };

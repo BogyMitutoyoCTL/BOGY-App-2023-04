@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/ExpiredTimers.dart';
 
 class ActiveTimers extends StatefulWidget {
   var data;
 
   ActiveTimers(this.data, {Key? key}) : super(key: key);
-
   @override
   State<ActiveTimers> createState() => _ActiveTimersState();
 }
@@ -45,7 +45,7 @@ class _ActiveTimersState extends State<ActiveTimers> {
                                 style: Theme.of(context).textTheme.bodySmall),
                             Padding(
                               padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                              child: new Text("Klingelt in 2:56",
+                              child: new Text("Klingelt in 2:56 min",
                                   style: Theme.of(context).textTheme.bodySmall),
                             ),
                             Row(
@@ -63,7 +63,8 @@ class _ActiveTimersState extends State<ActiveTimers> {
                                         padding: EdgeInsets.all(20),
                                       ),
                                     ),
-                                    new Text("Verwerfen",
+                                    new Text(
+                                        AppLocalizations.of(context)!.discard,
                                         style: Theme.of(context)
                                             .textTheme
                                             .labelSmall)
@@ -81,7 +82,8 @@ class _ActiveTimersState extends State<ActiveTimers> {
                                           shape: CircleBorder(),
                                           padding: EdgeInsets.all(20),
                                         )),
-                                    new Text("Neu Starten",
+                                    new Text(
+                                        AppLocalizations.of(context)!.restart,
                                         style: Theme.of(context)
                                             .textTheme
                                             .labelSmall)

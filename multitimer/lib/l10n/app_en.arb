@@ -23,5 +23,10 @@
   "cooke": "Cooking Eggs",
   "cookr": "Baking up rolls",
   "newcateg": "New Category",
-  "categories": "Categories"
+  "categories": "Categories",
+  "discard": "Discard",
+  "restart": "Restart",
+    "finish": "Done",
+    "next": "Next Phase"
+
 }

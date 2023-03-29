@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/SubWidgets/CategWidget.dart';
 
+import 'data/Category.dart';
+
 class Categories extends StatefulWidget {
   Categories({Key? key}) : super(key: key);
 
@@ -60,7 +62,8 @@ class _CategoriesState extends State<Categories> {
   void onClickAdd() {
     if (categNum < 20) {
       setState(() {
-        extractedChildren.add(CategoryWidget());
+        var category = Category(name: "new");
+        extractedChildren.add(CategoryWidget(category));
       });
       categNum++;
     }

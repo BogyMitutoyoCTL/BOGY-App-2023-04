@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:multitimer/data/Category.dart';
 
 class CategoryWidget extends StatefulWidget {
-  const CategoryWidget({Key? key}) : super(key: key);
+  var category;
+
+  CategoryWidget(this.category, {Key? key}) : super(key: key);
 
   @override
-  State<CategoryWidget> createState() => _CategoryWidgetState();
+  State<CategoryWidget> createState() => _CategoryWidgetState(category);
 }
 
 class _CategoryWidgetState extends State<CategoryWidget> {
@@ -16,6 +19,10 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   Color lastSavedColor = Colors.red;
   //
   final myController = TextEditingController();
+
+  Category category;
+
+  _CategoryWidgetState(this.category);
   void _printLatestValue() {
     print('Text field: ${myController.text}');
   }
@@ -40,6 +47,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   @override
   Widget build(BuildContext context) {
     Container container;
+    myController.text = category.name;
 
     if (textfieldEnabled == true) {
       container = Container(

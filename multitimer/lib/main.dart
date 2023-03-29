@@ -27,7 +27,7 @@ class MultiTimerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Color>(
-        valueListenable: data.appBarColor,
+        valueListenable: data.appBarColorChanger,
         builder: (_, appbarColor, __) {
           return ValueListenableBuilder<ThemeMode>(
               valueListenable: data.themeChanger,

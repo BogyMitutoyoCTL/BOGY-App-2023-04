@@ -21,6 +21,10 @@
   "extimer": "Abgelaufene Timer",
   "cookn": "Nudeln kochen",
   "cooke": "Eier kochen",
+  "discard": "Verwerfen",
+  "restart": "Neustart",
+  "finish": "Fertig",
+  "next": "Nächste Phase",
   "cookr": "Brötchen aufbacken",
   "newcateg": "Neue Kategorie",
   "categories": "Kategorien"

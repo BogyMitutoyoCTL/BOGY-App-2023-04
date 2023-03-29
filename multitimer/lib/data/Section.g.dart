@@ -13,7 +13,10 @@ Section _$SectionFromJson(Map<String, dynamic> json) {
   );
   return Section(
     message: json['message'] as String? ?? "",
-  )..duration = Duration(microseconds: json['duration'] as int);
+    duration: json['duration'] == null
+        ? Duration.zero
+        : Duration(microseconds: json['duration'] as int),
+  );
 }
 
 Map<String, dynamic> _$SectionToJson(Section instance) => <String, dynamic>{
