@@ -15,12 +15,8 @@ class CreateTimer extends StatefulWidget {
 class _CreateTimerState extends State<CreateTimer> {
   var text = "  ";
   var text2 = "  ";
-  var text3 = "  ";
-  var text4 = "  ";
   TextEditingController controller = TextEditingController(text: "");
   TextEditingController controller2 = TextEditingController(text: "");
-  TextEditingController controller3 = TextEditingController(text: "");
-  TextEditingController controller4 = TextEditingController(text: "");
 
   Data data;
 
@@ -43,20 +39,6 @@ class _CreateTimerState extends State<CreateTimer> {
         text2 = controller2.text;
       });
     });
-
-    controller3.text = text3;
-    controller3.addListener(() {
-      setState(() {
-        text3 = controller3.text;
-      });
-    });
-
-    controller4.text = text4;
-    controller4.addListener(() {
-      setState(() {
-        text4 = controller4.text;
-      });
-    });
   }
 
   @override
@@ -64,8 +46,6 @@ class _CreateTimerState extends State<CreateTimer> {
     super.dispose();
     controller.dispose();
     controller2.dispose();
-    controller3.dispose();
-    controller4.dispose();
   }
 
   @override
@@ -73,92 +53,73 @@ class _CreateTimerState extends State<CreateTimer> {
     return Scaffold(
       appBar:
           new AppBar(title: new Text(AppLocalizations.of(context)!.newtimer)),
-      body: Padding(
-        padding: const EdgeInsets.all(40.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            new Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              new Text(
-                "Name: ",
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-              new Container(
-                width: 200,
-                height: 10,
-              ),
-              new TextField(controller: controller),
-              new Container(
-                width: 200,
-                height: 50,
-              ),
-              new Text(
-                AppLocalizations.of(context)!.category + ":",
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-              new Container(width: 200, height: 10),
-              new TextField(
-                controller: controller2,
-              ),
-              new Container(
-                width: 200,
-                height: 70,
-              ),
-              new Text(
-                AppLocalizations.of(context)!.time + ":",
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-              new Container(
-                width: 200,
-                height: 10,
-              ),
-              Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                Container(
-                  width: 200,
-                  child: new TextFormField(
-                      controller: controller3,
-                      decoration: InputDecoration(
-                        border: UnderlineInputBorder(),
-                        labelText: AppLocalizations.of(context)!.name,
-                        labelStyle: Theme.of(context).textTheme.labelSmall,
-                      )),
+      body: ListView(children: [
+        Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: new Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: new Text(
+                    "Name: ",
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
                 ),
-                Expanded(child: new Container(width: 75)),
-                Container(
-                  width: 55,
-                  child: new TextFormField(
-                      controller: controller4,
-                      decoration: InputDecoration(
-                        border: UnderlineInputBorder(),
-                        labelText: AppLocalizations.of(context)!.time,
-                        labelStyle: Theme.of(context).textTheme.labelSmall,
-                      ),
-                      inputFormatters: [
-                        FilteringTextInputFormatter.allow(RegExp("[0-9]")),
-                        LengthLimitingTextInputFormatter(3)
-                      ]),
+                new TextField(controller: controller),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: new Text(
+                    AppLocalizations.of(context)!.category + ":",
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
                 ),
-                new Text("min", style: Theme.of(context).textTheme.bodySmall),
-                new Container(height: 30),
+                new TextField(
+                  controller: controller2,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: new Text(
+                    AppLocalizations.of(context)!.time + ":",
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                ),
+                NewTimer(),
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Center(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        ElevatedButton(
+                          onPressed: onNeueZeile,
+                          child: Icon(Icons.add),
+                          style: ElevatedButton.styleFrom(
+                            shape: CircleBorder(),
+                            padding: EdgeInsets.all(20),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Center(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        new ElevatedButton(
+                            onPressed: onSave,
+                            child:
+                                new Text(AppLocalizations.of(context)!.save)),
+                      ],
+                    ),
+                  ),
+                ),
               ]),
-              new Container(height: 20),
-              ElevatedButton(
-                onPressed: onNeueZeile,
-                child: Icon(Icons.add),
-                style: ElevatedButton.styleFrom(
-                  shape: CircleBorder(),
-                  padding: EdgeInsets.all(20),
-                ),
-              ),
-            ]),
-            Center(
-              child: new ElevatedButton(
-                  onPressed: onSave,
-                  child: new Text(AppLocalizations.of(context)!.save)),
-            ),
-          ],
         ),
-      ),
+      ]),
     );
   }
 
