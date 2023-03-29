@@ -23,8 +23,8 @@ class _MainmenuState extends State<Mainmenu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-          title: new Text(AppLocalizations.of(context)!.mainmenu),
-          backgroundColor: Colors.red),
+        title: new Text(AppLocalizations.of(context)!.mainmenu),
+      ),
       body: Center(
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.center,
