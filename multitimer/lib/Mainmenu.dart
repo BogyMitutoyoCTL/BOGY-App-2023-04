@@ -28,13 +28,15 @@ class _MainmenuState extends State<Mainmenu> {
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Expanded(child: new Container()),
             Padding(
               padding: const EdgeInsets.all(30.0),
               child: new Text(
-                "Mitutimer",
+                AppLocalizations.of(context)!.appname,
                 textScaleFactor: 3,
               ),
             ),
+            Expanded(child: new Container()),
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: new Image.asset(
@@ -43,6 +45,7 @@ class _MainmenuState extends State<Mainmenu> {
                 height: 150,
               ),
             ),
+            Expanded(child: new Container()),
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Container(
@@ -59,6 +62,7 @@ class _MainmenuState extends State<Mainmenu> {
                 ),
               ),
             ),
+            Expanded(child: new Container()),
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Container(
@@ -75,6 +79,7 @@ class _MainmenuState extends State<Mainmenu> {
                 ),
               ),
             ),
+            Expanded(child: new Container()),
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Container(
@@ -91,6 +96,7 @@ class _MainmenuState extends State<Mainmenu> {
                 ),
               ),
             ),
+            Expanded(child: new Container()),
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Container(
@@ -106,7 +112,7 @@ class _MainmenuState extends State<Mainmenu> {
                   label: Text(AppLocalizations.of(context)!.settings),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
