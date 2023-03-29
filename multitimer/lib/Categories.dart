@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:multitimer/SubWidgets/CategWidget.dart';
 
 class Categories extends StatefulWidget {
-  const Categories({Key? key}) : super(key: key);
+  Categories({Key? key}) : super(key: key);
 
   @override
   State<Categories> createState() => _CategoriesState();
@@ -33,13 +34,7 @@ class _CategoriesState extends State<Categories> {
           Column(
             children: [
               Center(
-                child: Column(
-                  children: [
-                    CategoryWidget(),
-                    CategoryWidget(),
-                    CategoryWidget(),
-                  ],
-                ),
+                child: Column(children: extractedChildren),
               ),
             ],
           ),
@@ -48,112 +43,11 @@ class _CategoriesState extends State<Categories> {
     );
   }
 
-  void onClickAdd() {}
-}
-
-///////////////////////////////////////////////////////////////////////////
-
-class CategoryWidget extends StatefulWidget {
-  const CategoryWidget({Key? key}) : super(key: key);
-
-  @override
-  State<CategoryWidget> createState() => _CategoryWidgetState();
-}
-
-class _CategoryWidgetState extends State<CategoryWidget> {
-  //
-  final myController = TextEditingController();
-  void _printLatestValue() {
-    print('Text field: ${myController.text}');
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    // Start listening to changes.
-    myController.addListener(_printLatestValue);
-  }
-
-  @override
-  void dispose() {
-    // Clean up the controller when the widget is removed from the
-    // widget tree.
-    myController.dispose();
-    super.dispose();
-  }
-
-  //
-  var categName = "New Category";
-  Color categColor = Colors.red;
-  bool textfieldEnabled = false;
-  //
-  @override
-  Widget build(BuildContext context) {
-    Container container;
-    if (textfieldEnabled == true) {
-      container = Container(
-        width: 200,
-        child: TextField(
-          controller: myController,
-          maxLines: 1,
-          maxLength: 20,
-          showCursor: true,
-          enabled: textfieldEnabled,
-        ),
-      );
-    }
-    ////
-    else {
-      container = Container(
-        width: 200,
-        child: Text(myController.text),
-      );
-    }
-    /////
-    return Padding(
-      padding: const EdgeInsets.all(15.0),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: categColor,
-                ),
-                onPressed: onCategoryPress,
-                child: Row(children: [
-                  Padding(padding: const EdgeInsets.all(8.0), child: container),
-                  IconButton(
-                    onPressed: onClickNameChange,
-                    icon: Icon(Icons.edit),
-                    splashRadius: 15,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: IconButton(
-                      onPressed: onClickDeleteCategory,
-                      icon: Icon(Icons.delete_forever),
-                      splashRadius: 15,
-                    ),
-                  ),
-                ]),
-              ),
-            ),
-          ]),
-        ],
-      ),
-    );
-  }
-
-  void onClickNameChange() {
+  void onClickAdd() {
     setState(() {
-      textfieldEnabled = !textfieldEnabled;
+      extractedChildren.add(CategoryWidget());
     });
   }
 
-  void onClickDeleteCategory() {}
-
-  void onCategoryPress() {}
+  List<Widget> extractedChildren = <Widget>[];
 }

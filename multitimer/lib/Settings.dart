@@ -251,6 +251,4 @@ class _SettingsState extends State<Settings> {
       appbar = Colors.red[400]!;
     });
   }
-
-  void dosomething() {}
 }

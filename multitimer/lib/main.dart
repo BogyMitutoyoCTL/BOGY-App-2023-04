@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:multitimer/Categories.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'SplashScreen.dart';
 import 'data/Data.dart';
 import 'data/Storage.dart';
 
@@ -74,7 +74,7 @@ class MultiTimerApp extends StatelessWidget {
                     onSurface: Colors.white)),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            home: SplashScreen(data),
+            home: Categories(),
           );
         });
   }
