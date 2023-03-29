@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:multitimer/data/Data.dart';
 
 class CreateTimer extends StatefulWidget {
-  const CreateTimer({Key? key}) : super(key: key);
+  Data data;
+
+  CreateTimer(Data this.data, {Key? key}) : super(key: key);
 
   @override
-  State<CreateTimer> createState() => _CreateTimerState();
+  State<CreateTimer> createState() => _CreateTimerState(data);
 }
 
 class _CreateTimerState extends State<CreateTimer> {
@@ -18,6 +21,10 @@ class _CreateTimerState extends State<CreateTimer> {
   TextEditingController controller2 = TextEditingController(text: "");
   TextEditingController controller3 = TextEditingController(text: "");
   TextEditingController controller4 = TextEditingController(text: "");
+
+  Data data;
+
+  _CreateTimerState(Data this.data);
 
   @override
   void initState() {

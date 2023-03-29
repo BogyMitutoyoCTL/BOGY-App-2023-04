@@ -113,8 +113,8 @@ class _MainmenuState extends State<Mainmenu> {
   }
 
   void onClick() {
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => CreateTimer())); //Neuer Timer
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => CreateTimer(data))); //Neuer Timer
   }
 
   void onTouch() {
