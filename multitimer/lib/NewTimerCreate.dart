@@ -10,8 +10,8 @@ class NewTimer extends StatefulWidget {
 }
 
 class _NewTimerState extends State<NewTimer> {
-  var text3 = "  ";
-  var text4 = "  ";
+  var text3 = "";
+  var text4 = "";
   TextEditingController controller3 = TextEditingController(text: "");
   TextEditingController controller4 = TextEditingController(text: "");
 
@@ -51,6 +51,7 @@ class _NewTimerState extends State<NewTimer> {
               maxLength: 20,
               controller: controller3,
               decoration: InputDecoration(
+                counterStyle: Theme.of(context).textTheme.labelSmall,
                 border: UnderlineInputBorder(),
                 labelText: AppLocalizations.of(context)!.name,
                 labelStyle: Theme.of(context).textTheme.labelSmall,
@@ -66,6 +67,7 @@ class _NewTimerState extends State<NewTimer> {
               maxLength: 2,
               controller: controller4,
               decoration: InputDecoration(
+                counterStyle: Theme.of(context).textTheme.labelSmall,
                 border: UnderlineInputBorder(),
                 labelText: AppLocalizations.of(context)!.time,
                 labelStyle: Theme.of(context).textTheme.labelSmall,
@@ -83,5 +85,6 @@ class _NewTimerState extends State<NewTimer> {
   }
 
   void onSave() {}
+
   void onNeueZeile() {}
 }
