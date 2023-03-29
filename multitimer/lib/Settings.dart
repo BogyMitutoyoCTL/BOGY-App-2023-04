@@ -264,7 +264,7 @@ class _SettingsState extends State<Settings> {
   void setAppBarColor(Color? value) {
     setState(() {
       appbar = value!;
-      data.appBarColor.value = appbar;
+      data.appBarColorChanger.value = appbar;
     });
   }
 }

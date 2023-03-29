@@ -5,7 +5,7 @@ import 'Data.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
-import 'Group.dart';
+import 'Category.dart';
 import 'Section.dart';
 import 'Timer.dart';
 
@@ -24,8 +24,8 @@ class Storage {
     if (kIsWeb) {
       // for web projects, storage via dart:io is not available
       var data = new Data();
-      var kochen = new Group(name: "Kochen");
-      data.groups.add(kochen);
+      var kochen = new Category(name: "Kochen");
+      data.categories.add(kochen);
 
       var nudeltimer = new Timer(name: "Nudeln");
       var erhitzen = new Section(
@@ -42,7 +42,7 @@ class Storage {
           new Section(message: "backen", duration: new Duration(minutes: 10));
       broetchentimer.sections.add(backen);
 
-      data.groups.add(new Group(name: "Sport"));
+      data.categories.add(new Category(name: "Sport"));
 
       return data;
     }

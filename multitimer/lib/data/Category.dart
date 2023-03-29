@@ -1,10 +1,10 @@
 import 'Timer.dart';
 import 'package:json_annotation/json_annotation.dart';
-part 'Group.g.dart';
+part 'Category.g.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: true)
-class Group {
-  Group({String this.name = ""}) {}
+class Category {
+  Category({String this.name = ""}) {}
 
   @JsonKey(defaultValue: [])
   List<Timer> timers = [];
@@ -15,7 +15,8 @@ class Group {
   @override
   String toString() => toJson().toString();
 
-  factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
+  factory Category.fromJson(Map<String, dynamic> json) =>
+      _$CategoryFromJson(json);
 
-  Map<String, dynamic> toJson() => _$GroupToJson(this);
+  Map<String, dynamic> toJson() => _$CategoryToJson(this);
 }
