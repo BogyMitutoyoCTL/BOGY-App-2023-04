@@ -27,30 +27,25 @@ class _MainmenuState extends State<Mainmenu> {
         title: new Text(AppLocalizations.of(context)!.mainmenu),
       ),
       body: Center(
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(child: new Container()),
-            Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: new Text(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              new Text(
                 AppLocalizations.of(context)!.appname,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
-            ),
-            Expanded(child: new Container()),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: new Image.asset(
+              Expanded(
+                  child: new Container(width: double.infinity, height: 50)),
+              new Image.asset(
                 'assets/images/Hourglass.png',
                 width: 200,
                 height: 150,
               ),
-            ),
-            Expanded(child: new Container()),
-            Padding(
-              padding: const EdgeInsets.all(25.0),
-              child: Container(
+              Expanded(
+                  child: new Container(width: double.infinity, height: 50)),
+              Container(
                 width: 300,
                 height: 43,
                 child: ElevatedButton.icon(
@@ -63,11 +58,9 @@ class _MainmenuState extends State<Mainmenu> {
                   label: Text(AppLocalizations.of(context)!.newtimer),
                 ),
               ),
-            ),
-            Expanded(child: new Container()),
-            Padding(
-              padding: const EdgeInsets.all(25.0),
-              child: Container(
+              Expanded(
+                  child: new Container(width: double.infinity, height: 50)),
+              Container(
                 width: 300,
                 height: 43,
                 child: ElevatedButton.icon(
@@ -80,11 +73,9 @@ class _MainmenuState extends State<Mainmenu> {
                   label: Text(AppLocalizations.of(context)!.mytimer),
                 ),
               ),
-            ),
-            Expanded(child: new Container()),
-            Padding(
-              padding: const EdgeInsets.all(25.0),
-              child: Container(
+              Expanded(
+                  child: new Container(width: double.infinity, height: 50)),
+              Container(
                 width: 300,
                 height: 43,
                 child: ElevatedButton.icon(
@@ -99,11 +90,9 @@ class _MainmenuState extends State<Mainmenu> {
                       AppLocalizations.of(context)!.extimer),
                 ),
               ),
-            ),
-            Expanded(child: new Container()),
-            Padding(
-              padding: const EdgeInsets.all(25.0),
-              child: Container(
+              Expanded(
+                  child: new Container(width: double.infinity, height: 50)),
+              Container(
                 width: 300,
                 height: 43,
                 child: ElevatedButton.icon(
@@ -115,9 +104,9 @@ class _MainmenuState extends State<Mainmenu> {
                   ),
                   label: Text(AppLocalizations.of(context)!.settings),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

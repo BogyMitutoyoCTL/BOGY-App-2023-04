@@ -12,7 +12,6 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  var categNum = 0;
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -20,7 +19,9 @@ class _CategoriesState extends State<Categories> {
           title: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          new Text(AppLocalizations.of(context)!.categories),
+          new Text(AppLocalizations.of(context)!.categories +
+              ": " +
+              extractedChildren.length.toString()),
         ],
       )),
       body: ListView(
@@ -60,12 +61,11 @@ class _CategoriesState extends State<Categories> {
   }
 
   void onClickAdd() {
-    if (categNum < 20) {
+    if (extractedChildren.length < 20) {
       setState(() {
-        var category = Category(name: "new");
-        extractedChildren.add(CategoryWidget(category));
+        var category = Category();
+        extractedChildren.add(CategoryWidget(category, true));
       });
-      categNum++;
     }
   }
 

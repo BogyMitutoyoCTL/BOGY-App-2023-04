@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/data/Category.dart';
 
 class CategoryWidget extends StatefulWidget {
   var category;
 
-  CategoryWidget(this.category, {Key? key}) : super(key: key);
+  bool editEnabled;
+
+  CategoryWidget(this.category, bool this.editEnabled, {Key? key})
+      : super(key: key);
 
   @override
-  State<CategoryWidget> createState() => _CategoryWidgetState(category);
+  State<CategoryWidget> createState() =>
+      _CategoryWidgetState(category, editEnabled);
 }
 
 class _CategoryWidgetState extends State<CategoryWidget> {
   //
-  var categName = "";
   bool textfieldEnabled = false;
   Color categColor = Colors.red;
   Color lastSavedColor = Colors.red;
@@ -22,7 +24,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
 
   Category category;
 
-  _CategoryWidgetState(this.category);
+  _CategoryWidgetState(this.category, bool this.textfieldEnabled);
   void _printLatestValue() {
     print('Text field: ${myController.text}');
   }
@@ -52,7 +54,11 @@ class _CategoryWidgetState extends State<CategoryWidget> {
     if (textfieldEnabled == true) {
       container = Container(
         width: 200,
-        child: TextField(
+        child: TextFormField(
+          decoration: InputDecoration(
+            labelText: "New Category",
+            border: UnderlineInputBorder(),
+          ),
           controller: myController,
           maxLines: 1,
           maxLength: 20,
@@ -62,15 +68,16 @@ class _CategoryWidgetState extends State<CategoryWidget> {
       );
     }
     ////
-    else if (categName == "") {
+    /*else if (categName == "") {
       container = Container(
         width: 200,
         child: Text(categName = AppLocalizations.of(context)!.newcateg),
       );
-    } else {
+    }*/
+    else {
       container = Container(
         width: 200,
-        child: Text(categName),
+        child: Text(category.name),
       );
     }
     /////
@@ -114,7 +121,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   void onClickNameChange() {
     setState(() {
       textfieldEnabled = !textfieldEnabled;
-      categName = myController.text;
+      category.name = myController.text;
     });
   }
 
