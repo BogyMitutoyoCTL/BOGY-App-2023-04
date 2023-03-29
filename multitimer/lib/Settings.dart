@@ -109,12 +109,15 @@ class _SettingsState extends State<Settings> {
                       value: Colors.red,
                       groupValue: data.appBarColor,
                       onChanged: setAppBarColor),
-                  ElevatedButton(
-                    onPressed: onClickRed,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
+                  SizedBox(
+                    width: 150,
+                    child: ElevatedButton(
+                      onPressed: onClickRed,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.red,
+                      ),
+                      child: Text(AppLocalizations.of(context)!.red),
                     ),
-                    child: Text(AppLocalizations.of(context)!.red),
                   ),
                 ],
               ),
@@ -125,12 +128,15 @@ class _SettingsState extends State<Settings> {
                       value: Colors.amber,
                       groupValue: data.appBarColor,
                       onChanged: setAppBarColor),
-                  ElevatedButton(
-                    onPressed: onClickOrange,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.amber,
+                  SizedBox(
+                    width: 150,
+                    child: ElevatedButton(
+                      onPressed: onClickOrange,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.amber,
+                      ),
+                      child: Text(AppLocalizations.of(context)!.orange),
                     ),
-                    child: Text(AppLocalizations.of(context)!.orange),
                   ),
                 ],
               ),
@@ -141,12 +147,15 @@ class _SettingsState extends State<Settings> {
                       value: Colors.blue,
                       groupValue: data.appBarColor,
                       onChanged: setAppBarColor),
-                  ElevatedButton(
-                    onPressed: onClickBlue,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
+                  SizedBox(
+                    width: 150,
+                    child: ElevatedButton(
+                      onPressed: onClickBlue,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                      ),
+                      child: Text(AppLocalizations.of(context)!.blue),
                     ),
-                    child: Text(AppLocalizations.of(context)!.blue),
                   ),
                 ],
               ),
@@ -157,12 +166,15 @@ class _SettingsState extends State<Settings> {
                       value: Colors.lightGreen,
                       groupValue: data.appBarColor,
                       onChanged: setAppBarColor),
-                  ElevatedButton(
-                    onPressed: onClickGreen,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.lightGreen,
+                  SizedBox(
+                    width: 150,
+                    child: ElevatedButton(
+                      onPressed: onClickGreen,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.lightGreen,
+                      ),
+                      child: Text(AppLocalizations.of(context)!.green),
                     ),
-                    child: Text(AppLocalizations.of(context)!.green),
                   ),
                 ],
               ),
@@ -173,12 +185,15 @@ class _SettingsState extends State<Settings> {
                       value: Colors.redAccent,
                       groupValue: data.appBarColor,
                       onChanged: setAppBarColor),
-                  ElevatedButton(
-                    onPressed: onClickRedAccent,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.redAccent,
+                  SizedBox(
+                    width: 150,
+                    child: ElevatedButton(
+                      onPressed: onClickRedAccent,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.redAccent,
+                      ),
+                      child: Text(AppLocalizations.of(context)!.redaccent),
                     ),
-                    child: Text(AppLocalizations.of(context)!.redaccent),
                   ),
                 ],
               ),
