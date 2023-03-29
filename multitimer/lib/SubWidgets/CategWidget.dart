@@ -56,7 +56,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
     else {
       container = Container(
         width: 200,
-        child: Text(myController.text),
+        child: Text(categName /*myController.text*/),
       );
     }
     /////
@@ -100,6 +100,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   void onClickNameChange() {
     setState(() {
       textfieldEnabled = !textfieldEnabled;
+      categName = myController.text;
     });
   }
 

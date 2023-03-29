@@ -15,6 +15,7 @@ class _CategoriesState extends State<Categories> {
     return new Scaffold(
       appBar: AppBar(title: new Text("Categories: $categNum")),
       body: ListView(
+        primary: true,
         scrollDirection: Axis.vertical,
         children: [
           Column(
@@ -59,6 +60,7 @@ class _CategoriesState extends State<Categories> {
   }
 
   void tellCategToDelete() {}
+
   List<Widget> extractedChildren = <Widget>[];
 }
 
