@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/SubWidgets/CategWidget.dart';
 
 class Categories extends StatefulWidget {
@@ -17,7 +18,7 @@ class _CategoriesState extends State<Categories> {
           title: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          new Text("Categories: $categNum"),
+          new Text(AppLocalizations.of(context)!.categories),
         ],
       )),
       body: ListView(

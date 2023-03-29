@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CategoryWidget extends StatefulWidget {
   const CategoryWidget({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class CategoryWidget extends StatefulWidget {
 
 class _CategoryWidgetState extends State<CategoryWidget> {
   //
-  var categName = "New Category";
+  var categName = "";
   bool textfieldEnabled = false;
   Color categColor = Colors.red;
   Color lastSavedColor = Colors.red;
@@ -53,7 +54,12 @@ class _CategoryWidgetState extends State<CategoryWidget> {
       );
     }
     ////
-    else {
+    else if (categName == "") {
+      container = Container(
+        width: 200,
+        child: Text(categName = AppLocalizations.of(context)!.newcateg),
+      );
+    } else {
       container = Container(
         width: 200,
         child: Text(categName),
