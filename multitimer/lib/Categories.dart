@@ -13,7 +13,13 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: AppBar(title: new Text("Categories: $categNum")),
+      appBar: AppBar(
+          title: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          new Text("Categories: $categNum"),
+        ],
+      )),
       body: ListView(
         primary: true,
         scrollDirection: Axis.vertical,

@@ -21,6 +21,7 @@
   "extimer": "Expired Timers",
   "cookn": "Cooking Noodles",
   "cooke": "Cooking Eggs",
-  "cookr": "Baking up rolls"
-
+  "cookr": "Baking up rolls",
+  "newcateg": "New Category",
+  "categories": "Categories"
 }

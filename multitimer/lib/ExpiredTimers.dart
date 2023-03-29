@@ -96,14 +96,6 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: new Container(color: Colors.blue),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: new Container(color: Colors.red),
-                  ),
                 ],
               ),
             ),
