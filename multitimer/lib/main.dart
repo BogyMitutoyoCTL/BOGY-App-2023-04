@@ -2,10 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:multitimer/SplashScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'Settings.dart';
-import 'SplashScreen.dart';
 import 'data/Data.dart';
 import 'data/Storage.dart';
 
@@ -47,33 +46,34 @@ class MultiTimerApp extends StatelessWidget {
                 colorScheme: new ColorScheme(
                     brightness: Brightness.light,
                     primary: Colors.red,
-                    onPrimary: Colors.black,
+                    onPrimary: Colors.black87,
                     secondary: Colors.cyan,
-                    onSecondary: Colors.black,
+                    onSecondary: Colors.black87,
                     error: Colors.red,
-                    onError: Colors.black,
+                    onError: Colors.black87,
                     background: Colors.blueGrey,
-                    onBackground: Colors.black,
+                    onBackground: Colors.black87,
                     surface: Colors.white,
-                    onSurface: Colors.black)),
+                    onSurface: Colors.black87)),
             darkTheme: ThemeData(
                 appBarTheme: AppBarTheme(
-                    centerTitle: true,
-                    titleTextStyle: TextStyle(fontSize: 42),
-                    backgroundColor: Colors.white),
+                  centerTitle: true,
+                  titleTextStyle: TextStyle(fontSize: 42),
+                  //backgroundColor: Colors.white
+                ),
                 primarySwatch: Colors.blue,
-                scaffoldBackgroundColor: Colors.white,
+                scaffoldBackgroundColor: Colors.black87,
                 colorScheme: new ColorScheme(
                     brightness: Brightness.dark,
                     primary: Colors.purple,
-                    onPrimary: Colors.black,
+                    onPrimary: Colors.black87,
                     secondary: Colors.indigo,
-                    onSecondary: Colors.black,
+                    onSecondary: Colors.black87,
                     error: Colors.red,
-                    onError: Colors.black,
+                    onError: Colors.black87,
                     background: Colors.blueGrey,
-                    onBackground: Colors.black,
-                    surface: Colors.black,
+                    onBackground: Colors.black87,
+                    surface: Colors.black87,
                     onSurface: Colors.white)),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
