@@ -14,7 +14,6 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   ThemeMode theme = ThemeMode.light;
-  Color color = Colors.black87;
   Color textcolor = Colors.white;
 
   Data data;
@@ -212,20 +211,10 @@ class _SettingsState extends State<Settings> {
 
   void onClickWhite() {
     setTheme(ThemeMode.light);
-    // setState(() {
-    //   theme = ThemeMode.light;
-    //   color = Colors.grey;
-    //   textcolor = Colors.black87;
-    // });
   }
 
   void onClickBlack() {
     setTheme(ThemeMode.dark);
-    // setState(() {
-    //   theme = ThemeMode.dark;
-    //   color = Colors.black87;
-    //   textcolor = Colors.white;
-    // });
   }
 
   void onClickDonate() {
