@@ -33,7 +33,7 @@ class _MainmenuState extends State<Mainmenu> {
               padding: const EdgeInsets.all(30.0),
               child: new Text(
                 AppLocalizations.of(context)!.appname,
-                textScaleFactor: 3,
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
             Expanded(child: new Container()),
@@ -112,7 +112,7 @@ class _MainmenuState extends State<Mainmenu> {
                   label: Text(AppLocalizations.of(context)!.settings),
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),
@@ -135,7 +135,7 @@ class _MainmenuState extends State<Mainmenu> {
   }
 
   void onActivate() {
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => Settings())); //Einstellungen
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => Settings(data))); //Einstellungen
   }
 }

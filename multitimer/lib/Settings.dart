@@ -1,19 +1,28 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'package:flutter/material.dart';
+import 'package:multitimer/data/Data.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Settings extends StatefulWidget {
-  Settings({Key? key}) : super(key: key);
+  Data data;
+
+  Settings(Data this.data, {Key? key}) : super(key: key);
 
   @override
-  State<Settings> createState() => _SettingsState();
+  State<Settings> createState() => _SettingsState(data);
 }
 
 class _SettingsState extends State<Settings> {
-  var theme = 2;
-  var appb = 5;
+  ThemeMode theme = ThemeMode.light;
   Color color = Colors.black87;
   Color textcolor = Colors.white;
   Color appbar = Colors.blue;
+
+  Data data;
+
+  _SettingsState(Data this.data);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +35,7 @@ class _SettingsState extends State<Settings> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: new Text(
-                "Settings",
+                AppLocalizations.of(context)!.settings,
                 style: TextStyle(color: textcolor),
               ),
             ),
@@ -47,7 +56,7 @@ class _SettingsState extends State<Settings> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 new Text(
-                  "Change the theme of the App:",
+                  AppLocalizations.of(context)!.changetheme,
                   textScaleFactor: 1.7,
                   style: TextStyle(color: textcolor),
                 ),
@@ -60,7 +69,7 @@ class _SettingsState extends State<Settings> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Radio(
-                  value: 1,
+                  value: ThemeMode.light,
                   groupValue: theme,
                   onChanged: onClickedRadio,
                 ),
@@ -78,7 +87,10 @@ class _SettingsState extends State<Settings> {
                   height: 3,
                   width: 90,
                 ),
-                Radio(value: 2, groupValue: theme, onChanged: onClickedRadio),
+                Radio(
+                    value: ThemeMode.dark,
+                    groupValue: theme,
+                    onChanged: onClickedRadio),
                 ElevatedButton(
                   child: Container(
                     height: 90,
@@ -99,10 +111,13 @@ class _SettingsState extends State<Settings> {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Radio(value: 3, groupValue: appb, onChanged: onClickedRadio),
+                  Radio(
+                      value: Colors.red,
+                      groupValue: appbar,
+                      onChanged: onChangeAppBar),
                   ElevatedButton(
                     onPressed: onClickRed,
-                    child: Text("Red"),
+                    child: Text(AppLocalizations.of(context)!.red),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
                     ),
@@ -112,10 +127,13 @@ class _SettingsState extends State<Settings> {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Radio(value: 4, groupValue: appb, onChanged: onClickedRadio),
+                  Radio(
+                      value: Colors.amber,
+                      groupValue: appbar,
+                      onChanged: onChangeAppBar),
                   ElevatedButton(
                     onPressed: onClickOrange,
-                    child: Text("Orange"),
+                    child: Text(AppLocalizations.of(context)!.orange),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.amber,
                     ),
@@ -125,10 +143,13 @@ class _SettingsState extends State<Settings> {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Radio(value: 5, groupValue: appb, onChanged: onClickedRadio),
+                  Radio(
+                      value: Colors.blue,
+                      groupValue: appbar,
+                      onChanged: onChangeAppBar),
                   ElevatedButton(
                     onPressed: onClickBlue,
-                    child: Text("Blue"),
+                    child: Text(AppLocalizations.of(context)!.blue),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
                     ),
@@ -138,10 +159,13 @@ class _SettingsState extends State<Settings> {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Radio(value: 6, groupValue: appb, onChanged: onClickedRadio),
+                  Radio(
+                      value: Colors.lightGreen,
+                      groupValue: appbar,
+                      onChanged: onChangeAppBar),
                   ElevatedButton(
                     onPressed: onClickGreen,
-                    child: Text("Green"),
+                    child: Text(AppLocalizations.of(context)!.green),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.lightGreen,
                     ),
@@ -151,12 +175,15 @@ class _SettingsState extends State<Settings> {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Radio(value: 7, groupValue: appb, onChanged: onClickedRadio),
+                  Radio(
+                      value: Colors.redAccent,
+                      groupValue: appbar,
+                      onChanged: onChangeAppBar),
                   ElevatedButton(
                     onPressed: onClickRedAccent,
-                    child: Text("Red Accent"),
+                    child: Text(AppLocalizations.of(context)!.redaccent),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red[400],
+                      backgroundColor: Colors.redAccent,
                     ),
                   ),
                 ],
@@ -170,15 +197,15 @@ class _SettingsState extends State<Settings> {
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: TextButton(
+                  onPressed: onClickDonate,
                   child: Container(
                     color: textcolor,
                     child: Text(
-                      "Donate to the devs",
+                      AppLocalizations.of(context)!.donate,
                       style: TextStyle(
                           color: Colors.blue[800], fontFamily: 'Shyler'),
                     ),
                   ),
-                  onPressed: onClickDonate,
                 ),
               ),
             ],
@@ -190,7 +217,7 @@ class _SettingsState extends State<Settings> {
 
   void onClickWhite() {
     setState(() {
-      theme = 1;
+      theme = ThemeMode.light;
       color = Colors.grey;
       textcolor = Colors.black87;
     });
@@ -198,7 +225,7 @@ class _SettingsState extends State<Settings> {
 
   void onClickBlack() {
     setState(() {
-      theme = 2;
+      theme = ThemeMode.dark;
       color = Colors.black87;
       textcolor = Colors.white;
     });
@@ -208,42 +235,45 @@ class _SettingsState extends State<Settings> {
     launchUrlString('https://www.paypal.com/myaccount/summary');
   }
 
-  void onClickedRadio(int? value) {}
+  void onClickedRadio(ThemeMode? value) {
+    setState(() {
+      theme = value!;
+    });
+  }
 
   void onClickRed() {
     setState(() {
-      appb = 3;
       appbar = Colors.red;
     });
   }
 
   void onClickOrange() {
     setState(() {
-      appb = 4;
       appbar = Colors.amber;
     });
   }
 
   void onClickBlue() {
     setState(() {
-      appb = 5;
       appbar = Colors.blue;
     });
   }
 
   void onClickGreen() {
     setState(() {
-      appb = 6;
       appbar = Colors.lightGreen;
     });
   }
 
   void onClickRedAccent() {
     setState(() {
-      appb = 7;
-      appbar = Colors.red[400]!;
+      appbar = Colors.redAccent;
     });
   }
 
-  void dosomething() {}
+  void onChangeAppBar(Color? value) {
+    setState(() {
+      appbar = value!;
+    });
+  }
 }
