@@ -128,6 +128,7 @@ class _CreateTimerState extends State<CreateTimer> {
                       ),
                       inputFormatters: [
                         FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+                        LengthLimitingTextInputFormatter(3)
                       ]),
                 ),
                 new Text("min", style: Theme.of(context).textTheme.bodySmall),
