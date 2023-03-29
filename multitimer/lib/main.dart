@@ -23,58 +23,59 @@ Future<void> main() async {
 class MultiTimerApp extends StatelessWidget {
   Data data;
   MultiTimerApp(this.data, {super.key});
-
+  Color c = Colors.black45;
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<ThemeMode>(
         valueListenable: data.themeChanger,
         builder: (_, mode, __) {
+          var textThemeFonts = TextTheme(
+            bodyLarge: TextStyle(fontSize: 48.0),
+            bodyMedium: TextStyle(fontSize: 28.0),
+            bodySmall: TextStyle(fontSize: 18.0),
+            labelSmall: TextStyle(fontSize: 8.0),
+          );
           return MaterialApp(
             title: "MituTimer",
             themeMode: mode,
             theme: ThemeData(
                 appBarTheme: AppBarTheme(
-                    centerTitle: true, titleTextStyle: TextStyle(fontSize: 36)),
-                textTheme: TextTheme(
-                  bodyLarge: TextStyle(fontSize: 48.0),
-                  bodyMedium: TextStyle(fontSize: 28.0),
-                  bodySmall: TextStyle(fontSize: 18.0),
-                  labelSmall: TextStyle(fontSize: 8.0),
-                ),
+                    centerTitle: true, titleTextStyle: TextStyle(fontSize: 42)),
+                textTheme: textThemeFonts,
                 primarySwatch: Colors.blue,
                 scaffoldBackgroundColor: Colors.blueGrey,
                 colorScheme: new ColorScheme(
                     brightness: Brightness.light,
-                    primary: Colors.red,
-                    onPrimary: Colors.black87,
+                    primary: Colors.green,
+                    onPrimary: c,
                     secondary: Colors.cyan,
-                    onSecondary: Colors.black87,
+                    onSecondary: c,
                     error: Colors.red,
-                    onError: Colors.black87,
+                    onError: c,
                     background: Colors.blueGrey,
-                    onBackground: Colors.black87,
+                    onBackground: c,
                     surface: Colors.white,
-                    onSurface: Colors.black87)),
+                    onSurface: c)),
             darkTheme: ThemeData(
                 appBarTheme: AppBarTheme(
-                  centerTitle: true,
-                  titleTextStyle: TextStyle(fontSize: 42),
-                  //backgroundColor: Colors.white
-                ),
+                    centerTitle: true,
+                    titleTextStyle: TextStyle(fontSize: 42),
+                    backgroundColor: Colors.grey),
+                textTheme: textThemeFonts,
                 primarySwatch: Colors.blue,
-                scaffoldBackgroundColor: Colors.black87,
+                scaffoldBackgroundColor: Colors.grey[850],
                 colorScheme: new ColorScheme(
-                    brightness: Brightness.dark,
+                    brightness: Brightness.dark, /////////////////////??????????
                     primary: Colors.purple,
-                    onPrimary: Colors.black87,
+                    onPrimary: c,
                     secondary: Colors.indigo,
-                    onSecondary: Colors.black87,
+                    onSecondary: c,
                     error: Colors.red,
-                    onError: Colors.black87,
-                    background: Colors.blueGrey,
-                    onBackground: Colors.black87,
-                    surface: Colors.black87,
-                    onSurface: Colors.white)),
+                    onError: c,
+                    background: Colors.blue,
+                    onBackground: c,
+                    surface: c,
+                    onSurface: Colors.grey)),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: SplashScreen(data),

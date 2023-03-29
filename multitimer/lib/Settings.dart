@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/data/Data.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Settings extends StatefulWidget {
   Data data;
@@ -54,8 +54,8 @@ class _SettingsState extends State<Settings> {
               children: [
                 new Text(
                   AppLocalizations.of(context)!.changetheme,
-                  textScaleFactor: 1.7,
-                  style: TextStyle(color: textcolor),
+                  style:
+                      TextStyle(color: textcolor, fontWeight: FontWeight.w700),
                 ),
               ],
             ),
