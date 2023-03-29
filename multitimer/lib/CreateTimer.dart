@@ -77,7 +77,7 @@ class _CreateTimerState extends State<CreateTimer> {
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ),
-                NewTimer(),
+                Column(children: extractedChildren),
                 Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: Center(
@@ -85,7 +85,7 @@ class _CreateTimerState extends State<CreateTimer> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         ElevatedButton(
-                          onPressed: onNeueZeile,
+                          onPressed: onClickAdd,
                           child: Icon(Icons.add),
                           style: ElevatedButton.styleFrom(
                             shape: CircleBorder(),
@@ -116,6 +116,14 @@ class _CreateTimerState extends State<CreateTimer> {
     );
   }
 
+  void onClickAdd() {
+    if (extractedChildren.length < 4) {
+      setState(() {
+        extractedChildren.add(NewTimer());
+      });
+    }
+  }
+
+  List<Widget> extractedChildren = <Widget>[];
   void onSave() {}
-  void onNeueZeile() {}
 }
