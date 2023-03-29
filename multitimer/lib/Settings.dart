@@ -16,7 +16,7 @@ class _SettingsState extends State<Settings> {
   ThemeMode theme = ThemeMode.light;
   Color color = Colors.black87;
   Color textcolor = Colors.white;
-  Color appbar = Colors.blue;
+  Color appbar = Colors.red;
 
   Data data;
 
