@@ -9,6 +9,11 @@ class CategoryWidget extends StatefulWidget {
 
 class _CategoryWidgetState extends State<CategoryWidget> {
   //
+  var categName = "New Category";
+  bool textfieldEnabled = false;
+  Color categColor = Colors.red;
+  Color lastSavedColor = Colors.red;
+  //
   final myController = TextEditingController();
   void _printLatestValue() {
     print('Text field: ${myController.text}');
@@ -30,13 +35,11 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   }
 
   //
-  var categName = "New Category";
-  Color categColor = Colors.red;
-  bool textfieldEnabled = false;
   //
   @override
   Widget build(BuildContext context) {
     Container container;
+
     if (textfieldEnabled == true) {
       container = Container(
         width: 200,
@@ -101,24 +104,24 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   }
 
   Color getCategColor() {
-    List liste;
-    int c = 0;
+    var c = 1;
     for (int i = 0; i < 10; i++) {
-      liste = [
-        Colors.red,
-        Colors.blue,
-        Colors.green,
-        Colors.amber,
-        Colors.purple,
-        Colors.yellow,
-        Colors.pink,
-        Colors.greenAccent,
-        Colors.brown
+      List liste = [
+        Colors.red, //1
+        Colors.blue, //2
+        Colors.green, //3
+        Colors.amber, //4
+        Colors.purple, //5
+        Colors.yellow, //6
+        Colors.pink, //7
+        Colors.greenAccent, //8
+        Colors.brown //9
       ];
       Color colorMatch = liste[c];
-      if (categColor == colorMatch) {
-        c++;
-      } else {
+      c = c + 2;
+      if (lastSavedColor != colorMatch) {
+        categColor = colorMatch;
+        lastSavedColor = liste[c];
         break;
       }
     }
