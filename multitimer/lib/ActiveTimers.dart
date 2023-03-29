@@ -20,12 +20,20 @@ class _ActiveTimersState extends State<ActiveTimers> {
         body: Row(
           children: [
             Expanded(
-              child: Column(
-                children: [
-                  ActiveTimer(),
-                  ActiveTimer(),
-                ],
-              ),
+              child: ListView(
+                  primary: true,
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    Column(
+                      children: [
+                        ActiveTimer(),
+                        ActiveTimer(),
+                        ActiveTimer(),
+                        ActiveTimer(),
+                        ActiveTimer(),
+                      ],
+                    ),
+                  ]),
             ),
             new ElevatedButton(
               onPressed: onTouched,

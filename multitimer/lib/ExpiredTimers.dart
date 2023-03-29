@@ -27,9 +27,20 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
               ),
             ),
             Expanded(
-              child: Column(
-                children: [ExpiredTimer(), ExpiredTimer(), ExpiredTimer()],
-              ),
+              child: ListView(
+                  primary: true,
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    Column(
+                      children: [
+                        ExpiredTimer(),
+                        ExpiredTimer(),
+                        ExpiredTimer(),
+                        ExpiredTimer(),
+                        ExpiredTimer(),
+                      ],
+                    ),
+                  ]),
             ),
           ],
         ));
