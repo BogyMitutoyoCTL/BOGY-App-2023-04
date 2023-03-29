@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/ActiveTimers.dart';
+import 'package:multitimer/CreateTimer.dart';
 import 'package:multitimer/Settings.dart';
 import 'package:multitimer/data/Data.dart';
 
@@ -92,7 +93,9 @@ class _MainmenuState extends State<Mainmenu> {
                     Icons.hourglass_bottom,
                     size: 24.0,
                   ),
-                  label: Text(AppLocalizations.of(context)!.aktimer),
+                  label: Text(AppLocalizations.of(context)!.aktimer +
+                      "/" +
+                      AppLocalizations.of(context)!.extimer),
                 ),
               ),
             ),
@@ -121,7 +124,7 @@ class _MainmenuState extends State<Mainmenu> {
 
   void onClick() {
     Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => Mainmenu(data))); //Neuer Timer
+        MaterialPageRoute(builder: (context) => CreateTimer())); //Neuer Timer
   }
 
   void onTouch() {
