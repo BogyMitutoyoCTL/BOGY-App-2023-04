@@ -17,27 +17,25 @@ class _ActiveTimersState extends State<ActiveTimers> {
     return Scaffold(
         appBar:
             new AppBar(title: new Text(AppLocalizations.of(context)!.aktimer)),
-        body: Center(
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    ActiveTimer(),
-                    ActiveTimer(),
-                  ],
-                ),
+        body: Row(
+          children: [
+            Expanded(
+              child: Column(
+                children: [
+                  ActiveTimer(),
+                  ActiveTimer(),
+                ],
               ),
-              new ElevatedButton(
-                onPressed: onTouched,
-                child: Icon(Icons.arrow_forward_outlined),
-                style: ElevatedButton.styleFrom(
-                  shape: CircleBorder(),
-                  padding: EdgeInsets.all(20),
-                ),
+            ),
+            new ElevatedButton(
+              onPressed: onTouched,
+              child: Icon(Icons.arrow_forward_outlined),
+              style: ElevatedButton.styleFrom(
+                shape: CircleBorder(),
+                padding: EdgeInsets.all(20),
               ),
-            ],
-          ),
+            ),
+          ],
         ));
   }
 
