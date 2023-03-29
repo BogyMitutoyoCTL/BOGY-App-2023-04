@@ -33,30 +33,24 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
                     padding: const EdgeInsets.all(10.0),
                     child: new Container(
                       color: Colors.yellow,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                              child: new Text(
-                                "Nudeln Kochen",
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                            ),
-                            new Text(
-                              "Phase 1 von 3 ist aktiv:",
-                              style: Theme.of(context).textTheme.bodySmall,
-                            ),
-                            new Text("Wasser zum kochen bringen.",
-                                style: Theme.of(context).textTheme.bodySmall),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                              child: new Text("Klingelt in 2:56",
-                                  style: Theme.of(context).textTheme.bodySmall),
-                            ),
-                            Row(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          new Text(
+                            "Nudeln Kochen",
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                          new Text(
+                            "Phase 1 von 3 ist aktiv:",
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                          new Text("Wasser zum kochen bringen.",
+                              style: Theme.of(context).textTheme.bodySmall),
+                          new Text("Klingelt in 2:56",
+                              style: Theme.of(context).textTheme.bodySmall),
+                          Padding(
+                            padding: const EdgeInsets.all(18.0),
+                            child: Row(
                               children: [
                                 Column(
                                   children: [
@@ -96,9 +90,9 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
                                   ],
                                 )
                               ],
-                            )
-                          ],
-                        ),
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   ),

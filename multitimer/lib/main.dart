@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'Settings.dart';
 import 'SplashScreen.dart';
 import 'data/Data.dart';
 import 'data/Storage.dart';
@@ -33,51 +32,60 @@ class MultiTimerApp extends StatelessWidget {
           return ValueListenableBuilder<ThemeMode>(
               valueListenable: data.themeChanger,
               builder: (_, mode, __) {
+                var black = Colors.black;
                 return MaterialApp(
                   title: "MituTimer",
                   themeMode: mode,
                   theme: ThemeData(
                       appBarTheme: AppBarTheme(
                           centerTitle: true,
-                          titleTextStyle: TextStyle(fontSize: 36)),
+                          titleTextStyle: TextStyle(fontSize: 42),
+                          backgroundColor: appbarColor),
                       textTheme: TextTheme(
-                        bodyLarge: TextStyle(fontSize: 48.0),
-                        bodyMedium: TextStyle(fontSize: 28.0),
-                        bodySmall: TextStyle(fontSize: 18.0),
-                        labelSmall: TextStyle(fontSize: 8.0),
+                        bodyLarge: TextStyle(fontSize: 48.0, color: black),
+                        bodyMedium: TextStyle(fontSize: 24.0),
+                        bodySmall: TextStyle(fontSize: 20.0),
+                        labelSmall: TextStyle(fontSize: 14.0),
                       ),
                       primarySwatch: Colors.blue,
                       scaffoldBackgroundColor: Colors.blueGrey,
                       colorScheme: new ColorScheme(
                           brightness: Brightness.light,
                           primary: appbarColor,
-                          onPrimary: Colors.black,
+                          onPrimary: black,
                           secondary: Colors.cyan,
-                          onSecondary: Colors.black,
+                          onSecondary: black,
                           error: Colors.red,
-                          onError: Colors.black,
+                          onError: black,
                           background: Colors.blueGrey,
-                          onBackground: Colors.black,
+                          onBackground: black,
                           surface: Colors.white,
-                          onSurface: Colors.black)),
+                          onSurface: black)),
                   darkTheme: ThemeData(
                       appBarTheme: AppBarTheme(
                           centerTitle: true,
                           titleTextStyle: TextStyle(fontSize: 42),
-                          backgroundColor: Colors.white),
+                          backgroundColor: appbarColor),
+                      textTheme: TextTheme(
+                        bodyLarge:
+                            TextStyle(fontSize: 48.0, color: Colors.white),
+                        bodyMedium: TextStyle(fontSize: 22.0),
+                        bodySmall: TextStyle(fontSize: 18.0),
+                        labelSmall: TextStyle(fontSize: 8.0),
+                      ),
                       primarySwatch: Colors.blue,
-                      scaffoldBackgroundColor: Colors.white,
+                      scaffoldBackgroundColor: Colors.grey[850],
                       colorScheme: new ColorScheme(
-                          brightness: Brightness.dark,
+                          brightness: Brightness.light,
                           primary: appbarColor,
-                          onPrimary: Colors.black,
+                          onPrimary: black,
                           secondary: Colors.indigo,
-                          onSecondary: Colors.black,
+                          onSecondary: black,
                           error: Colors.red,
-                          onError: Colors.black,
-                          background: Colors.blueGrey,
-                          onBackground: Colors.black,
-                          surface: Colors.black,
+                          onError: black,
+                          background: Colors.white,
+                          onBackground: Colors.white,
+                          surface: black,
                           onSurface: Colors.white)),
                   localizationsDelegates:
                       AppLocalizations.localizationsDelegates,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/ActiveTimers.dart';
+import 'package:multitimer/Categories.dart';
 import 'package:multitimer/CreateTimer.dart';
 import 'package:multitimer/Settings.dart';
 import 'package:multitimer/data/Data.dart';
@@ -129,7 +130,7 @@ class _MainmenuState extends State<Mainmenu> {
 
   void onTouch() {
     Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => Mainmenu(data))); //Meine Timer
+        MaterialPageRoute(builder: (context) => Categories())); //Meine Timer
   }
 
   void onPress() {
