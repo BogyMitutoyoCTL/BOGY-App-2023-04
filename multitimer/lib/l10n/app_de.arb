@@ -17,6 +17,7 @@
   "name": "Name des Zeitabschnitts",
   "save": "Speichern",
   "cook": "Kochen",
-  "edit": "Bearbeiten"
+  "edit": "Bearbeiten",
+  "extimer": "Abgelaufene Timer"
 
 }
