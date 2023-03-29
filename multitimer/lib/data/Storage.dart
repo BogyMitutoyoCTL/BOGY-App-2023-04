@@ -23,28 +23,7 @@ class Storage {
   Future<Data> load() async {
     if (kIsWeb) {
       // for web projects, storage via dart:io is not available
-      var data = new Data();
-      var kochen = new Category(name: "Kochen");
-      data.categories.add(kochen);
-
-      var nudeltimer = new Timer(name: "Nudeln");
-      var erhitzen = new Section(
-          message: "Wasser erhitzen", duration: new Duration(minutes: 2));
-      var nudelnkochen = new Section(
-          message: "Nudeln kochen", duration: new Duration(minutes: 8));
-      nudeltimer.sections.add(erhitzen);
-      nudeltimer.sections.add(nudelnkochen);
-      kochen.timers.add(nudeltimer);
-
-      var broetchentimer = new Timer(name: "Brötchen backen");
-      kochen.timers.add(broetchentimer);
-      var backen =
-          new Section(message: "backen", duration: new Duration(minutes: 10));
-      broetchentimer.sections.add(backen);
-
-      data.categories.add(new Category(name: "Sport"));
-
-      return data;
+      return _createDemoData();
     }
 
     File file = await _getDataFile();
@@ -54,8 +33,32 @@ class Storage {
       var data = Data.fromJson(json);
       return data;
     } else {
-      return new Data();
+      return _createDemoData();
     }
+  }
+
+  Data _createDemoData() {
+    var data = new Data();
+    var kochen = new Category(name: "Kochen");
+    data.categories.add(kochen);
+
+    var nudeltimer = new Timer(name: "Nudeln");
+    var erhitzen = new Section(
+        message: "Wasser erhitzen", duration: new Duration(minutes: 2));
+    var nudelnkochen = new Section(
+        message: "Nudeln kochen", duration: new Duration(minutes: 8));
+    nudeltimer.sections.add(erhitzen);
+    nudeltimer.sections.add(nudelnkochen);
+    kochen.timers.add(nudeltimer);
+
+    var broetchentimer = new Timer(name: "Brötchen backen");
+    kochen.timers.add(broetchentimer);
+    var backen =
+        new Section(message: "backen", duration: new Duration(minutes: 10));
+    broetchentimer.sections.add(backen);
+
+    data.categories.add(new Category(name: "Sport"));
+    return data;
   }
 
   Future<File> _getDataFile() async {
