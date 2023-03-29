@@ -50,7 +50,7 @@ class _MainmenuState extends State<Mainmenu> {
                 height: 43,
                 child: ElevatedButton.icon(
                   //Neuer Timer
-                  onPressed: onClick,
+                  onPressed: onCreate,
                   icon: Icon(
                     Icons.format_list_bulleted_add,
                     size: 24.0,
@@ -65,7 +65,7 @@ class _MainmenuState extends State<Mainmenu> {
                 height: 43,
                 child: ElevatedButton.icon(
                   //Meine Timer
-                  onPressed: onTouch,
+                  onPressed: onCategories,
                   icon: Icon(
                     Icons.format_list_bulleted,
                     size: 24.0,
@@ -80,7 +80,7 @@ class _MainmenuState extends State<Mainmenu> {
                 height: 43,
                 child: ElevatedButton.icon(
                   //Aktive Timer
-                  onPressed: onPress,
+                  onPressed: onActive,
                   icon: Icon(
                     Icons.hourglass_bottom,
                     size: 24.0,
@@ -97,7 +97,7 @@ class _MainmenuState extends State<Mainmenu> {
                 height: 43,
                 child: ElevatedButton.icon(
                   //Einstellungen
-                  onPressed: onActivate,
+                  onPressed: onSettings,
                   icon: Icon(
                     Icons.settings,
                     size: 24.0,
@@ -112,22 +112,22 @@ class _MainmenuState extends State<Mainmenu> {
     );
   }
 
-  void onClick() {
+  void onCreate() {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => CreateTimer(data))); //Neuer Timer
   }
 
-  void onTouch() {
+  void onCategories() {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => Categories(data))); //Meine Timer
   }
 
-  void onPress() {
+  void onActive() {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => ActiveTimers(data))); //Aktive Timer
   }
 
-  void onActivate() {
+  void onSettings() {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => Settings(data))); //Einstellungen
   }
