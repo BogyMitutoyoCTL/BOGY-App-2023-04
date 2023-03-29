@@ -144,7 +144,7 @@ class _CreateTimerState extends State<CreateTimer> {
                 ),
                 Expanded(child: new Container(width: 75)),
                 Container(
-                  width: 80,
+                  width: 55,
                   child: new TextFormField(
                       controller: controller4,
                       decoration: InputDecoration(

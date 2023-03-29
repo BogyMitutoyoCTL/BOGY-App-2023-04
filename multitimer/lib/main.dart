@@ -35,6 +35,7 @@ class MultiTimerApp extends StatelessWidget {
                 var black = Colors.black;
                 var white = Colors.white;
                 return MaterialApp(
+                  scrollBehavior: ScrollBehavior(),
                   title: "MituTimer",
                   themeMode: mode,
                   theme: ThemeData(
