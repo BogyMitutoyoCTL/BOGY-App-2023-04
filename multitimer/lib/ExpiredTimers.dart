@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'SubWidgets/ExpiredTimer.dart';
+import 'data/Data.dart';
 import 'data/ExpiredTimerData.dart';
 
 class ExpiredTimers extends StatefulWidget {
-  const ExpiredTimers({key}) : super(key: key);
+  Data data;
+
+  ExpiredTimers(this.data, {Key? key}) : super(key: key);
 
   @override
   State<ExpiredTimers> createState() => _ExpiredTimersState();
@@ -14,10 +17,13 @@ class ExpiredTimers extends StatefulWidget {
 class _ExpiredTimersState extends State<ExpiredTimers> {
   @override
   Widget build(BuildContext context) {
-    List<Widget> timerlist = [];
-    for (var j = 0; j <= 100; j++) {
-      var widget = ExpiredTimer(ExpiredTimerData());
-      timerlist.add(widget);
+    var timerlist = widget.data.getActiveTimers();
+    List<Widget> widgetlist = [];
+    for (var j = 0; j < timerlist.length; j++) {
+      var expireddata = ExpiredTimerData();
+      expireddata.timer = timerlist[j];
+      var widget = ExpiredTimer(expireddata);
+      widgetlist.add(widget);
     }
     return Scaffold(
         appBar: new AppBar(
@@ -38,7 +44,7 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
                   primary: true,
                   scrollDirection: Axis.vertical,
                   children: [
-                    Column(children: timerlist),
+                    Column(children: widgetlist),
                   ]),
             ),
           ],

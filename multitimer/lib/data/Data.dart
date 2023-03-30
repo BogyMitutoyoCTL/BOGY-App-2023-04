@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'GroupColors.dart';
-
-import 'Category.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'Category.dart';
+import 'GroupColors.dart';
 import 'Timer.dart';
 
 part 'Data.g.dart';
@@ -32,14 +31,26 @@ class Data {
 
   List<Timer> getActiveTimers() {
     List<Timer> activeTimers = [];
-    for (var group = 0; group < categories.length; ++group) {
-      for (var timer = 0; timer < categories[group].timers.length; timer++) {
-        if (categories[group].timers[timer].isActive) {
-          activeTimers.add(categories[group].timers[timer]);
+    for (var category = 0; category < categories.length; ++category) {
+      for (var timer = 0; timer < categories[category].timers.length; timer++) {
+        if (categories[category].timers[timer].isActive) {
+          activeTimers.add(categories[category].timers[timer]);
         }
       }
     }
     return activeTimers;
+  }
+
+  List<Timer> getExpiredTimers() {
+    List<Timer> expiredTimers = [];
+    for (var category = 0; category < categories.length; ++category) {
+      for (var timer = 0; timer < categories[category].timers.length; timer++) {
+        if (categories[category].timers[timer].isExpired) {
+          expiredTimers.add(categories[category].timers[timer]);
+        }
+      }
+    }
+    return expiredTimers;
   }
 
   Color colorOf(Category group) {

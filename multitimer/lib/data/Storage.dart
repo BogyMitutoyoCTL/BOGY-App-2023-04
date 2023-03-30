@@ -67,6 +67,7 @@ class Storage {
         message: "Wäsche waschen", duration: new Duration(minutes: 120));
     waschmaschiene.sections.add(waschen);
 
+    waschmaschiene.isExpired = true;
     waschmaschiene.isActive = true;
 
     return data;
