@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/data/CategWidgetData.dart';
 
-import '../TimersInCategories.dart';
+import '../data/TimersInCategData.dart';
+import 'TimersInCategories.dart';
 
 class CategoryWidget extends StatefulWidget {
   CategWidgetData data;
@@ -155,7 +156,10 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   }
 
   void onCategoryPress() {
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => TimersInCategories())); //Neuer Timer
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+      var timersInCategData = TimersInCategData();
+      timersInCategData.category = widget.data.category;
+      return TimersInCategories(timersInCategData);
+    })); //Neuer Timer
   }
 }
