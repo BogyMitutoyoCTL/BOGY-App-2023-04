@@ -69,8 +69,9 @@ class _CreateTimerState extends State<CreateTimer> {
 
     return Scaffold(
       appBar: new AppBar(
-          title: new Text(AppLocalizations.of(context)!.newtimer,
-              style: Theme.of(context).textTheme.titleLarge)),
+          title: new Text(
+        AppLocalizations.of(context)!.newtimer,
+      )),
       body: ListView(children: [
         Center(
           child: Padding(

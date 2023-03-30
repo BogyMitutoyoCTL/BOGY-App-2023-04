@@ -41,7 +41,6 @@ class _CategoriesState extends State<Categories> {
             AppLocalizations.of(context)!.categories +
                 ": " +
                 widget.data.categories.length.toString(),
-            style: Theme.of(context).textTheme.titleLarge,
           ),
         ],
       )),

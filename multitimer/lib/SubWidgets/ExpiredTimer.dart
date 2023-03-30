@@ -92,7 +92,12 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
 
   void onNext() {}
 
-  void onDone() {}
+  void onDone() {
+    setState(() {
+      widget.data.timer.deactivate();
+      widget.data.refresh();
+    });
+  }
 
   void onTouched() {
     Navigator.of(context).pop();
