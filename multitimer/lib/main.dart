@@ -3,10 +3,10 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:multitimer/SplashScreen.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'SplashScreen.dart';
 import 'data/Data.dart';
 import 'data/Storage.dart';
 import 'notification_service/local_notice_service.dart';
@@ -31,15 +31,6 @@ Future<void> main() async {
       }
     });
   }
-  await Permission.notification.isDenied.then((value) {
-    debugPrint("Do we have permissions to send out a notification?");
-    if (value) {
-      debugPrint("No we don't, lets request...");
-      Permission.notification.request();
-    } else {
-      debugPrint("Yes we have. Lets send out some notifications. :-D");
-    }
-  });
   await LocalNotificationService().setup();
   runApp(myApp);
 }
@@ -63,6 +54,10 @@ class MultiTimerApp extends StatelessWidget {
                   title: "MituTimer",
                   themeMode: mode,
                   theme: ThemeData(
+                      elevatedButtonTheme: ElevatedButtonThemeData(
+                          style:
+                              ElevatedButton.styleFrom(foregroundColor: black)),
+                      iconTheme: IconThemeData(color: white),
                       appBarTheme: AppBarTheme(
                           centerTitle: true,
                           titleTextStyle: TextStyle(fontSize: 42),
@@ -79,7 +74,7 @@ class MultiTimerApp extends StatelessWidget {
                         bodyLarge: TextStyle(fontSize: 38.0, color: black),
                         bodyMedium: TextStyle(fontSize: 24.0, color: black),
                         bodySmall: TextStyle(fontSize: 20.0, color: black),
-                        labelSmall: TextStyle(fontSize: 16.0, color: black),
+                        labelSmall: TextStyle(fontSize: 18.0, color: black),
                       ),
                       primarySwatch: Colors.blue,
                       scaffoldBackgroundColor: Colors.blueGrey,
@@ -96,6 +91,10 @@ class MultiTimerApp extends StatelessWidget {
                           surface: white,
                           onSurface: black)),
                   darkTheme: ThemeData(
+                      //////////////////////////DARK THEME
+                      elevatedButtonTheme: ElevatedButtonThemeData(
+                          style:
+                              ElevatedButton.styleFrom(foregroundColor: white)),
                       inputDecorationTheme: InputDecorationTheme(
                           counterStyle: TextStyle(color: Colors.white)),
                       appBarTheme: AppBarTheme(
@@ -114,10 +113,11 @@ class MultiTimerApp extends StatelessWidget {
                         bodyLarge: TextStyle(fontSize: 38.0, color: white),
                         bodyMedium: TextStyle(fontSize: 24.0, color: white),
                         bodySmall: TextStyle(fontSize: 20.0, color: white),
-                        labelSmall: TextStyle(fontSize: 16.0, color: white),
+                        labelSmall: TextStyle(fontSize: 18.0, color: white),
                       ),
                       primarySwatch: Colors.blue,
                       scaffoldBackgroundColor: Colors.grey[850],
+                      iconTheme: IconThemeData(color: white),
                       colorScheme: new ColorScheme(
                           brightness: Brightness.light,
                           primary: appbarColor,
