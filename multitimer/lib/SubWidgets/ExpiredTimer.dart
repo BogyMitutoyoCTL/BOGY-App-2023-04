@@ -27,7 +27,7 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   new Text(
-    widget.data.timer.name,
+                    widget.data.timer.name,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   new Text(
@@ -36,7 +36,6 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
                   ),
                   new Text(widget.data.timer.sections[0].message,
                       style: Theme.of(context).textTheme.bodySmall),
-
                   new Container(
                     height: 15,
                     width: 30,

@@ -113,7 +113,6 @@ class _SettingsState extends State<Settings> {
                               backgroundColor: Colors.red,
                             ),
                             child: Text(AppLocalizations.of(context)!.red),
-
                           ),
                         ),
                       ],
@@ -133,7 +132,6 @@ class _SettingsState extends State<Settings> {
                               backgroundColor: Colors.amber,
                             ),
                             child: Text(AppLocalizations.of(context)!.orange),
-
                           ),
                         ),
                       ],
@@ -153,7 +151,6 @@ class _SettingsState extends State<Settings> {
                               backgroundColor: Colors.blue,
                             ),
                             child: Text(AppLocalizations.of(context)!.blue),
-
                           ),
                         ),
                       ],
@@ -173,7 +170,6 @@ class _SettingsState extends State<Settings> {
                               backgroundColor: Colors.lightGreen,
                             ),
                             child: Text(AppLocalizations.of(context)!.green),
-
                           ),
                         ),
                       ],
@@ -192,11 +188,11 @@ class _SettingsState extends State<Settings> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.redAccent,
                             ),
-                            child: Text(AppLocalizations.of(context)!.redaccent),
-
+                            child:
+                                Text(AppLocalizations.of(context)!.redaccent),
                           ),
                         ),
-                        ],
+                      ],
                     ),
                   ]),
             ),
