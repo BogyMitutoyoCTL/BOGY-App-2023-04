@@ -20,6 +20,16 @@ class _CategoriesState extends State<Categories> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> extractedChildren = [];
+    for (int i = 0; i < widget.data.categories.length; i++) {
+      var categWidgetData = CategWidgetData();
+      categWidgetData.category = widget.data.categories[i];
+      categWidgetData.editEnabled = true;
+      categWidgetData.callback = deleteCateg;
+      var categoryWidget = new CategoryWidget(categWidgetData);
+      extractedChildren.add(categoryWidget);
+    }
+
     return new Scaffold(
       appBar: AppBar(
           title: Row(
@@ -28,7 +38,7 @@ class _CategoriesState extends State<Categories> {
           new Text(
             AppLocalizations.of(context)!.categories +
                 ": " +
-                extractedChildren.length.toString(),
+                widget.data.categories.length.toString(),
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ],
@@ -70,19 +80,19 @@ class _CategoriesState extends State<Categories> {
   }
 
   void onClickAdd() {
-    if (extractedChildren.length < 20) {
+    if (widget.data.categories.length < 20) {
       setState(() {
-        var categWidgetData = CategWidgetData();
-        categWidgetData.category = Category();
-        categWidgetData.editEnabled = true;
-        extractedChildren.add(CategoryWidget(categWidgetData));
+        var category = new Category();
+        widget.data.categories.add(category);
       });
     }
   }
 
-  void tellCategToDelete() {}
-
-  List<Widget> extractedChildren = <Widget>[];
+  void deleteCateg(Category categoryWhole) {
+    setState(() {
+      widget.data.categories.remove(categoryWhole);
+    });
+  }
 }
 
 ///////
