@@ -139,7 +139,8 @@ class _CreateTimerState extends State<CreateTimer> {
   bool isInputValid() {
     bool valid = timerName.isNotEmpty;
     for (var section in sections) {
-      valid &= true; // TODO: access info from subwidget
+      valid &= section.message.isNotEmpty;
+      valid &= section.duration.inMinutes != 0;
     }
     return valid;
   }
