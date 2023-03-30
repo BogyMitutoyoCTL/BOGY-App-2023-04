@@ -23,10 +23,10 @@ class _CategoriesState extends State<Categories> {
     List<Widget> extractedChildren = [];
 
     for (int i = 0; i < widget.data.categories.length; i++) {
-      var aCategorie = widget.data.categories[i];
+      var aCategory = widget.data.categories[i];
       var categWidgetData = CategWidgetData();
-      categWidgetData.editEnabled = aCategorie.name.isEmpty;
-      categWidgetData.category = aCategorie;
+      categWidgetData.editEnabled = aCategory.name.isEmpty;
+      categWidgetData.category = aCategory;
       categWidgetData.callback = deleteCateg;
       var categoryWidget = new CategoryWidget(categWidgetData);
       extractedChildren.add(categoryWidget);
