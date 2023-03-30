@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'Category.dart';
 import 'Section.dart';
 
 part 'Timer.g.dart';
@@ -15,6 +16,8 @@ class Timer {
 
   bool isActive = false;
   bool isExpired = false;
+
+  late Category category;
 
   @override
   String toString() => toJson().toString();
