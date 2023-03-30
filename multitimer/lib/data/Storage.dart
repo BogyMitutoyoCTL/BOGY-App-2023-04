@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'Data.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:path_provider/path_provider.dart';
 
 import 'Category.dart';
+import 'Data.dart';
 import 'Section.dart';
 import 'Timer.dart';
 
@@ -41,6 +41,8 @@ class Storage {
     var data = new Data();
     var kochen = new Category(name: "Kochen");
     data.categories.add(kochen);
+    var haushalt = new Category(name: "Haushalt");
+    data.categories.add(haushalt);
 
     var nudeltimer = new Timer(name: "Nudeln");
     var erhitzen = new Section(
@@ -58,6 +60,15 @@ class Storage {
     broetchentimer.sections.add(backen);
 
     data.categories.add(new Category(name: "Sport"));
+
+    var waschmaschiene = new Timer(name: "Waschmaschine");
+    haushalt.timers.add(waschmaschiene);
+    var waschen = new Section(
+        message: "Wäsche waschen", duration: new Duration(minutes: 120));
+    waschmaschiene.sections.add(waschen);
+
+    waschmaschiene.isActive = true;
+
     return data;
   }
 

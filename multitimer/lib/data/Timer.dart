@@ -9,7 +9,7 @@ class Timer {
   Timer({String this.name = ""}) {}
 
   @JsonKey(defaultValue: [])
-  List<Section> sections = [Section()];
+  List<Section> sections = [];
   @JsonKey(required: true)
   String name;
 
