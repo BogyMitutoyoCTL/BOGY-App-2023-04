@@ -25,8 +25,7 @@ class Timer {
   Stopwatch? stopwatch;
 
   Section getCurrentSection() {
-    if (activesectionnumber < 0)
-      return Section(duration: Duration.zero, message: "Invalid timer");
+    if (activesectionnumber < 0) return Section(duration: Duration.zero, message: "Invalid timer");
     return sections[activesectionnumber];
   }
 
@@ -55,13 +54,22 @@ class Timer {
     stopwatch = null;
   }
 
-  Duration getRemainingTime() {
+  Duration _getRemainingTime() {
     if (stopwatch == null) return Duration.zero;
     var planned = getCurrentSection().duration;
     var passed = stopwatch!.elapsed;
     var diff = planned - passed;
     if (diff < Duration.zero) return Duration.zero;
     return diff;
+  }
+
+  String getRemainingTime() {
+    var duration = _getRemainingTime();
+    String twoDigits(int n) => n.toString().padLeft(2, "0");
+    String hh = twoDigits(duration.inHours);
+    String mm = twoDigits(duration.inMinutes.remainder(60));
+    String ss = twoDigits(duration.inSeconds.remainder(60));
+    return "$hh:$mm:$ss";
   }
 
   void expire() {
