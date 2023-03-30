@@ -43,7 +43,9 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   Widget build(BuildContext context) {
     Container container;
     myController.text = widget.data.category.name;
-
+    myController.addListener(() {
+      widget.data.category.name = myController.text;
+    });
     if (widget.data.editEnabled == true) {
       container = Container(
         width: 200,
@@ -149,5 +151,9 @@ class _CategoryWidgetState extends State<CategoryWidget> {
     widget.data.callback(widget.data.category);
   }
 
-  void onCategoryPress() {}
+  void onCategoryPress() {
+    /*
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => CreateTimer(widget.data))); //Neuer Timer*/
+  }
 }
