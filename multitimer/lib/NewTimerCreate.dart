@@ -49,7 +49,7 @@ class _NewTimerState extends State<NewTimer> {
         children: [
           Row(mainAxisSize: MainAxisSize.min, children: [
             Container(
-              width: 300,
+              width: 200,
               child: new TextField(
                   maxLength: 20,
                   controller: controller3,

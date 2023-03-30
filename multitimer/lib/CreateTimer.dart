@@ -52,7 +52,23 @@ class _CreateTimerState extends State<CreateTimer> {
   Widget build(
     BuildContext context,
   ) {
+    List<Widget> children2;
+    var elevatedPlusButton = ElevatedButton(
+      onPressed: onClickAdd,
+      child: Icon(Icons.add),
+      style: ElevatedButton.styleFrom(
+        shape: CircleBorder(),
+        padding: EdgeInsets.all(20),
+      ),
+    );
+    if (extractedChildren.length < 4) {
+      children2 = [elevatedPlusButton];
+    } else {
+      children2 = [];
+    }
+    ;
     var list;
+
     return Scaffold(
       appBar: new AppBar(
           title: new Text(AppLocalizations.of(context)!.newtimer,
@@ -108,16 +124,7 @@ class _CreateTimerState extends State<CreateTimer> {
                     child: Center(
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
-                        children: [
-                          ElevatedButton(
-                            onPressed: onClickAdd,
-                            child: Icon(Icons.add),
-                            style: ElevatedButton.styleFrom(
-                              shape: CircleBorder(),
-                              padding: EdgeInsets.all(20),
-                            ),
-                          ),
-                        ],
+                        children: children2,
                       ),
                     ),
                   ),
