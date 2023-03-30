@@ -30,8 +30,9 @@ https://pub.dev/packages/flutter_launcher_icons
 
 In unserem Projekt haben wir die Konfiguration in die `pubspec.yaml` integriert. Die Beschreibung dafür findet man auf der Projektseite des Packages.
 
-*Hinweis*
-Wenn man weitere Daten zu den Resourcen für Android hinzufügt, muss man darauf achten das die Dateinamen klein geschrieben sind. Sonst bekommt man folgende Fehlermeldung:
+**Hinweis:**
+
+Wenn man weitere Daten zu den Resourcen für Android hinzufügt, muss man darauf achten, dass die Dateinamen klein geschrieben sind. Sonst bekommt man folgende Fehlermeldung:
 
 ```
 ERROR:.\BOGY-App-2023-04\multitimer\android\app\src\main\res\drawable\Logo.png: Resource and asset merger: 'L' is not a valid file-based resource name character: File-based resource names must contain only lowercase a-z, 0-9, or underscore
