@@ -14,6 +14,7 @@ class Timer {
   String name;
 
   bool isActive = false;
+  bool isExpired = false;
 
   @override
   String toString() => toJson().toString();

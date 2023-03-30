@@ -57,7 +57,7 @@ class _ActiveTimersState extends State<ActiveTimers> {
   void onClicked() {}
 
   void onTouched() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => ExpiredTimers()));
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => ExpiredTimers(widget.data)));
   }
 }

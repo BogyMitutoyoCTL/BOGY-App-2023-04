@@ -24,7 +24,7 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   new Text(
                     widget.data.timer.name,
@@ -41,7 +41,7 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
                     width: 30,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
