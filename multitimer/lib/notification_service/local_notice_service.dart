@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tzData;
 import 'package:timezone/timezone.dart' as tz;
@@ -8,8 +8,7 @@ class LocalNotificationService {
 
   Future<void> setup() async {
     // Generate Settings for needed Platforms
-    const androidSetting =
-        AndroidInitializationSettings('@mipmap/launcher_icon');
+    const androidSetting = AndroidInitializationSettings('spend_time');
     const iosSetting = IOSInitializationSettings();
 
     // Construct InitializationSettings
