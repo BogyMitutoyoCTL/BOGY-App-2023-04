@@ -1,5 +1,5 @@
 import 'Timer.dart';
 
 class ActiveTimerdata {
-  late Timer timer;
+  late Timer timer = new Timer(name: "Nudeln kochen");
 }

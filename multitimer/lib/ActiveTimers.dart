@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/ExpiredTimers.dart';
-import 'package:multitimer/SubWidgets/ActiveTimer.dart';
+import 'package:multitimer/data/Activetimersdata.dart';
 
-import 'data/Activetimersdata.dart';
+import 'SubWidgets/ActiveTimer.dart';
 
 class ActiveTimers extends StatefulWidget {
   var data;
@@ -16,6 +16,12 @@ class ActiveTimers extends StatefulWidget {
 class _ActiveTimersState extends State<ActiveTimers> {
   @override
   Widget build(BuildContext context) {
+    List<Widget> timerlist = [];
+    for (var i = 0; i <= 100; i++) {
+      var widget = ActiveTimer(ActiveTimerdata());
+      timerlist.add(widget);
+    }
+
     return Scaffold(
         appBar:
             new AppBar(title: new Text(AppLocalizations.of(context)!.aktimer)),
@@ -26,15 +32,7 @@ class _ActiveTimersState extends State<ActiveTimers> {
                   primary: true,
                   scrollDirection: Axis.vertical,
                   children: [
-                    Column(
-                      children: [
-                        ActiveTimer(ActiveTimerdata()),
-                        ActiveTimer(ActiveTimerdata()),
-                        ActiveTimer(ActiveTimerdata()),
-                        ActiveTimer(ActiveTimerdata()),
-                        ActiveTimer(ActiveTimerdata()),
-                      ],
-                    ),
+                    Column(children: timerlist),
                   ]),
             ),
             new ElevatedButton(
