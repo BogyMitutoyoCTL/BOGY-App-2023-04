@@ -21,6 +21,7 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
     List<Widget> widgetlist = [];
     for (var j = 0; j < timerlist.length; j++) {
       var expireddata = ExpiredTimerData();
+      expireddata.refresh = refresh;
       var timer = timerlist[j];
       expireddata.timer = timer;
       var remembercolor = widget.data.colorOf(timer.category);
@@ -62,5 +63,9 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
 
   void onTouched() {
     Navigator.of(context).pop();
+  }
+
+  void refresh() {
+    setState(() {});
   }
 }

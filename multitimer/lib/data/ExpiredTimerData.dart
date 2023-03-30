@@ -6,4 +6,6 @@ class ExpiredTimerData {
   late Timer timer;
 
   late Color color;
+
+  late void Function() refresh;
 }
