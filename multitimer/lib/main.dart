@@ -3,10 +3,10 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:multitimer/SplashScreen.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'Categories.dart';
 import 'data/Data.dart';
 import 'data/Storage.dart';
 import 'notification_service/local_notice_service.dart';
@@ -59,6 +59,11 @@ class MultiTimerApp extends StatelessWidget {
                           style:
                               ElevatedButton.styleFrom(foregroundColor: black)),
                       iconTheme: IconThemeData(color: black),
+                      iconButtonTheme: IconButtonThemeData(
+                          style: ButtonStyle(
+                        foregroundColor: MaterialStatePropertyAll(Colors.white),
+                        backgroundColor: MaterialStatePropertyAll(Colors.black),
+                      )),
                       appBarTheme: AppBarTheme(
                           iconTheme: IconThemeData(color: black),
                           centerTitle: true,
@@ -100,6 +105,11 @@ class MultiTimerApp extends StatelessWidget {
                               ElevatedButton.styleFrom(foregroundColor: white)),
                       inputDecorationTheme: InputDecorationTheme(
                           counterStyle: TextStyle(color: Colors.white)),
+                      iconButtonTheme: IconButtonThemeData(
+                          style: ButtonStyle(
+                        foregroundColor: MaterialStatePropertyAll(Colors.white),
+                        backgroundColor: MaterialStatePropertyAll(Colors.black),
+                      )),
                       appBarTheme: AppBarTheme(
                           iconTheme: IconThemeData(color: white),
                           centerTitle: true,
@@ -137,7 +147,7 @@ class MultiTimerApp extends StatelessWidget {
                   localizationsDelegates:
                       AppLocalizations.localizationsDelegates,
                   supportedLocales: AppLocalizations.supportedLocales,
-                  home: Categories(data),
+                  home: SplashScreen(data),
                 );
               });
         });
