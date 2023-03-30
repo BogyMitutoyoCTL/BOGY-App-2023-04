@@ -96,6 +96,8 @@ class MultiTimerApp extends StatelessWidget {
                           surface: white,
                           onSurface: black)),
                   darkTheme: ThemeData(
+                      inputDecorationTheme: InputDecorationTheme(
+                          counterStyle: TextStyle(color: Colors.white)),
                       appBarTheme: AppBarTheme(
                           centerTitle: true,
                           titleTextStyle: TextStyle(fontSize: 42),
