@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-
-import 'Category.dart';
+import 'TimerCategory.dart';
 import 'Section.dart';
 
 part 'Timer.g.dart';
@@ -14,9 +13,11 @@ class Timer {
   @JsonKey(required: true)
   String name;
 
+  @JsonKey(includeToJson: false, includeFromJson: false)
   bool isActive = false;
+  @JsonKey(includeToJson: false, includeFromJson: false)
   bool isExpired = false;
-
+  @JsonKey(includeToJson: false, includeFromJson: false)
   late int activesectionnumber;
 
   void activate() {
@@ -42,6 +43,7 @@ class Timer {
     activesectionnumber++;
   }
 
+  @JsonKey(includeToJson: false, includeFromJson: false)
   late TimerCategory category;
 
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:multitimer/data/Category.dart';
+import 'package:multitimer/data/TimerCategory.dart';
 import 'package:multitimer/data/Data.dart';
 
 class Categoyselect extends StatefulWidget {

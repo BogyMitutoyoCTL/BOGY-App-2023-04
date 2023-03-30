@@ -1,4 +1,4 @@
-import 'Category.dart';
+import 'TimerCategory.dart';
 
 class TimersInCategData {
   late TimerCategory category;

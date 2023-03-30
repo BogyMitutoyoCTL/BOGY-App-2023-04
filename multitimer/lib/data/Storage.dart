@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:path_provider/path_provider.dart';
 
-import 'Category.dart';
+import 'TimerCategory.dart';
 import 'Data.dart';
 import 'Section.dart';
 import 'Timer.dart';

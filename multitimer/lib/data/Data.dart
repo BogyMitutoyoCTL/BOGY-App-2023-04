@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'Category.dart';
+import 'TimerCategory.dart';
 import 'GroupColors.dart';
 import 'Timer.dart';
 

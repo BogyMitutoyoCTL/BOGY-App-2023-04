@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import 'Timer.dart';
 
-part 'Category.g.dart';
+part 'TimerCategory.g.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: true)
 class TimerCategory {
@@ -18,7 +18,7 @@ class TimerCategory {
   String toString() => toJson().toString();
 
   factory TimerCategory.fromJson(Map<String, dynamic> json) =>
-      _$CategoryFromJson(json);
+      _$TimerCategoryFromJson(json);
 
-  Map<String, dynamic> toJson() => _$CategoryToJson(this);
+  Map<String, dynamic> toJson() => _$TimerCategoryToJson(this);
 }

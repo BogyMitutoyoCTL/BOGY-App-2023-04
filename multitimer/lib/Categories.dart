@@ -4,7 +4,7 @@ import 'package:multitimer/SubWidgets/CategWidget.dart';
 import 'package:multitimer/data/CategWidgetData.dart';
 import 'package:multitimer/data/Data.dart';
 
-import 'data/Category.dart';
+import 'data/TimerCategory.dart';
 
 class Categories extends StatefulWidget {
   Data data;

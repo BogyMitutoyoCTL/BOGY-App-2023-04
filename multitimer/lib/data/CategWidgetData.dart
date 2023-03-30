@@ -1,4 +1,4 @@
-import 'Category.dart';
+import 'TimerCategory.dart';
 
 class CategWidgetData {
   late TimerCategory category;
