@@ -16,7 +16,6 @@ class _TimerTileState extends State<TimerTile> {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        //Nudeln kochen
         padding: const EdgeInsets.all(30.0),
         child: Row(
           children: [
@@ -24,7 +23,7 @@ class _TimerTileState extends State<TimerTile> {
               child: new Container(
                 width: 290,
                 height: 145,
-                color: Colors.yellow,
+                color: widget.data.color,
                 child: Center(
                   child: Column(
                     children: [

@@ -21,6 +21,7 @@ class _TimersInCategoriesState extends State<TimersInCategories> {
       var aTimer = widget.data.category.timers[i];
       var timersWidgetData = TimerTileData();
       timersWidgetData.timer = aTimer;
+      timersWidgetData.color = widget.data.color;
       var timerWidget = new TimerTile(timersWidgetData);
       timerListe.add(timerWidget);
     }

@@ -15,55 +15,47 @@ class CreateTimer extends StatefulWidget {
 }
 
 class _CreateTimerState extends State<CreateTimer> {
-  var text = "";
-  var text2 = "";
-  TextEditingController controller = TextEditingController(text: "");
-  TextEditingController controller2 = TextEditingController(text: "");
+  var timerName = "";
+  TextEditingController nameController = TextEditingController(text: "");
 
   _CreateTimerState();
 
   @override
   void initState() {
     super.initState();
-    controller.text = text;
-    controller.addListener(() {
+    nameController.text = timerName;
+    nameController.addListener(() {
       setState(() {
-        text = controller.text;
+        timerName = nameController.text;
       });
     });
-
-    controller2.text = text2;
-    controller2.addListener(() {
-      setState(() {
-        text2 = controller2.text;
-      });
-    });
+    // A new timer needs at least one time segment
+    addSection();
   }
 
   @override
   void dispose() {
     super.dispose();
-    controller.dispose();
-    controller2.dispose();
+    nameController.dispose();
   }
 
   @override
   Widget build(
     BuildContext context,
   ) {
-    List<Widget> children2;
+    List<Widget> plusButton;
     var elevatedPlusButton = ElevatedButton(
-      onPressed: onClickAdd,
-      child: Icon(Icons.add),
+      onPressed: addSection,
       style: ElevatedButton.styleFrom(
         shape: CircleBorder(),
         padding: EdgeInsets.all(20),
       ),
+      child: Icon(Icons.add),
     );
-    if (extractedChildren.length < 4) {
-      children2 = [elevatedPlusButton];
+    if (sections.length < 4) {
+      plusButton = [elevatedPlusButton];
     } else {
-      children2 = [];
+      plusButton = [];
     }
 
     return Scaffold(
@@ -86,7 +78,8 @@ class _CreateTimerState extends State<CreateTimer> {
                     ),
                   ),
                   Container(
-                      width: 500, child: new TextField(controller: controller)),
+                      width: 500,
+                      child: new TextField(controller: nameController)),
                   Container(
                     height: 10,
                   ),
@@ -98,16 +91,8 @@ class _CreateTimerState extends State<CreateTimer> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0), /////////////////
+                    padding: const EdgeInsets.all(8.0),
                     child: Categoyselect(widget.data),
-                    /*new DropdownButton(
-                      hint: Text(
-                        "Choose a Category",
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                      items: list,
-                      onChanged: onChangedDropdown(),
-                    ),*/
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -116,13 +101,13 @@ class _CreateTimerState extends State<CreateTimer> {
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ),
-                  Column(children: extractedChildren),
+                  Column(children: sections),
                   Padding(
                     padding: const EdgeInsets.all(30.0),
                     child: Center(
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
-                        children: children2,
+                        children: plusButton,
                       ),
                     ),
                   ),
@@ -149,15 +134,15 @@ class _CreateTimerState extends State<CreateTimer> {
     );
   }
 
-  void onClickAdd() {
-    if (extractedChildren.length < 4) {
+  void addSection() {
+    if (sections.length < 4) {
       setState(() {
-        extractedChildren.add(NewTimer());
+        sections.add(NewTimer());
       });
     }
   }
 
-  List<Widget> extractedChildren = <Widget>[];
+  List<Widget> sections = <Widget>[];
   void onSave() {}
 
   onChangedDropdown() {}

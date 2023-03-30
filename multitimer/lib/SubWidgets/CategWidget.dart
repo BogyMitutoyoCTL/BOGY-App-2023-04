@@ -45,41 +45,27 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   //
   @override
   Widget build(BuildContext context) {
-    Container container;
+    Widget container;
     myController.text = widget.data.category.name;
     myController.addListener(() {
       widget.data.category.name = myController.text;
     });
     if (widget.data.editEnabled == true) {
-      container = Container(
-        width: 200,
-        child: TextFormField(
-          style: Theme.of(context).textTheme.bodyMedium,
-          decoration: InputDecoration(
-            labelText: AppLocalizations.of(context)!.newcateg,
-            border: UnderlineInputBorder(),
-          ),
-          controller: myController,
-          maxLines: 1,
-          maxLength: 20,
-          showCursor: true,
-          enabled: widget.data.editEnabled,
+      container = TextFormField(
+        style: Theme.of(context).textTheme.bodyMedium,
+        decoration: InputDecoration(
+          labelText: AppLocalizations.of(context)!.newcateg,
+          border: UnderlineInputBorder(),
         ),
+        controller: myController,
+        maxLines: 1,
+        maxLength: 20,
+        showCursor: true,
+        enabled: widget.data.editEnabled,
       );
-    }
-    ////
-    /*else if (categName == "") {
-      container = Container(
-        width: 200,
-        child: Text(categName = AppLocalizations.of(context)!.newcateg),
-      );
-    }*/
-    else {
-      container = Container(
-        width: 200,
-        child: Text(widget.data.category.name,
-            style: Theme.of(context).textTheme.bodyMedium),
-      );
+    } else {
+      container = Text(widget.data.category.name,
+          style: Theme.of(context).textTheme.bodyMedium);
     }
     /////
     return Padding(
@@ -91,12 +77,14 @@ class _CategoryWidgetState extends State<CategoryWidget> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: getCategColor(),
-                ),
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStatePropertyAll(widget.data.color)),
                 onPressed: onCategoryPress,
                 child: Row(children: [
-                  Padding(padding: const EdgeInsets.all(8.0), child: container),
+                  Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(width: 200, child: container)),
                   IconButton(
                     onPressed: onClickNameChange,
                     icon: Icon(Icons.edit),
@@ -126,39 +114,15 @@ class _CategoryWidgetState extends State<CategoryWidget> {
     });
   }
 
-  Color getCategColor() {
-    var c = 1;
-    for (int i = 0; i < 10; i++) {
-      List liste = [
-        Colors.red, //1
-        Colors.blue, //2
-        Colors.green, //3
-        Colors.amber, //4
-        Colors.purple, //5
-        Colors.yellow, //6
-        Colors.pink, //7
-        Colors.greenAccent, //8
-        Colors.brown //9
-      ];
-      Color colorMatch = liste[c];
-      c = c + 2;
-      if (lastSavedColor != colorMatch) {
-        categColor = colorMatch;
-        lastSavedColor = liste[c];
-        break;
-      }
-    }
-    return categColor;
-  }
-
   void onClickDeleteCategory() {
-    widget.data.callback(widget.data.category);
+    widget.data.delete(widget.data.category);
   }
 
   void onCategoryPress() {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
       var timersInCategData = TimersInCategData();
       timersInCategData.category = widget.data.category;
+      timersInCategData.color = widget.data.color;
       return TimersInCategories(timersInCategData);
     })); //Neuer Timer
   }
