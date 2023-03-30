@@ -30,8 +30,10 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
     }
     return Scaffold(
         appBar: new AppBar(
-            title: new Text(AppLocalizations.of(context)!.extimer,
-                style: Theme.of(context).textTheme.titleLarge)),
+          title: new Text(
+            AppLocalizations.of(context)!.extimer,
+          ),
+        ),
         body: Row(
           children: [
             new ElevatedButton(

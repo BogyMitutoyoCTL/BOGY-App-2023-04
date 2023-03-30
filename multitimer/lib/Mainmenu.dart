@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/ActiveTimers.dart';
 import 'package:multitimer/Categories.dart';
+import 'package:multitimer/CreateTimer.dart';
 import 'package:multitimer/Settings.dart';
-import 'package:multitimer/TimerTile.dart';
 import 'package:multitimer/data/Data.dart';
 import 'package:multitimer/notification_service/local_notice_service.dart';
 
@@ -24,9 +24,9 @@ class _MainmenuState extends State<Mainmenu> {
     var width = 400.0;
     return Scaffold(
       appBar: new AppBar(
-        title: new Text(AppLocalizations.of(context)!.mainmenu,
-            style: Theme.of(context).textTheme.titleLarge),
-      ),
+          title: new Text(
+        AppLocalizations.of(context)!.mainmenu,
+      )),
       body: ListView(primary: true, scrollDirection: Axis.vertical, children: [
         Center(
           child: Padding(

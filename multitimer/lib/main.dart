@@ -54,7 +54,7 @@ class MultiTimerApp extends StatelessWidget {
                   title: "MituTimer",
                   themeMode: mode,
                   theme: ThemeData(
-                      canvasColor: appbarColor,
+                      canvasColor: appbarColor, //drop down list color
                       elevatedButtonTheme: ElevatedButtonThemeData(
                           style:
                               ElevatedButton.styleFrom(foregroundColor: black)),

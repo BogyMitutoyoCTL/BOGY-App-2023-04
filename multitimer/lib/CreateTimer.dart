@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/data/Data.dart';
 
-import 'NewTimerCreate.dart';
+import 'SubWidgets/NewTimerCreate.dart';
 
 const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
 
@@ -66,8 +66,6 @@ class _CreateTimerState extends State<CreateTimer> {
     } else {
       children2 = [];
     }
-    ;
-    var list;
 
     return Scaffold(
       appBar: new AppBar(

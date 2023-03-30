@@ -28,10 +28,10 @@ class _SettingsState extends State<Settings> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: new Text(AppLocalizations.of(context)!.settings,
-                  style: Theme.of(context).textTheme.titleLarge),
-            ),
+                padding: const EdgeInsets.all(8.0),
+                child: new Text(
+                  AppLocalizations.of(context)!.settings,
+                )),
             Icon(Icons.settings),
           ],
         ),

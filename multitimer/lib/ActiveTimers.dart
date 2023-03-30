@@ -28,8 +28,9 @@ class _ActiveTimersState extends State<ActiveTimers> {
 
     return Scaffold(
         appBar: new AppBar(
-            title: new Text(AppLocalizations.of(context)!.aktimer,
-                style: Theme.of(context).textTheme.titleLarge)),
+            title: new Text(
+          AppLocalizations.of(context)!.aktimer,
+        )),
         body: Row(
           children: [
             Expanded(
