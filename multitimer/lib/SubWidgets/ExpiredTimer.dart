@@ -51,7 +51,7 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
                               onPressed: onNext,
                               icon: Icon(
                                 Icons.play_arrow_outlined,
-                                size: 15,
+                                size: 30,
                               ),
                               style: ElevatedButton.styleFrom(
                                 shape: CircleBorder(),
@@ -59,7 +59,7 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
                               ),
                             ),
                             new Text(AppLocalizations.of(context)!.next,
-                                style: Theme.of(context).textTheme.bodySmall)
+                                style: Theme.of(context).textTheme.labelMedium)
                           ],
                         ),
                       ),
@@ -69,14 +69,14 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
                               onPressed: onDone,
                               icon: Icon(
                                 Icons.check_box,
-                                size: 15,
+                                size: 30,
                               ),
                               style: ElevatedButton.styleFrom(
                                 shape: CircleBorder(),
                                 padding: EdgeInsets.all(20),
                               )),
                           new Text(AppLocalizations.of(context)!.finish,
-                              style: Theme.of(context).textTheme.bodySmall)
+                              style: Theme.of(context).textTheme.labelMedium)
                         ],
                       )
                     ],

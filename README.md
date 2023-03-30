@@ -14,6 +14,7 @@ Um Nachrichten über abgelaufene Timer auf dem Sperrbildschirm anzuzeigen haben 
 ```
 flutter_local_notifications: ^9.7.0
 ```
+https://pub.dev/packages/flutter_local_notifications
 
 Dazu muss auch in der Datei `android\app\src\main\AndroidManifest.xml` folgendes eingetragen werden:
 
@@ -24,7 +25,10 @@ Dazu muss auch in der Datei `android\app\src\main\AndroidManifest.xml` folgendes
 
 ### App Icon
 
+Um Icons für verschiedene Plattformen generieren zu lassen kann man folgendes Package verwenden:
+https://pub.dev/packages/flutter_launcher_icons
 
+In unserem Projekt haben wir die Konfiguration in die `pubspec.yaml` integriert. Die Beschreibung dafür findet man auf der Projektseite des Packages.
 
 ## Mittwoch 29.3.2023
 
