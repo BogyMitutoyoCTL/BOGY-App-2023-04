@@ -21,6 +21,12 @@ class _ActiveTimerState extends State<ActiveTimer> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    refreshTimer.cancel();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return new Column(
       children: [

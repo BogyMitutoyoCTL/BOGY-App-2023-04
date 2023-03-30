@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/data/CategorySelectData.dart';
 import 'package:multitimer/data/Data.dart';
+import 'package:multitimer/data/NewSectionData.dart';
 
 import 'SubWidgets/Categoryselect.dart';
-import 'SubWidgets/NewTimer.dart';
+import 'SubWidgets/NewSection.dart';
 import 'data/Timer.dart';
 
 class CreateTimer extends StatefulWidget {
@@ -63,6 +64,11 @@ class _CreateTimerState extends State<CreateTimer> {
     categorySelectionData.categories = widget.data.categories;
     categorySelectionData.selectedCategory = widget.data.categories.first;
 
+    List<Widget> sectionWidgets = [];
+    for (var sectionData in sections) {
+      sectionWidgets.add(NewTimer(sectionData));
+    }
+
     return Scaffold(
       appBar: new AppBar(
           title: new Text(
@@ -90,7 +96,7 @@ class _CreateTimerState extends State<CreateTimer> {
                 AppLocalizations.of(context)!.time + ":",
                 style: Theme.of(context).textTheme.titleMedium,
               ),
-              Column(children: sections),
+              Column(children: sectionWidgets),
               Container(
                 height: 30,
               ),
@@ -114,12 +120,12 @@ class _CreateTimerState extends State<CreateTimer> {
   void addSection() {
     if (sections.length < 4) {
       setState(() {
-        sections.add(NewTimer());
+        sections.add(NewSectionData());
       });
     }
   }
 
-  List<NewTimer> sections = [];
+  List<NewSectionData> sections = [];
   void onSave() {
     Timer timer = new Timer();
     timer.name = timerName;
