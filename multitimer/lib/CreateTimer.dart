@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/data/Data.dart';
 
 import 'SubWidgets/Categoryselect.dart';
-import 'SubWidgets/NewTimerCreate.dart';
+import 'SubWidgets/NewTimer.dart';
 
 class CreateTimer extends StatefulWidget {
   Data data;
@@ -102,7 +102,9 @@ class _CreateTimerState extends State<CreateTimer> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    new ElevatedButton(onPressed: onSave, child: new Text(AppLocalizations.of(context)!.save, style: Theme.of(context).textTheme.bodySmall)),
+                    new ElevatedButton(
+                        onPressed: isInputValid() ? onSave : null,
+                        child: new Text(AppLocalizations.of(context)!.save, style: Theme.of(context).textTheme.bodySmall)),
                   ],
                 ),
               ),
@@ -121,8 +123,21 @@ class _CreateTimerState extends State<CreateTimer> {
     }
   }
 
-  List<Widget> sections = <Widget>[];
-  void onSave() {}
+  List<NewTimer> sections = [];
+  void onSave() {
+    // TODO: create a timer
+    // TODO: create sections
+    // TODO: add sections to the timer
+    // TODO: put the timer into the category
+  }
 
   onChangedDropdown() {}
+
+  bool isInputValid() {
+    bool valid = timerName.isNotEmpty;
+    for (var section in sections) {
+      valid &= true; // TODO: access info from subwidget
+    }
+    return valid;
+  }
 }
