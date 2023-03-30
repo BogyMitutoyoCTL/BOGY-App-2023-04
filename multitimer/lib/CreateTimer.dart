@@ -130,8 +130,6 @@ class _CreateTimerState extends State<CreateTimer> {
     goBack();
   }
 
-  onChangedDropdown() {}
-
   bool isInputValid() {
     bool valid = timerName.isNotEmpty;
     for (var section in sections) {
