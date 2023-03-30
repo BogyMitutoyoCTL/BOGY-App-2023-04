@@ -171,17 +171,14 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green, ////Muss verändert werden!!!
+      //color: Colors.green, ////Muss verändert werden!!!
       child: DropdownButton<String>(
         hint: Text("", style: Theme.of(context).textTheme.labelSmall),
         value: dropdownValue,
-        dropdownColor: Colors.green, ////Muss verändert werden!!!
-        elevation: 16,
+        // dropdownColor: Colors.green, ////Muss verändert werden!!!
+        borderRadius: BorderRadius.all(Radius.circular(15.0)),
         icon: Icon(Icons.arrow_downward),
         style: Theme.of(context).textTheme.labelSmall,
-        underline: Container(
-          height: 20,
-        ),
         onChanged: (String? value) {
           // This is called when the user selects an item.
           setState(() {
