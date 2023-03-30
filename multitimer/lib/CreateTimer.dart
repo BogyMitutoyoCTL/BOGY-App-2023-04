@@ -5,8 +5,8 @@ import 'package:multitimer/data/Data.dart';
 import 'package:multitimer/data/NewSectionData.dart';
 
 import 'SubWidgets/Categoryselect.dart';
-import 'SubWidgets/NewSection.dart';
 import 'data/Timer.dart';
+import 'subwidgets/NewSection.dart';
 
 class CreateTimer extends StatefulWidget {
   Data data;
@@ -66,7 +66,7 @@ class _CreateTimerState extends State<CreateTimer> {
 
     List<Widget> sectionWidgets = [];
     for (var sectionData in sections) {
-      sectionWidgets.add(NewTimer(sectionData));
+      sectionWidgets.add(NewSection(sectionData));
     }
 
     return Scaffold(
