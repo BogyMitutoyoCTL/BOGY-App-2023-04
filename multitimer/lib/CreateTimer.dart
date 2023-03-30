@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/data/Data.dart';
 
+import 'SubWidgets/Categoryselect.dart';
 import 'SubWidgets/NewTimerCreate.dart';
-
-const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
 
 class CreateTimer extends StatefulWidget {
   Data data;
@@ -99,7 +98,7 @@ class _CreateTimerState extends State<CreateTimer> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0), /////////////////
-                    child: DropdownButtonExample(),
+                    child: Categoyselect(widget.data),
                     /*new DropdownButton(
                       hint: Text(
                         "Choose a Category",
@@ -161,42 +160,4 @@ class _CreateTimerState extends State<CreateTimer> {
   void onSave() {}
 
   onChangedDropdown() {}
-}
-
-class DropdownButtonExample extends StatefulWidget {
-  const DropdownButtonExample({super.key});
-
-  @override
-  State<DropdownButtonExample> createState() => _DropdownButtonExampleState();
-}
-
-class _DropdownButtonExampleState extends State<DropdownButtonExample> {
-  String dropdownValue = list.first;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.green, ////Muss verändert werden!!!
-      child: DropdownButton<String>(
-        hint: Text("", style: Theme.of(context).textTheme.labelSmall),
-        value: dropdownValue,
-        // dropdownColor: Colors.green, ////Muss verändert werden!!!
-        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-        icon: Icon(Icons.arrow_downward),
-        style: Theme.of(context).textTheme.labelSmall,
-        onChanged: (String? value) {
-          // This is called when the user selects an item.
-          setState(() {
-            dropdownValue = value!;
-          });
-        },
-        items: list.map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
-          );
-        }).toList(),
-      ),
-    );
-  }
 }
