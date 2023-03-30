@@ -31,13 +31,9 @@ class _SettingsState extends State<Settings> {
               padding: const EdgeInsets.all(8.0),
               child: new Text(
                 AppLocalizations.of(context)!.settings,
-                style: TextStyle(color: textcolor),
               ),
             ),
-            Icon(
-              Icons.settings,
-              color: Colors.white,
-            ),
+            Icon(Icons.settings),
           ],
         ),
         centerTitle: true,
@@ -49,11 +45,7 @@ class _SettingsState extends State<Settings> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                new Text(
-                  AppLocalizations.of(context)!.changetheme,
-                  style:
-                      TextStyle(color: textcolor, fontWeight: FontWeight.w700),
-                ),
+                new Text(AppLocalizations.of(context)!.changetheme),
               ],
             ),
           ),

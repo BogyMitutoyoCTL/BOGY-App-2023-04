@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:multitimer/data/ExpiredTimerData.dart';
 
 class ExpiredTimer extends StatefulWidget {
-  const ExpiredTimer({Key? key}) : super(key: key);
+  ExpiredTimerData data;
+
+  ExpiredTimer(ExpiredTimerData this.data, {Key? key}) : super(key: key);
 
   @override
   State<ExpiredTimer> createState() => _ExpiredTimerState();
@@ -22,16 +25,14 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 new Text(
-                  "Nudeln Kochen",
+                  widget.data.timer.name,
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 new Text(
                   "Phase 1 von 3 ist aktiv:",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-                new Text("Wasser zum kochen bringen.",
-                    style: Theme.of(context).textTheme.bodySmall),
-                new Text("Klingelt in 2:56",
+                new Text(widget.data.timer.sections[0].message,
                     style: Theme.of(context).textTheme.bodySmall),
                 Padding(
                   padding: const EdgeInsets.all(18.0),

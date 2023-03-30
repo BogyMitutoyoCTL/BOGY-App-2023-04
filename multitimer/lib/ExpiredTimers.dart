@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'SubWidgets/ExpiredTimer.dart';
+import 'data/ExpiredTimerData.dart';
 
 class ExpiredTimers extends StatefulWidget {
-  const ExpiredTimers({Key? key}) : super(key: key);
+  const ExpiredTimers({key}) : super(key: key);
 
   @override
   State<ExpiredTimers> createState() => _ExpiredTimersState();
@@ -33,11 +34,11 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
                   children: [
                     Column(
                       children: [
-                        ExpiredTimer(),
-                        ExpiredTimer(),
-                        ExpiredTimer(),
-                        ExpiredTimer(),
-                        ExpiredTimer(),
+                        ExpiredTimer(ExpiredTimerData()),
+                        ExpiredTimer(ExpiredTimerData()),
+                        ExpiredTimer(ExpiredTimerData()),
+                        ExpiredTimer(ExpiredTimerData()),
+                        ExpiredTimer(ExpiredTimerData()),
                       ],
                     ),
                   ]),
