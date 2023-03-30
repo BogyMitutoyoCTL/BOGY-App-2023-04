@@ -14,8 +14,9 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:
-            new AppBar(title: new Text(AppLocalizations.of(context)!.extimer)),
+        appBar: new AppBar(
+            title: new Text(AppLocalizations.of(context)!.extimer,
+                style: Theme.of(context).textTheme.titleLarge)),
         body: Row(
           children: [
             new ElevatedButton(

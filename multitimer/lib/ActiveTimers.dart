@@ -4,9 +4,10 @@ import 'package:multitimer/ExpiredTimers.dart';
 import 'package:multitimer/data/Activetimersdata.dart';
 
 import 'SubWidgets/ActiveTimer.dart';
+import 'data/Data.dart';
 
 class ActiveTimers extends StatefulWidget {
-  var data;
+  Data data;
 
   ActiveTimers(this.data, {Key? key}) : super(key: key);
   @override
@@ -16,15 +17,19 @@ class ActiveTimers extends StatefulWidget {
 class _ActiveTimersState extends State<ActiveTimers> {
   @override
   Widget build(BuildContext context) {
-    List<Widget> timerlist = [];
-    for (var i = 0; i <= 100; i++) {
-      var widget = ActiveTimer(ActiveTimerdata());
-      timerlist.add(widget);
+    var timerlist = widget.data.getActiveTimers();
+    List<Widget> widgetlist = [];
+    for (var i = 0; i < timerlist.length; i++) {
+      var activedata = ActiveTimerdata();
+      activedata.timer = timerlist[i];
+      var widget = ActiveTimer(activedata);
+      widgetlist.add(widget);
     }
 
     return Scaffold(
-        appBar:
-            new AppBar(title: new Text(AppLocalizations.of(context)!.aktimer)),
+        appBar: new AppBar(
+            title: new Text(AppLocalizations.of(context)!.aktimer,
+                style: Theme.of(context).textTheme.titleLarge)),
         body: Row(
           children: [
             Expanded(
@@ -32,7 +37,7 @@ class _ActiveTimersState extends State<ActiveTimers> {
                   primary: true,
                   scrollDirection: Axis.vertical,
                   children: [
-                    Column(children: timerlist),
+                    Column(children: widgetlist),
                   ]),
             ),
             new ElevatedButton(

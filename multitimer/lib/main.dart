@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'SplashScreen.dart';
@@ -17,6 +19,17 @@ Future<void> main() async {
   Data data = await storage.load();
   print(jsonEncode(data));
   var myApp = MultiTimerApp(data);
+  if (!kIsWeb) {
+    await Permission.notification.isDenied.then((value) {
+      print("Do we have permissions to send out a notification?");
+      if (value) {
+        print("No we don't, lets request...");
+        Permission.notification.request();
+      } else {
+        print("Yes we have. Lets send out some notifications. :-D");
+      }
+    });
+  }
   runApp(myApp);
 }
 
@@ -44,11 +57,15 @@ class MultiTimerApp extends StatelessWidget {
                           titleTextStyle: TextStyle(fontSize: 42),
                           backgroundColor: appbarColor),
                       textTheme: TextTheme(
+                        titleLarge: TextStyle(
+                            fontSize: 36,
+                            color: white,
+                            fontWeight: FontWeight.w300),
                         titleMedium: TextStyle(
                             fontSize: 22,
                             color: black,
                             fontWeight: FontWeight.w500),
-                        bodyLarge: TextStyle(fontSize: 48.0, color: black),
+                        bodyLarge: TextStyle(fontSize: 38.0, color: black),
                         bodyMedium: TextStyle(fontSize: 24.0, color: black),
                         bodySmall: TextStyle(fontSize: 20.0, color: black),
                         labelSmall: TextStyle(fontSize: 16.0, color: black),
@@ -73,11 +90,15 @@ class MultiTimerApp extends StatelessWidget {
                           titleTextStyle: TextStyle(fontSize: 42),
                           backgroundColor: appbarColor),
                       textTheme: TextTheme(
+                        titleLarge: TextStyle(
+                            fontSize: 30,
+                            color: white,
+                            fontWeight: FontWeight.w300),
                         titleMedium: TextStyle(
                             fontSize: 22,
                             color: white,
                             fontWeight: FontWeight.w500),
-                        bodyLarge: TextStyle(fontSize: 48.0, color: white),
+                        bodyLarge: TextStyle(fontSize: 38.0, color: white),
                         bodyMedium: TextStyle(fontSize: 24.0, color: white),
                         bodySmall: TextStyle(fontSize: 20.0, color: white),
                         labelSmall: TextStyle(fontSize: 16.0, color: white),

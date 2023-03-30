@@ -49,6 +49,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  permission_handler: ^10.2.0
 
   # Wake up the app after n minutes
   android_alarm_manager_plus: ^2.1.1
