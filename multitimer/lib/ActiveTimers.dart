@@ -23,8 +23,9 @@ class _ActiveTimersState extends State<ActiveTimers> {
       var activedata = ActiveTimerdata();
       activedata.reload = reload;
       activedata.timer = activeTimer;
-      var widget = ActiveTimer(activedata);
-      widgetlist.add(widget);
+      activedata.color = widget.data.colorOf(activeTimer.category);
+      var subwidget = ActiveTimer(activedata);
+      widgetlist.add(subwidget);
     }
 
     return Scaffold(
