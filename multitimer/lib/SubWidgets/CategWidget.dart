@@ -145,7 +145,9 @@ class _CategoryWidgetState extends State<CategoryWidget> {
     return categColor;
   }
 
-  void onClickDeleteCategory() {}
+  void onClickDeleteCategory() {
+    widget.data.callback(widget.data.category);
+  }
 
   void onCategoryPress() {}
 }
