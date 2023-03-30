@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/ExpiredTimers.dart';
-import 'package:multitimer/data/Activetimersdata.dart';
+import 'package:multitimer/data/Activetimerdata.dart';
 
 import 'SubWidgets/ActiveTimer.dart';
 import 'data/Data.dart';

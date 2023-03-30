@@ -96,8 +96,9 @@ class MultiTimerApp extends StatelessWidget {
                       //////////////////////////DARK THEME
                       canvasColor: appbarColor,
                       elevatedButtonTheme: ElevatedButtonThemeData(
-                          style:
-                              ElevatedButton.styleFrom(foregroundColor: white)),
+                          style: ElevatedButton.styleFrom(
+                              foregroundColor: white,
+                              backgroundColor: Colors.black)),
                       inputDecorationTheme: InputDecorationTheme(
                           counterStyle: TextStyle(color: Colors.white)),
                       appBarTheme: AppBarTheme(
