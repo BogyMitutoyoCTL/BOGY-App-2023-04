@@ -1,4 +1,24 @@
 # Android Timer App
+## Donnerstag 30.3.2023
+
+### Vereinfachung des Datenaustauschs
+
+Wir haben darauf verzichtet, die Daten eines StatefulWidget an seinen State durchzureichen. Stattdessen geben wir die Daten nur noch an das Widget und greifen dann im State mittels `widget.data` auf die Daten zu.
+
+Für die Subwidgets haben wir eigene Datenklassen erstellt und Logik ergänzt, damit diese Daten auch benutzt werden.
+
+### Notifications auf dem Sperrbildschirm
+
+Um Nachrichten über abgelaufene Timer auf dem Sperrbildschirm anzuzeigen haben wir eine Bibliothek installiert (`pubspec.yaml`):
+
+```
+flutter_local_notifications: ^9.7.0
+```
+
+### App Icon
+
+
+
 ## Mittwoch 29.3.2023
 
 Wir haben weitere Widgets programmiert, die Themes angepasst und schon erste Sub-Widgets erstellt.
