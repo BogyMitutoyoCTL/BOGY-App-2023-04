@@ -30,11 +30,16 @@ class Data {
   }
 
   List<Timer> getActiveTimers() {
+    return filterTimers((Timer timer) => timer.isActive);
+  }
+
+  List<Timer> filterTimers(bool Function(Timer timer) filter) {
     List<Timer> activeTimers = [];
-    for (var category = 0; category < categories.length; ++category) {
-      for (var timer = 0; timer < categories[category].timers.length; timer++) {
-        if (categories[category].timers[timer].isActive) {
-          activeTimers.add(categories[category].timers[timer]);
+    for (var category in categories) {
+      for (var timer in category.timers) {
+        if (filter(timer)) {
+          timer.category = category;
+          activeTimers.add(timer);
         }
       }
     }
@@ -42,18 +47,7 @@ class Data {
   }
 
   List<Timer> getExpiredTimers() {
-    List<Timer> expiredTimers = [];
-    for (var c = 0; c < categories.length; ++c) {
-      var category = categories[c];
-      for (var t = 0; t < category.timers.length; t++) {
-        var timer = category.timers[t];
-        timer.category = category;
-        if (timer.isExpired) {
-          expiredTimers.add(timer);
-        }
-      }
-    }
-    return expiredTimers;
+    return filterTimers((timer) => timer.isExpired);
   }
 
   Color colorOf(TimerCategory group) {
