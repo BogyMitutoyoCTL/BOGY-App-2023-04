@@ -14,6 +14,11 @@ class ExpiredTimers extends StatefulWidget {
 class _ExpiredTimersState extends State<ExpiredTimers> {
   @override
   Widget build(BuildContext context) {
+    List<Widget> timerlist = [];
+    for (var j = 0; j <= 100; j++) {
+      var widget = ExpiredTimer(ExpiredTimerData());
+      timerlist.add(widget);
+    }
     return Scaffold(
         appBar:
             new AppBar(title: new Text(AppLocalizations.of(context)!.extimer)),
@@ -32,15 +37,7 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
                   primary: true,
                   scrollDirection: Axis.vertical,
                   children: [
-                    Column(
-                      children: [
-                        ExpiredTimer(ExpiredTimerData()),
-                        ExpiredTimer(ExpiredTimerData()),
-                        ExpiredTimer(ExpiredTimerData()),
-                        ExpiredTimer(ExpiredTimerData()),
-                        ExpiredTimer(ExpiredTimerData()),
-                      ],
-                    ),
+                    Column(children: timerlist),
                   ]),
             ),
           ],

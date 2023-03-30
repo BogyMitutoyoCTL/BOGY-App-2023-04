@@ -1,5 +1,5 @@
 import 'Timer.dart';
 
 class ExpiredTimerData {
-  late Timer timer;
+  late Timer timer = new Timer();
 }
