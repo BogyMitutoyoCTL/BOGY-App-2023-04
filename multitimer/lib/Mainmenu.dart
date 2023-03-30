@@ -39,7 +39,7 @@ class _MainmenuState extends State<Mainmenu> {
                 ),
                 new Container(width: width, height: 15),
                 new Image.asset(
-                  'assets/images/Hourglass.png',
+                  'assets/images/hourglass.png',
                   width: 200,
                   height: 160,
                 ),

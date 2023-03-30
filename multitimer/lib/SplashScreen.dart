@@ -22,6 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
           MaterialPageRoute(builder: (context) => Mainmenu(data)));
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 style: TextStyle(fontFamily: "Lobster"),
               ),
             ),
-            new Image.asset("assets/images/Logo.png", width: 200),
+            new Image.asset("assets/images/logo.png", width: 200),
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 100, 0, 0),
               child: new Text("    Loading . . .", textScaleFactor: 1),
@@ -48,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: new Image.asset(
-                  "assets/images/LogoM.png",
+                  "assets/images/logo_m.png",
                   width: 100,
                 ),
               ),
