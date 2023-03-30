@@ -17,7 +17,7 @@ class ExpiredTimers extends StatefulWidget {
 class _ExpiredTimersState extends State<ExpiredTimers> {
   @override
   Widget build(BuildContext context) {
-    var timerlist = widget.data.getActiveTimers();
+    var timerlist = widget.data.getExpiredTimers();
     List<Widget> widgetlist = [];
     for (var j = 0; j < timerlist.length; j++) {
       var expireddata = ExpiredTimerData();
