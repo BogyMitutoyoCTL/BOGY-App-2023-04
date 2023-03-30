@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../data/Activetimersdata.dart';
+import '../data/Activetimerdata.dart';
 
 class ActiveTimer extends StatefulWidget {
   ActiveTimerdata data;
@@ -48,9 +48,9 @@ class _ActiveTimerState extends State<ActiveTimer> {
                     children: [
                       Column(
                         children: [
-                          new ElevatedButton(
+                          new IconButton(
                             onPressed: onDelete,
-                            child: Icon(
+                            icon: Icon(
                               Icons.restore_from_trash,
                               size: 15,
                             ),
@@ -65,12 +65,9 @@ class _ActiveTimerState extends State<ActiveTimer> {
                       ),
                       Column(
                         children: [
-                          new ElevatedButton(
+                          new IconButton(
                               onPressed: onRestart,
-                              child: Icon(
-                                Icons.restart_alt,
-                                size: 15,
-                              ),
+                              icon: Icon(Icons.restart_alt, size: 15),
                               style: ElevatedButton.styleFrom(
                                 shape: CircleBorder(),
                                 padding: EdgeInsets.all(20),
