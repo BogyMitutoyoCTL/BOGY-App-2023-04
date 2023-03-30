@@ -6,12 +6,12 @@ part of 'Category.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Category _$CategoryFromJson(Map<String, dynamic> json) {
+TimerCategory _$CategoryFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     requiredKeys: const ['name'],
   );
-  return Category(
+  return TimerCategory(
     name: json['name'] as String? ?? "",
   )..timers = (json['timers'] as List<dynamic>?)
           ?.map((e) => Timer.fromJson(e as Map<String, dynamic>))
@@ -19,7 +19,8 @@ Category _$CategoryFromJson(Map<String, dynamic> json) {
       [];
 }
 
-Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
+Map<String, dynamic> _$CategoryToJson(TimerCategory instance) =>
+    <String, dynamic>{
       'timers': instance.timers.map((e) => e.toJson()).toList(),
       'name': instance.name,
     };

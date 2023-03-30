@@ -13,7 +13,7 @@ Data _$DataFromJson(Map<String, dynamic> json) {
   );
   return Data()
     ..categories = (json['categories'] as List<dynamic>?)
-            ?.map((e) => Category.fromJson(e as Map<String, dynamic>))
+            ?.map((e) => TimerCategory.fromJson(e as Map<String, dynamic>))
             .toList() ??
         []
     ..theme = $enumDecode(_$ThemeModeEnumMap, json['theme']);

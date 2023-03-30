@@ -42,7 +42,7 @@ class Timer {
     activesectionnumber++;
   }
 
-  late Category category;
+  late TimerCategory category;
 
   @override
   String toString() => toJson().toString();

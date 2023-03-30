@@ -10,7 +10,7 @@ part 'Data.g.dart';
 @JsonSerializable(explicitToJson: true, includeIfNull: true)
 class Data {
   @JsonKey(defaultValue: [])
-  List<Category> categories = [];
+  List<TimerCategory> categories = [];
 
   @JsonKey(required: true)
   ThemeMode theme = ThemeMode.light;
@@ -56,7 +56,7 @@ class Data {
     return expiredTimers;
   }
 
-  Color colorOf(Category group) {
+  Color colorOf(TimerCategory group) {
     var index = categories.indexOf(group);
     return GroupColors().getColor(index);
   }

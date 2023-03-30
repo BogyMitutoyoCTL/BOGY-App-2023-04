@@ -83,13 +83,13 @@ class _CategoriesState extends State<Categories> {
   void onClickAdd() {
     if (widget.data.categories.length < 20) {
       setState(() {
-        var category = new Category();
+        var category = new TimerCategory();
         widget.data.categories.add(category);
       });
     }
   }
 
-  void deleteCateg(Category categoryWhole) {
+  void deleteCateg(TimerCategory categoryWhole) {
     setState(() {
       widget.data.categories.remove(categoryWhole);
     });

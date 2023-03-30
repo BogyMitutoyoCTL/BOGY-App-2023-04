@@ -12,28 +12,30 @@ class Categoyselect extends StatefulWidget {
 }
 
 class _CategoyselectState extends State<Categoyselect> {
-  Category dropdownValue = Category();
+  TimerCategory? dropdownValue = null;
 
   @override
   Widget build(BuildContext context) {
+    if (dropdownValue == null) dropdownValue = widget.data.categories.first;
     return Container(
       //color: Colors.green, ////Muss verändert werden!!!
-      child: DropdownButton<Category>(
+      child: DropdownButton<TimerCategory>(
         hint: Text("", style: Theme.of(context).textTheme.labelSmall),
         value: dropdownValue,
         // dropdownColor: Colors.green, ////Muss verändert werden!!!
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
         icon: Icon(Icons.arrow_downward),
         style: Theme.of(context).textTheme.labelSmall,
-        onChanged: (Category? value) {
+        onChanged: (TimerCategory? value) {
           // This is called when the user selects an item.
           setState(() {
-            dropdownValue = value!;
+            debugPrint(value!.name);
+            dropdownValue = value;
           });
         },
         items: widget.data.categories
-            .map<DropdownMenuItem<Category>>((Category value) {
-          return DropdownMenuItem<Category>(
+            .map<DropdownMenuItem<TimerCategory>>((TimerCategory value) {
+          return DropdownMenuItem<TimerCategory>(
             value: value,
             child: Text(value.name),
           );

@@ -1,5 +1,5 @@
 import 'Category.dart';
 
 class TimersInCategData {
-  late Category category;
+  late TimerCategory category;
 }

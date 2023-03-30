@@ -1,7 +1,7 @@
 import 'Category.dart';
 
 class CategWidgetData {
-  late Category category;
+  late TimerCategory category;
   late bool editEnabled;
-  late void Function(Category categoryWhole) callback;
+  late void Function(TimerCategory categoryWhole) callback;
 }
