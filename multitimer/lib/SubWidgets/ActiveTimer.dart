@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class ActiveTimer extends StatelessWidget {
-  const ActiveTimer({Key? key}) : super(key: key);
+import '../data/Activetimersdata.dart';
 
+class ActiveTimer extends StatefulWidget {
+  ActiveTimerdata data;
+
+  ActiveTimer(this.data, {Key? key}) : super(key: key);
+
+  @override
+  State<ActiveTimer> createState() => _ActiveTimerState();
+}
+
+class _ActiveTimerState extends State<ActiveTimer> {
   @override
   Widget build(BuildContext context) {
     return new Column(
@@ -20,12 +29,12 @@ class ActiveTimer extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                     child: new Text(
-                      "Nudeln Kochen",
+                      widget.data.timer.name,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
                   new Text(
-                    "Phase 1 von 3 ist aktiv:",
+                    widget.data.timer.sections[0].message,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   new Text("Wasser zum kochen bringen.",

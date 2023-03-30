@@ -31,8 +31,6 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
                 ),
                 new Text("Wasser zum kochen bringen.",
                     style: Theme.of(context).textTheme.bodySmall),
-                new Text("Klingelt in 2:56",
-                    style: Theme.of(context).textTheme.bodySmall),
                 Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: Row(

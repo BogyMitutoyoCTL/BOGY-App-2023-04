@@ -3,6 +3,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/ExpiredTimers.dart';
 import 'package:multitimer/SubWidgets/ActiveTimer.dart';
 
+import 'data/Activetimersdata.dart';
+
 class ActiveTimers extends StatefulWidget {
   var data;
 
@@ -26,11 +28,11 @@ class _ActiveTimersState extends State<ActiveTimers> {
                   children: [
                     Column(
                       children: [
-                        ActiveTimer(),
-                        ActiveTimer(),
-                        ActiveTimer(),
-                        ActiveTimer(),
-                        ActiveTimer(),
+                        ActiveTimer(ActiveTimerdata()),
+                        ActiveTimer(ActiveTimerdata()),
+                        ActiveTimer(ActiveTimerdata()),
+                        ActiveTimer(ActiveTimerdata()),
+                        ActiveTimer(ActiveTimerdata()),
                       ],
                     ),
                   ]),
