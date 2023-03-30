@@ -67,7 +67,7 @@ class _NewTimerState extends State<NewTimer> {
             Container(
               width: 55,
               child: new TextField(
-                  maxLength: 2,
+                  maxLength: 3,
                   controller: controller4,
                   decoration: InputDecoration(
                     counterStyle: Theme.of(context).textTheme.labelSmall,
