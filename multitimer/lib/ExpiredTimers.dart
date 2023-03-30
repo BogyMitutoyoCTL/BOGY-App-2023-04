@@ -21,9 +21,12 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
     List<Widget> widgetlist = [];
     for (var j = 0; j < timerlist.length; j++) {
       var expireddata = ExpiredTimerData();
-      expireddata.timer = timerlist[j];
-      var widget = ExpiredTimer(expireddata);
-      widgetlist.add(widget);
+      var timer = timerlist[j];
+      expireddata.timer = timer;
+      var remembercolor = widget.data.colorOf(timer.category);
+      var timerwidget = ExpiredTimer(expireddata);
+      expireddata.color = remembercolor;
+      widgetlist.add(timerwidget);
     }
     return Scaffold(
         appBar: new AppBar(

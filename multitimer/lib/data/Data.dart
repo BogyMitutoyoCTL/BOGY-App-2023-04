@@ -43,10 +43,13 @@ class Data {
 
   List<Timer> getExpiredTimers() {
     List<Timer> expiredTimers = [];
-    for (var category = 0; category < categories.length; ++category) {
-      for (var timer = 0; timer < categories[category].timers.length; timer++) {
-        if (categories[category].timers[timer].isExpired) {
-          expiredTimers.add(categories[category].timers[timer]);
+    for (var c = 0; c < categories.length; ++c) {
+      var category = categories[c];
+      for (var t = 0; t < category.timers.length; t++) {
+        var timer = category.timers[t];
+        timer.category = category;
+        if (timer.isExpired) {
+          expiredTimers.add(timer);
         }
       }
     }

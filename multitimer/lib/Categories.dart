@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/SubWidgets/CategWidget.dart';
+import 'package:multitimer/data/CategWidgetData.dart';
 import 'package:multitimer/data/Data.dart';
 
 import 'data/Category.dart';
@@ -71,8 +72,10 @@ class _CategoriesState extends State<Categories> {
   void onClickAdd() {
     if (extractedChildren.length < 20) {
       setState(() {
-        var category = Category();
-        extractedChildren.add(CategoryWidget(category, true));
+        var categWidgetData = CategWidgetData();
+        categWidgetData.category = Category();
+        categWidgetData.editEnabled = true;
+        extractedChildren.add(CategoryWidget(categWidgetData));
       });
     }
   }

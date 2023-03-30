@@ -20,7 +20,7 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
         Padding(
           padding: const EdgeInsets.all(30.0),
           child: new Container(
-            color: Colors.yellow,
+            color: widget.data.color,
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(

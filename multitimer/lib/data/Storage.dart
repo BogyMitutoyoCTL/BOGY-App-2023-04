@@ -43,6 +43,8 @@ class Storage {
     data.categories.add(kochen);
     var haushalt = new Category(name: "Haushalt");
     data.categories.add(haushalt);
+    var sport = new Category(name: "Sport");
+    data.categories.add(sport);
 
     var nudeltimer = new Timer(name: "Nudeln");
     var erhitzen = new Section(
@@ -59,7 +61,14 @@ class Storage {
         new Section(message: "backen", duration: new Duration(minutes: 10));
     broetchentimer.sections.add(backen);
 
-    data.categories.add(new Category(name: "Sport"));
+    var laufband = new Timer(name: "Auf dem Laufband laufen");
+    sport.timers.add(laufband);
+    var laufen =
+        new Section(message: "laufen", duration: new Duration(minutes: 45));
+    laufband.sections.add(laufen);
+
+    laufband.isExpired = true;
+    laufband.isActive = false;
 
     var waschmaschiene = new Timer(name: "Waschmaschine");
     haushalt.timers.add(waschmaschiene);
