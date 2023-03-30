@@ -8,7 +8,8 @@ class LocalNotificationService {
 
   Future<void> setup() async {
     // Generate Settings for needed Platforms
-    const androidSetting = AndroidInitializationSettings('@mipmap/ic_launcher');
+    const androidSetting =
+        AndroidInitializationSettings('@mipmap/launcher_icon');
     const iosSetting = IOSInitializationSettings();
 
     // Construct InitializationSettings
@@ -64,6 +65,7 @@ class LocalNotificationService {
       channelDescription: 'channel description',
       importance: Importance.max,
       priority: Priority.max,
+      largeIcon: const DrawableResourceAndroidBitmap('logo'),
       playSound: true,
     );
 
