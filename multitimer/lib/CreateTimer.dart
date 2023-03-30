@@ -43,19 +43,18 @@ class _CreateTimerState extends State<CreateTimer> {
   Widget build(
     BuildContext context,
   ) {
-    List<Widget> plusButton;
-    var elevatedPlusButton = ElevatedButton(
-      onPressed: addSection,
-      style: ElevatedButton.styleFrom(
-        shape: CircleBorder(),
-        padding: EdgeInsets.all(20),
-      ),
-      child: Icon(Icons.add),
-    );
+    Widget plusButton;
     if (sections.length < 4) {
-      plusButton = [elevatedPlusButton];
+      plusButton = ElevatedButton(
+        onPressed: addSection,
+        style: ElevatedButton.styleFrom(
+          shape: CircleBorder(),
+          padding: EdgeInsets.all(20),
+        ),
+        child: Icon(Icons.add),
+      );
     } else {
-      plusButton = [];
+      plusButton = Container();
     }
 
     return Scaffold(
@@ -89,12 +88,7 @@ class _CreateTimerState extends State<CreateTimer> {
               Container(
                 height: 30,
               ),
-              Center(
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: plusButton,
-                ),
-              ),
+              plusButton,
               Container(
                 height: 30,
               ),

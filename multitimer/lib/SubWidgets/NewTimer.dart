@@ -10,25 +10,25 @@ class NewTimer extends StatefulWidget {
 }
 
 class _NewTimerState extends State<NewTimer> {
-  var text3 = "";
-  var text4 = "";
-  TextEditingController controller3 = TextEditingController(text: "");
-  TextEditingController controller4 = TextEditingController(text: "");
+  var message = "";
+  var duration = "";
+  TextEditingController messageController = TextEditingController(text: "");
+  TextEditingController timeController = TextEditingController(text: "");
 
   @override
   void initState() {
     super.initState();
-    controller3.text = text3;
-    controller3.addListener(() {
+    messageController.text = message;
+    messageController.addListener(() {
       setState(() {
-        text3 = controller3.text;
+        message = messageController.text;
       });
     });
 
-    controller4.text = text4;
-    controller4.addListener(() {
+    timeController.text = duration;
+    timeController.addListener(() {
       setState(() {
-        text4 = controller4.text;
+        duration = timeController.text;
       });
     });
   }
@@ -36,8 +36,8 @@ class _NewTimerState extends State<NewTimer> {
   @override
   void dispose() {
     super.dispose();
-    controller3.dispose();
-    controller4.dispose();
+    messageController.dispose();
+    timeController.dispose();
   }
 
   @override
@@ -52,7 +52,7 @@ class _NewTimerState extends State<NewTimer> {
               width: 240,
               child: new TextField(
                   maxLength: 20,
-                  controller: controller3,
+                  controller: messageController,
                   decoration: InputDecoration(
                     counterStyle: Theme.of(context).textTheme.labelSmall,
                     border: UnderlineInputBorder(),
@@ -68,7 +68,7 @@ class _NewTimerState extends State<NewTimer> {
               width: 55,
               child: new TextField(
                   maxLength: 3,
-                  controller: controller4,
+                  controller: timeController,
                   decoration: InputDecoration(
                     counterStyle: Theme.of(context).textTheme.labelSmall,
                     border: UnderlineInputBorder(),
@@ -81,16 +81,11 @@ class _NewTimerState extends State<NewTimer> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child:
-                  new Text("min", style: Theme.of(context).textTheme.bodySmall),
+              child: new Text("min", style: Theme.of(context).textTheme.bodySmall),
             ),
           ]),
         ],
       ),
     );
   }
-
-  void onSave() {}
-
-  void onNeueZeile() {}
 }
