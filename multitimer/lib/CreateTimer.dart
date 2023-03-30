@@ -22,6 +22,10 @@ class _CreateTimerState extends State<CreateTimer> {
   TextEditingController nameController = TextEditingController(text: "");
   CategorySelectData categorySelectionData = CategorySelectData();
 
+  void refresh() {
+    setState(() {});
+  }
+
   _CreateTimerState();
 
   @override
@@ -120,7 +124,9 @@ class _CreateTimerState extends State<CreateTimer> {
   void addSection() {
     if (sections.length < 4) {
       setState(() {
-        sections.add(NewSectionData());
+        var newSectionData = NewSectionData();
+        newSectionData.refreshParent = refresh;
+        sections.add(newSectionData);
       });
     }
   }
