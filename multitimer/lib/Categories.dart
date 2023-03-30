@@ -11,13 +11,11 @@ class Categories extends StatefulWidget {
   Categories(Data this.data, {Key? key}) : super(key: key);
 
   @override
-  State<Categories> createState() => _CategoriesState(data);
+  State<Categories> createState() => _CategoriesState();
 }
 
 class _CategoriesState extends State<Categories> {
-  Data data;
-
-  _CategoriesState(Data this.data);
+  _CategoriesState();
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +24,12 @@ class _CategoriesState extends State<Categories> {
           title: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          new Text(AppLocalizations.of(context)!.categories +
-              ": " +
-              extractedChildren.length.toString()),
+          new Text(
+            AppLocalizations.of(context)!.categories +
+                ": " +
+                extractedChildren.length.toString(),
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
         ],
       )),
       body: ListView(

@@ -15,8 +15,9 @@ class _ActiveTimersState extends State<ActiveTimers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:
-            new AppBar(title: new Text(AppLocalizations.of(context)!.aktimer)),
+        appBar: new AppBar(
+            title: new Text(AppLocalizations.of(context)!.aktimer,
+                style: Theme.of(context).textTheme.titleLarge)),
         body: Row(
           children: [
             Expanded(

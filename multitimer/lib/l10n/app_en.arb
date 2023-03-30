@@ -1,9 +1,10 @@
 {
   "appname": "Mitutimer",
   "mainmenu": "Main Menu",
-  "newtimer": "New Timer",
-  "mytimer": "My Timers/Categories",
+  "newtimer": "Create a New Timer",
+  "mytimer": "My Timers",
   "aktimer": "Active Timers",
+  "timerlistbutton": "Active/Expired Timers",
   "settings": "Settings",
   "changetheme": "Change the theme of the App:",
   "red": "Red",

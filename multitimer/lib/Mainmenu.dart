@@ -24,11 +24,12 @@ class _MainmenuState extends State<Mainmenu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: new Text(AppLocalizations.of(context)!.mainmenu),
+        title: new Text(AppLocalizations.of(context)!.mainmenu,
+            style: Theme.of(context).textTheme.titleLarge),
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(50.0),
           child: new Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -37,11 +38,11 @@ class _MainmenuState extends State<Mainmenu> {
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               Expanded(
-                  child: new Container(width: double.infinity, height: 50)),
+                  child: new Container(width: double.infinity, height: 15)),
               new Image.asset(
                 'assets/images/Hourglass.png',
                 width: 200,
-                height: 150,
+                height: 160,
               ),
               Expanded(
                   child: new Container(width: double.infinity, height: 50)),
@@ -55,7 +56,8 @@ class _MainmenuState extends State<Mainmenu> {
                     Icons.format_list_bulleted_add,
                     size: 24.0,
                   ),
-                  label: Text(AppLocalizations.of(context)!.newtimer),
+                  label: Text(AppLocalizations.of(context)!.newtimer,
+                      style: Theme.of(context).textTheme.titleMedium),
                 ),
               ),
               Expanded(
@@ -70,7 +72,8 @@ class _MainmenuState extends State<Mainmenu> {
                     Icons.format_list_bulleted,
                     size: 24.0,
                   ),
-                  label: Text(AppLocalizations.of(context)!.mytimer),
+                  label: Text(AppLocalizations.of(context)!.mytimer,
+                      style: Theme.of(context).textTheme.titleMedium),
                 ),
               ),
               Expanded(
@@ -85,9 +88,8 @@ class _MainmenuState extends State<Mainmenu> {
                     Icons.hourglass_bottom,
                     size: 24.0,
                   ),
-                  label: Text(AppLocalizations.of(context)!.aktimer +
-                      "/" +
-                      AppLocalizations.of(context)!.extimer),
+                  label: Text(AppLocalizations.of(context)!.timerlistbutton,
+                      style: Theme.of(context).textTheme.titleMedium),
                 ),
               ),
               Expanded(
@@ -102,7 +104,8 @@ class _MainmenuState extends State<Mainmenu> {
                     Icons.settings,
                     size: 24.0,
                   ),
-                  label: Text(AppLocalizations.of(context)!.settings),
+                  label: Text(AppLocalizations.of(context)!.settings,
+                      style: Theme.of(context).textTheme.titleMedium),
                 ),
               )
             ],
