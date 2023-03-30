@@ -4,7 +4,7 @@ import 'package:multitimer/data/Data.dart';
 
 import 'SubWidgets/NewTimerCreate.dart';
 
-const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
+List<String> categList = <String>['one', 'two', 'three', 'four'];
 
 class CreateTimer extends StatefulWidget {
   Data data;
@@ -160,7 +160,7 @@ class _CreateTimerState extends State<CreateTimer> {
   List<Widget> extractedChildren = <Widget>[];
   void onSave() {}
 
-  onChangedDropdown() {}
+  void onChangedDropdown() {}
 }
 
 class DropdownButtonExample extends StatefulWidget {
@@ -171,16 +171,14 @@ class DropdownButtonExample extends StatefulWidget {
 }
 
 class _DropdownButtonExampleState extends State<DropdownButtonExample> {
-  String dropdownValue = list.first;
+  String dropdownValue = categList.first;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      //color: Colors.green, ////Muss verändert werden!!!
       child: DropdownButton<String>(
         hint: Text("", style: Theme.of(context).textTheme.labelSmall),
         value: dropdownValue,
-        // dropdownColor: Colors.green, ////Muss verändert werden!!!
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
         icon: Icon(Icons.arrow_downward),
         style: Theme.of(context).textTheme.labelSmall,
@@ -190,7 +188,7 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
             dropdownValue = value!;
           });
         },
-        items: list.map<DropdownMenuItem<String>>((String value) {
+        items: categList.map<DropdownMenuItem<String>>((String value) {
           return DropdownMenuItem<String>(
             value: value,
             child: Text(value),

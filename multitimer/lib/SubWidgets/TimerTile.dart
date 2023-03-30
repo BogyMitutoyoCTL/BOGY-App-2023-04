@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multitimer/data/TimeTileData.dart';
 
+import '../data/SectionTimerData.dart';
+import 'SectionTimer.dart';
+
 class TimerTile extends StatefulWidget {
   TimerTileData data;
 
@@ -14,11 +17,14 @@ class TimerTile extends StatefulWidget {
 class _TimerTileState extends State<TimerTile> {
   @override
   Widget build(BuildContext context) {
+    var sectionTimerData = SectionTimerData();
+    sectionTimerData.sections = widget.data.timer.sections;
     return Expanded(
       child: Padding(
         //Nudeln kochen
         padding: const EdgeInsets.all(30.0),
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Expanded(
               child: new Container(
@@ -30,8 +36,7 @@ class _TimerTileState extends State<TimerTile> {
                     children: [
                       new Text(widget.data.timer.name,
                           style: Theme.of(context).textTheme.labelMedium),
-                      new Text("",
-                          style: Theme.of(context).textTheme.bodyMedium),
+                      SectionTimer(sectionTimerData),
                     ],
                   ),
                 ),
