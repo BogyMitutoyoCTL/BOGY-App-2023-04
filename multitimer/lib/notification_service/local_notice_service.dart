@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:timezone/data/latest.dart' as tzData;
+import 'package:timezone/timezone.dart' as tz;
 
 class LocalNotificationService {
   final _localNotificationsPlugin = FlutterLocalNotificationsPlugin();
@@ -25,10 +27,45 @@ class LocalNotificationService {
     required String title,
     required String body,
   }) async {
+    await _localNotificationsPlugin.show(
+      0,
+      title,
+      body,
+      getNotificationsDetails(),
+    );
+  }
+
+  Future<void> showDelayedNotification({
+    required String title,
+    required String body,
+    int delayInSeconds = 5,
+  }) async {
+    tzData.initializeTimeZones();
+    final scheduleTime =
+        tz.TZDateTime.now(tz.local).add(Duration(seconds: delayInSeconds));
+
+    await _localNotificationsPlugin.zonedSchedule(
+      0,
+      title,
+      body,
+      scheduleTime,
+      getNotificationsDetails(),
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
+      androidAllowWhileIdle: true,
+    );
+  }
+
+  NotificationDetails getNotificationsDetails() {
     final androidDetail = AndroidNotificationDetails(
-        'some_id', // channel Id
-        'some_name' // channel Name
-        );
+      'bogy_04_2023_lfz_id', // channel Id
+      'bogy_04_2023_lfz', // channel Name
+      groupKey: 'com.example.flutter_push_notifications',
+      channelDescription: 'channel description',
+      importance: Importance.max,
+      priority: Priority.max,
+      playSound: true,
+    );
 
     final iosDetail = IOSNotificationDetails();
 
@@ -36,11 +73,6 @@ class LocalNotificationService {
       iOS: iosDetail,
       android: androidDetail,
     );
-    await _localNotificationsPlugin.show(
-      0,
-      title,
-      body,
-      noticeDetail,
-    );
+    return noticeDetail;
   }
 }
