@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/ActiveTimers.dart';
 import 'package:multitimer/Categories.dart';
-import 'package:multitimer/CreateTimer.dart';
 import 'package:multitimer/Settings.dart';
+import 'package:multitimer/TimerTile.dart';
 import 'package:multitimer/data/Data.dart';
 import 'package:multitimer/notification_service/local_notice_service.dart';
 
@@ -21,7 +21,7 @@ class _MainmenuState extends State<Mainmenu> {
 
   @override
   Widget build(BuildContext context) {
-    var width = 300.0;
+    var width = 400.0;
     return Scaffold(
       appBar: new AppBar(
         title: new Text(AppLocalizations.of(context)!.mainmenu,
@@ -110,11 +110,10 @@ class _MainmenuState extends State<Mainmenu> {
                   child: ElevatedButton.icon(
                     //Benachrichtigungen
                     onPressed: () {
-                      LocalNotificationService().showDelayedNotification(
+                      LocalNotificationService().showSimpleNotification(
                         title: 'Sample notification',
                         body:
                             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                        delayInSeconds: 3,
                       );
                     },
                     icon: Icon(
