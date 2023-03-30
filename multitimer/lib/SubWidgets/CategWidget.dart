@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/data/CategWidgetData.dart';
+
+import '../TimersInCategories.dart';
 
 class CategoryWidget extends StatefulWidget {
   CategWidgetData data;
@@ -43,14 +46,16 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   Widget build(BuildContext context) {
     Container container;
     myController.text = widget.data.category.name;
-
+    myController.addListener(() {
+      widget.data.category.name = myController.text;
+    });
     if (widget.data.editEnabled == true) {
       container = Container(
         width: 200,
         child: TextFormField(
           style: Theme.of(context).textTheme.bodyMedium,
           decoration: InputDecoration(
-            labelText: "New Category",
+            labelText: AppLocalizations.of(context)!.newcateg,
             border: UnderlineInputBorder(),
           ),
           controller: myController,
@@ -149,5 +154,8 @@ class _CategoryWidgetState extends State<CategoryWidget> {
     widget.data.callback(widget.data.category);
   }
 
-  void onCategoryPress() {}
+  void onCategoryPress() {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => TimersInCategories())); //Neuer Timer
+  }
 }

@@ -14,6 +14,7 @@ Um Nachrichten über abgelaufene Timer auf dem Sperrbildschirm anzuzeigen haben 
 ```
 flutter_local_notifications: ^9.7.0
 ```
+https://pub.dev/packages/flutter_local_notifications
 
 Dazu muss auch in der Datei `android\app\src\main\AndroidManifest.xml` folgendes eingetragen werden:
 
@@ -24,7 +25,20 @@ Dazu muss auch in der Datei `android\app\src\main\AndroidManifest.xml` folgendes
 
 ### App Icon
 
+Um Icons für verschiedene Plattformen generieren zu lassen kann man folgendes Package verwenden:
+https://pub.dev/packages/flutter_launcher_icons
 
+In unserem Projekt haben wir die Konfiguration in die `pubspec.yaml` integriert. Die Beschreibung dafür findet man auf der Projektseite des Packages.
+
+**Hinweis:**
+
+Wenn man weitere Daten zu den Resourcen für Android hinzufügt, muss man darauf achten, dass die Dateinamen klein geschrieben sind. Sonst bekommt man folgende Fehlermeldung:
+
+```
+ERROR:.\BOGY-App-2023-04\multitimer\android\app\src\main\res\drawable\Logo.png: Resource and asset merger: 'L' is not a valid file-based resource name character: File-based resource names must contain only lowercase a-z, 0-9, or underscore
+
+FAILURE: Build failed with an exception.
+```
 
 ## Mittwoch 29.3.2023
 

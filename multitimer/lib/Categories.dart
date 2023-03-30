@@ -21,10 +21,12 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     List<Widget> extractedChildren = [];
+
     for (int i = 0; i < widget.data.categories.length; i++) {
+      var aCategorie = widget.data.categories[i];
       var categWidgetData = CategWidgetData();
-      categWidgetData.category = widget.data.categories[i];
-      categWidgetData.editEnabled = true;
+      categWidgetData.editEnabled = aCategorie.name.isEmpty;
+      categWidgetData.category = aCategorie;
       categWidgetData.callback = deleteCateg;
       var categoryWidget = new CategoryWidget(categWidgetData);
       extractedChildren.add(categoryWidget);
