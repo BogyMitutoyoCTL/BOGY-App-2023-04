@@ -21,6 +21,7 @@ class _ActiveTimersState extends State<ActiveTimers> {
     List<Widget> widgetlist = [];
     for (var i = 0; i < timerlist.length; i++) {
       var activedata = ActiveTimerdata();
+      activedata.reload = reload;
       activedata.timer = timerlist[i];
       var widget = ActiveTimer(activedata);
       widgetlist.add(widget);
@@ -60,5 +61,9 @@ class _ActiveTimersState extends State<ActiveTimers> {
   void onTouched() {
     Navigator.of(context).push(
         MaterialPageRoute(builder: (context) => ExpiredTimers(widget.data)));
+  }
+
+  void reload() {
+    setState(() {});
   }
 }

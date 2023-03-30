@@ -91,7 +91,12 @@ class _ActiveTimerState extends State<ActiveTimer> {
     );
   }
 
-  void onDelete() {}
+  void onDelete() {
+    setState(() {
+      widget.data.timer.deactivate();
+      widget.data.reload();
+    });
+  }
 
   void onRestart() {}
 }
