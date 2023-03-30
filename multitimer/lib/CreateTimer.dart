@@ -4,6 +4,8 @@ import 'package:multitimer/data/Data.dart';
 
 import 'NewTimerCreate.dart';
 
+const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
+
 class CreateTimer extends StatefulWidget {
   Data data;
 
@@ -47,76 +49,96 @@ class _CreateTimerState extends State<CreateTimer> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
+    var list;
     return Scaffold(
       appBar: new AppBar(
           title: new Text(AppLocalizations.of(context)!.newtimer,
               style: Theme.of(context).textTheme.titleLarge)),
       body: ListView(children: [
-        Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: new Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: new Text(
-                    "Name: ",
-                    style: Theme.of(context).textTheme.titleMedium,
+        Center(
+          child: Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: new Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: new Text(
+                      "Name: ",
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
                   ),
-                ),
-                new TextField(controller: controller),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: new Text(
-                    AppLocalizations.of(context)!.category + ":",
-                    style: Theme.of(context).textTheme.titleMedium,
+                  Container(
+                      width: 500, child: new TextField(controller: controller)),
+                  Container(
+                    height: 10,
                   ),
-                ),
-                new TextField(
-                  controller: controller2,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: new Text(
-                    AppLocalizations.of(context)!.time + ":",
-                    style: Theme.of(context).textTheme.titleMedium,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: new Text(
+                      AppLocalizations.of(context)!.category + ":",
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
                   ),
-                ),
-                Column(children: extractedChildren),
-                Padding(
-                  padding: const EdgeInsets.all(30.0),
-                  child: Center(
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        ElevatedButton(
-                          onPressed: onClickAdd,
-                          child: Icon(Icons.add),
-                          style: ElevatedButton.styleFrom(
-                            shape: CircleBorder(),
-                            padding: EdgeInsets.all(20),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0), /////////////////
+                    child: DropdownButtonExample(),
+                    /*new DropdownButton(
+                      hint: Text(
+                        "Choose a Category",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                      items: list,
+                      onChanged: onChangedDropdown(),
+                    ),*/
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: new Text(
+                      AppLocalizations.of(context)!.time + ":",
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                  ),
+                  Column(children: extractedChildren),
+                  Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: Center(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ElevatedButton(
+                            onPressed: onClickAdd,
+                            child: Icon(Icons.add),
+                            style: ElevatedButton.styleFrom(
+                              shape: CircleBorder(),
+                              padding: EdgeInsets.all(20),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(30.0),
-                  child: Center(
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        new ElevatedButton(
-                            onPressed: onSave,
-                            child: new Text(AppLocalizations.of(context)!.save,
-                                style: Theme.of(context).textTheme.bodySmall)),
-                      ],
+                  Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: Center(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          new ElevatedButton(
+                              onPressed: onSave,
+                              child: new Text(
+                                  AppLocalizations.of(context)!.save,
+                                  style:
+                                      Theme.of(context).textTheme.bodySmall)),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ]),
+                ]),
+          ),
         ),
       ]),
     );
@@ -132,4 +154,47 @@ class _CreateTimerState extends State<CreateTimer> {
 
   List<Widget> extractedChildren = <Widget>[];
   void onSave() {}
+
+  onChangedDropdown() {}
+}
+
+class DropdownButtonExample extends StatefulWidget {
+  const DropdownButtonExample({super.key});
+
+  @override
+  State<DropdownButtonExample> createState() => _DropdownButtonExampleState();
+}
+
+class _DropdownButtonExampleState extends State<DropdownButtonExample> {
+  String dropdownValue = list.first;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.green, ////Muss verändert werden!!!
+      child: DropdownButton<String>(
+        hint: Text("", style: Theme.of(context).textTheme.labelSmall),
+        value: dropdownValue,
+        dropdownColor: Colors.green, ////Muss verändert werden!!!
+        elevation: 16,
+        icon: Icon(Icons.arrow_downward),
+        style: Theme.of(context).textTheme.labelSmall,
+        underline: Container(
+          height: 20,
+        ),
+        onChanged: (String? value) {
+          // This is called when the user selects an item.
+          setState(() {
+            dropdownValue = value!;
+          });
+        },
+        items: list.map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value),
+          );
+        }).toList(),
+      ),
+    );
+  }
 }
