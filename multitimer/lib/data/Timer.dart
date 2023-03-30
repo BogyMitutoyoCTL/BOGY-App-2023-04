@@ -17,6 +17,31 @@ class Timer {
   bool isActive = false;
   bool isExpired = false;
 
+  late int activesectionnumber;
+
+  void activate() {
+    activesectionnumber = 0;
+    isActive = true;
+    isExpired = false;
+  }
+
+  void deactivate() {
+    isActive = false;
+    isExpired = false;
+    activesectionnumber = -1;
+  }
+
+  void expire() {
+    isActive = false;
+    isExpired = true;
+  }
+
+  void nextsection() {
+    isActive = true;
+    isExpired = false;
+    activesectionnumber++;
+  }
+
   late Category category;
 
   @override

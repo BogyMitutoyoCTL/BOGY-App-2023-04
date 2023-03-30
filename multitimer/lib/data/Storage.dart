@@ -77,7 +77,7 @@ class Storage {
     waschmaschiene.sections.add(waschen);
 
     waschmaschiene.isExpired = false;
-    waschmaschiene.isActive = true;
+    waschmaschiene.activate();
 
     var buegeleisen = new Timer(name: "Bügeleisen");
     kochen.timers.add(buegeleisen);
