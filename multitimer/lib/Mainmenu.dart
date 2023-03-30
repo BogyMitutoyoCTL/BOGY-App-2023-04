@@ -9,16 +9,14 @@ import 'package:multitimer/data/Data.dart';
 class Mainmenu extends StatefulWidget {
   Data data;
 
-  Mainmenu(Data this.data, {Key? key}) : super(key: key);
+  Mainmenu(this.data, {Key? key}) : super(key: key);
 
   @override
-  State<Mainmenu> createState() => _MainmenuState(data);
+  State<Mainmenu> createState() => _MainmenuState();
 }
 
 class _MainmenuState extends State<Mainmenu> {
-  Data data;
-
-  _MainmenuState(Data this.data);
+  _MainmenuState();
 
   @override
   Widget build(BuildContext context) {
@@ -114,21 +112,21 @@ class _MainmenuState extends State<Mainmenu> {
 
   void onCreate() {
     Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => CreateTimer(data))); //Neuer Timer
+        builder: (context) => CreateTimer(widget.data))); //Neuer Timer
   }
 
   void onCategories() {
     Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => Categories(data))); //Meine Timer
+        builder: (context) => Categories(widget.data))); //Meine Timer
   }
 
   void onActive() {
     Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => ActiveTimers(data))); //Aktive Timer
+        builder: (context) => ActiveTimers(widget.data))); //Aktive Timer
   }
 
   void onSettings() {
     Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => Settings(data))); //Einstellungen
+        builder: (context) => Settings(widget.data))); //Einstellungen
   }
 }
