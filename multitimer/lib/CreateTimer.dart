@@ -67,67 +67,46 @@ class _CreateTimerState extends State<CreateTimer> {
         Center(
           child: Padding(
             padding: const EdgeInsets.all(30.0),
-            child: new Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: new Text(
-                      "Name: ",
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                  ),
-                  Container(
-                      width: 500,
-                      child: new TextField(controller: nameController)),
-                  Container(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: new Text(
-                      AppLocalizations.of(context)!.category + ":",
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Categoyselect(widget.data),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: new Text(
-                      AppLocalizations.of(context)!.time + ":",
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                  ),
-                  Column(children: sections),
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: Center(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: plusButton,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: Center(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          new ElevatedButton(
-                              onPressed: onSave,
-                              child: new Text(
-                                  AppLocalizations.of(context)!.save,
-                                  style:
-                                      Theme.of(context).textTheme.bodySmall)),
-                        ],
-                      ),
-                    ),
-                  ),
-                ]),
+            child: new Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+              new Text(
+                "Name: ",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Container(width: 500, child: new TextField(controller: nameController)),
+              Container(
+                height: 10,
+              ),
+              new Text(
+                AppLocalizations.of(context)!.category + ":",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Categoyselect(widget.data),
+              new Text(
+                AppLocalizations.of(context)!.time + ":",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Column(children: sections),
+              Container(
+                height: 30,
+              ),
+              Center(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: plusButton,
+                ),
+              ),
+              Container(
+                height: 30,
+              ),
+              Center(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    new ElevatedButton(onPressed: onSave, child: new Text(AppLocalizations.of(context)!.save, style: Theme.of(context).textTheme.bodySmall)),
+                  ],
+                ),
+              ),
+            ]),
           ),
         ),
       ]),
