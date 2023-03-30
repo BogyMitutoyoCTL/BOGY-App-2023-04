@@ -38,181 +38,192 @@ class _SettingsState extends State<Settings> {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                new Text(AppLocalizations.of(context)!.changetheme),
-              ],
+      body: ListView(children: [
+        Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  new Text(
+                    AppLocalizations.of(context)!.changetheme,
+                  ),
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Radio(
-                  value: ThemeMode.light,
-                  groupValue: data.theme,
-                  onChanged: setTheme,
-                ),
-                ElevatedButton(
-                  onPressed: onClickWhite,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white70,
-                  ),
-                  child: Container(
-                    height: 90,
-                    width: 60,
-                  ),
-                ),
-                Container(
-                  height: 3,
-                  width: 90,
-                ),
-                Radio(
-                    value: ThemeMode.dark,
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Radio(
+                    value: ThemeMode.light,
                     groupValue: data.theme,
-                    onChanged: setTheme),
-                ElevatedButton(
-                  onPressed: onClickBlack,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black54,
+                    onChanged: setTheme,
                   ),
-                  child: Container(
-                    height: 90,
-                    width: 60,
+                  ElevatedButton(
+                    onPressed: onClickWhite,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white70,
+                    ),
+                    child: Container(
+                      height: 90,
+                      width: 60,
+                    ),
+                  ),
+                  Container(
+                    height: 3,
+                    width: 90,
+                  ),
+                  Radio(
+                      value: ThemeMode.dark,
+                      groupValue: data.theme,
+                      onChanged: setTheme),
+                  ElevatedButton(
+                    onPressed: onClickBlack,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black54,
+                    ),
+                    child: Container(
+                      height: 90,
+                      width: 60,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Radio(
+                            value: Colors.red,
+                            groupValue: data.appBarColor,
+                            onChanged: setAppBarColor),
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            onPressed: onClickRed,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.red,
+                            ),
+                            child: Text(AppLocalizations.of(context)!.red),
+
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Radio(
+                            value: Colors.amber,
+                            groupValue: data.appBarColor,
+                            onChanged: setAppBarColor),
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            onPressed: onClickOrange,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.amber,
+                            ),
+                            child: Text(AppLocalizations.of(context)!.orange),
+
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Radio(
+                            value: Colors.blue,
+                            groupValue: data.appBarColor,
+                            onChanged: setAppBarColor),
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            onPressed: onClickBlue,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue,
+                            ),
+                            child: Text(AppLocalizations.of(context)!.blue),
+
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Radio(
+                            value: Colors.lightGreen,
+                            groupValue: data.appBarColor,
+                            onChanged: setAppBarColor),
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            onPressed: onClickGreen,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.lightGreen,
+                            ),
+                            child: Text(AppLocalizations.of(context)!.green),
+
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Radio(
+                            value: Colors.redAccent,
+                            groupValue: data.appBarColor,
+                            onChanged: setAppBarColor),
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            onPressed: onClickRedAccent,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.redAccent,
+                            ),
+                            child: Text(AppLocalizations.of(context)!.redaccent),
+
+                          ),
+                        ),
+                        ],
+                    ),
+                  ]),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: TextButton(
+                    onPressed: onClickDonate,
+                    child: Container(
+                      color: Colors.white,
+                      child: Text(
+                        AppLocalizations.of(context)!.donate,
+                        style: TextStyle(
+                            color: Colors.blue[800],
+                            fontWeight: FontWeight.w700),
+                      ),
+                    ),
                   ),
                 ),
               ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Radio(
-                      value: Colors.red,
-                      groupValue: data.appBarColor,
-                      onChanged: setAppBarColor),
-                  SizedBox(
-                    width: 150,
-                    child: ElevatedButton(
-                      onPressed: onClickRed,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
-                      ),
-                      child: Text(AppLocalizations.of(context)!.red),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Radio(
-                      value: Colors.amber,
-                      groupValue: data.appBarColor,
-                      onChanged: setAppBarColor),
-                  SizedBox(
-                    width: 150,
-                    child: ElevatedButton(
-                      onPressed: onClickOrange,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.amber,
-                      ),
-                      child: Text(AppLocalizations.of(context)!.orange),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Radio(
-                      value: Colors.blue,
-                      groupValue: data.appBarColor,
-                      onChanged: setAppBarColor),
-                  SizedBox(
-                    width: 150,
-                    child: ElevatedButton(
-                      onPressed: onClickBlue,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                      ),
-                      child: Text(AppLocalizations.of(context)!.blue),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Radio(
-                      value: Colors.lightGreen,
-                      groupValue: data.appBarColor,
-                      onChanged: setAppBarColor),
-                  SizedBox(
-                    width: 150,
-                    child: ElevatedButton(
-                      onPressed: onClickGreen,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.lightGreen,
-                      ),
-                      child: Text(AppLocalizations.of(context)!.green),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Radio(
-                      value: Colors.redAccent,
-                      groupValue: data.appBarColor,
-                      onChanged: setAppBarColor),
-                  SizedBox(
-                    width: 150,
-                    child: ElevatedButton(
-                      onPressed: onClickRedAccent,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.redAccent,
-                      ),
-                      child: Text(AppLocalizations.of(context)!.redaccent),
-                    ),
-                  ),
-                ],
-              ),
-            ]),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: TextButton(
-                  onPressed: onClickDonate,
-                  child: Container(
-                    color: Colors.white,
-                    child: Text(
-                      AppLocalizations.of(context)!.donate,
-                      style: TextStyle(
-                          color: Colors.blue[800], fontFamily: 'Shyler'),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          )
-        ],
-      ),
+            )
+          ],
+        ),
+      ]),
     );
   }
 

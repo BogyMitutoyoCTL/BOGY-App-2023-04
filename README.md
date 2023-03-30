@@ -1,4 +1,30 @@
 # Android Timer App
+## Mittwoch 29.3.2023
+
+Wir haben weitere Widgets programmiert, die Themes angepasst und schon erste Sub-Widgets erstellt.
+
+Wir haben die Daten an die Widgets durchgereicht, damit diese irgendwann die echten Daten anzeigen können.
+
+### Fehlermeldung beim Bauen des APK
+
+Falls diese Fehlermeldung beim Bauen des APKs (Menü: Build / Flutter / Build APK) erscheint:
+
+```
+Running Gradle task 'assembleRelease'...                        
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+The supplied javaHome seems to be invalid. I cannot find the java executable. Tried location: C:\Program Files\Android\Android Studio\jre\bin\java.exe
+```
+
+dann hilft folgende Vorgehensweise:
+
+1. Windows Kommandozeile als Administrator starten
+2. `cd /d C:\Program Files\Android\Android Studio`
+3. `ren jre jre_old`
+4. `mklink /D jre jbr`
+
 ## Dienstag 28.3.2023
 
 Wir haben mit der Implementierung von Widgets weitergemacht.

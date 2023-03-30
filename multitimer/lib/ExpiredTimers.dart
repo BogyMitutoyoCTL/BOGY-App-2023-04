@@ -20,8 +20,9 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
       timerlist.add(widget);
     }
     return Scaffold(
-        appBar:
-            new AppBar(title: new Text(AppLocalizations.of(context)!.extimer)),
+        appBar: new AppBar(
+            title: new Text(AppLocalizations.of(context)!.extimer,
+                style: Theme.of(context).textTheme.titleLarge)),
         body: Row(
           children: [
             new ElevatedButton(

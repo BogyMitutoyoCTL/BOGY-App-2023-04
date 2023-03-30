@@ -15,45 +15,54 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
   @override
   Widget build(BuildContext context) {
     return new Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+          padding: const EdgeInsets.all(30.0),
           child: new Container(
             color: Colors.yellow,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                new Text(
-                  widget.data.timer.name,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-                new Text(
-                  "Phase 1 von 3 ist aktiv:",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-                new Text(widget.data.timer.sections[0].message,
-                    style: Theme.of(context).textTheme.bodySmall),
-                Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Row(
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  new Text(
+    widget.data.timer.name,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  new Text(
+                    "Phase 1 von 3 ist aktiv:",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  new Text(widget.data.timer.sections[0].message,
+                      style: Theme.of(context).textTheme.bodySmall),
+
+                  new Container(
+                    height: 15,
+                    width: 30,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Column(
-                        children: [
-                          new ElevatedButton(
-                            onPressed: onNext,
-                            child: Icon(
-                              Icons.play_arrow_outlined,
-                              size: 15,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            new ElevatedButton(
+                              onPressed: onNext,
+                              child: Icon(
+                                Icons.play_arrow_outlined,
+                                size: 15,
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                shape: CircleBorder(),
+                                padding: EdgeInsets.all(20),
+                              ),
                             ),
-                            style: ElevatedButton.styleFrom(
-                              shape: CircleBorder(),
-                              padding: EdgeInsets.all(20),
-                            ),
-                          ),
-                          new Text(AppLocalizations.of(context)!.next,
-                              style: Theme.of(context).textTheme.labelSmall)
-                        ],
+                            new Text(AppLocalizations.of(context)!.next,
+                                style: Theme.of(context).textTheme.bodySmall)
+                          ],
+                        ),
                       ),
                       Column(
                         children: [
@@ -68,13 +77,13 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
                                 padding: EdgeInsets.all(20),
                               )),
                           new Text(AppLocalizations.of(context)!.finish,
-                              style: Theme.of(context).textTheme.labelSmall)
+                              style: Theme.of(context).textTheme.bodySmall)
                         ],
                       )
                     ],
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ),

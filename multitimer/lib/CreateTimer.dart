@@ -10,23 +10,20 @@ class CreateTimer extends StatefulWidget {
   CreateTimer(Data this.data, {Key? key}) : super(key: key);
 
   @override
-  State<CreateTimer> createState() => _CreateTimerState(data);
+  State<CreateTimer> createState() => _CreateTimerState();
 }
 
 class _CreateTimerState extends State<CreateTimer> {
-  var text = "  ";
-  var text2 = "  ";
+  var text = "";
+  var text2 = "";
   TextEditingController controller = TextEditingController(text: "");
   TextEditingController controller2 = TextEditingController(text: "");
 
-  Data data;
-
-  _CreateTimerState(Data this.data);
+  _CreateTimerState();
 
   @override
   void initState() {
     super.initState();
-
     controller.text = text;
     controller.addListener(() {
       setState(() {
@@ -52,8 +49,9 @@ class _CreateTimerState extends State<CreateTimer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          new AppBar(title: new Text(AppLocalizations.of(context)!.newtimer)),
+      appBar: new AppBar(
+          title: new Text(AppLocalizations.of(context)!.newtimer,
+              style: Theme.of(context).textTheme.titleLarge)),
       body: ListView(children: [
         Padding(
           padding: const EdgeInsets.all(30.0),
@@ -112,8 +110,8 @@ class _CreateTimerState extends State<CreateTimer> {
                       children: [
                         new ElevatedButton(
                             onPressed: onSave,
-                            child:
-                                new Text(AppLocalizations.of(context)!.save)),
+                            child: new Text(AppLocalizations.of(context)!.save,
+                                style: Theme.of(context).textTheme.bodySmall)),
                       ],
                     ),
                   ),
