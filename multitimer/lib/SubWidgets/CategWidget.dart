@@ -1,30 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:multitimer/data/Category.dart';
+import 'package:multitimer/data/CategWidgetData.dart';
 
 class CategoryWidget extends StatefulWidget {
-  var category;
+  CategWidgetData data;
 
-  bool editEnabled;
-
-  CategoryWidget(this.category, bool this.editEnabled, {Key? key})
-      : super(key: key);
+  CategoryWidget(CategWidgetData this.data, {Key? key}) : super(key: key);
 
   @override
-  State<CategoryWidget> createState() =>
-      _CategoryWidgetState(category, editEnabled);
+  State<CategoryWidget> createState() => _CategoryWidgetState();
 }
 
 class _CategoryWidgetState extends State<CategoryWidget> {
   //
-  bool textfieldEnabled = false;
   Color categColor = Colors.red;
   Color lastSavedColor = Colors.red;
   //
   final myController = TextEditingController();
 
-  Category category;
-
-  _CategoryWidgetState(this.category, bool this.textfieldEnabled);
+  _CategoryWidgetState();
   void _printLatestValue() {
     print('Text field: ${myController.text}');
   }
@@ -49,12 +42,13 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   @override
   Widget build(BuildContext context) {
     Container container;
-    myController.text = category.name;
+    myController.text = widget.data.category.name;
 
-    if (textfieldEnabled == true) {
+    if (widget.data.editEnabled == true) {
       container = Container(
         width: 200,
         child: TextFormField(
+          style: Theme.of(context).textTheme.bodyMedium,
           decoration: InputDecoration(
             labelText: "New Category",
             border: UnderlineInputBorder(),
@@ -63,7 +57,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
           maxLines: 1,
           maxLength: 20,
           showCursor: true,
-          enabled: textfieldEnabled,
+          enabled: widget.data.editEnabled,
         ),
       );
     }
@@ -77,7 +71,8 @@ class _CategoryWidgetState extends State<CategoryWidget> {
     else {
       container = Container(
         width: 200,
-        child: Text(category.name),
+        child: Text(widget.data.category.name,
+            style: Theme.of(context).textTheme.bodyMedium),
       );
     }
     /////
@@ -120,8 +115,8 @@ class _CategoryWidgetState extends State<CategoryWidget> {
 
   void onClickNameChange() {
     setState(() {
-      textfieldEnabled = !textfieldEnabled;
-      category.name = myController.text;
+      widget.data.editEnabled = !widget.data.editEnabled;
+      widget.data.category.name = myController.text;
     });
   }
 
