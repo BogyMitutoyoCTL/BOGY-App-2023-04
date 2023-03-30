@@ -47,9 +47,9 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children: [
-                            new ElevatedButton(
+                            new IconButton(
                               onPressed: onNext,
-                              child: Icon(
+                              icon: Icon(
                                 Icons.play_arrow_outlined,
                                 size: 15,
                               ),
@@ -65,9 +65,9 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
                       ),
                       Column(
                         children: [
-                          new ElevatedButton(
+                          new IconButton(
                               onPressed: onDone,
-                              child: Icon(
+                              icon: Icon(
                                 Icons.check_box,
                                 size: 15,
                               ),
