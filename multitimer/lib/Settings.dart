@@ -31,13 +31,9 @@ class _SettingsState extends State<Settings> {
               padding: const EdgeInsets.all(8.0),
               child: new Text(
                 AppLocalizations.of(context)!.settings,
-                style: TextStyle(color: textcolor),
               ),
             ),
-            Icon(
-              Icons.settings,
-              color: Colors.white,
-            ),
+            Icon(Icons.settings),
           ],
         ),
         centerTitle: true,
@@ -52,7 +48,6 @@ class _SettingsState extends State<Settings> {
                 children: [
                   new Text(
                     AppLocalizations.of(context)!.changetheme,
-                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ],
               ),
@@ -117,8 +112,7 @@ class _SettingsState extends State<Settings> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.red,
                             ),
-                            child: Text(AppLocalizations.of(context)!.red,
-                                style: Theme.of(context).textTheme.bodySmall),
+                            child: Text(AppLocalizations.of(context)!.red),
                           ),
                         ),
                       ],
@@ -137,8 +131,7 @@ class _SettingsState extends State<Settings> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.amber,
                             ),
-                            child: Text(AppLocalizations.of(context)!.orange,
-                                style: Theme.of(context).textTheme.bodySmall),
+                            child: Text(AppLocalizations.of(context)!.orange),
                           ),
                         ),
                       ],
@@ -157,8 +150,7 @@ class _SettingsState extends State<Settings> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blue,
                             ),
-                            child: Text(AppLocalizations.of(context)!.blue,
-                                style: Theme.of(context).textTheme.bodySmall),
+                            child: Text(AppLocalizations.of(context)!.blue),
                           ),
                         ),
                       ],
@@ -177,8 +169,7 @@ class _SettingsState extends State<Settings> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.lightGreen,
                             ),
-                            child: Text(AppLocalizations.of(context)!.green,
-                                style: Theme.of(context).textTheme.bodySmall),
+                            child: Text(AppLocalizations.of(context)!.green),
                           ),
                         ),
                       ],
@@ -197,8 +188,8 @@ class _SettingsState extends State<Settings> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.redAccent,
                             ),
-                            child: Text(AppLocalizations.of(context)!.redaccent,
-                                style: Theme.of(context).textTheme.bodySmall),
+                            child:
+                                Text(AppLocalizations.of(context)!.redaccent),
                           ),
                         ),
                       ],
