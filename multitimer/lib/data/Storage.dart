@@ -67,8 +67,17 @@ class Storage {
         message: "Wäsche waschen", duration: new Duration(minutes: 120));
     waschmaschiene.sections.add(waschen);
 
-    waschmaschiene.isExpired = true;
+    waschmaschiene.isExpired = false;
     waschmaschiene.isActive = true;
+
+    var buegeleisen = new Timer(name: "Bügeleisen");
+    kochen.timers.add(buegeleisen);
+    var buegeln = new Section(
+        message: "Wäsche bügeln", duration: new Duration(minutes: 30));
+    buegeleisen.sections.add(buegeln);
+
+    buegeleisen.isExpired = true;
+    buegeleisen.isActive = false;
 
     return data;
   }
