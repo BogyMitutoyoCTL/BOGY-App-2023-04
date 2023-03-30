@@ -27,7 +27,8 @@ class _CategoriesState extends State<Categories> {
       var categWidgetData = CategWidgetData();
       categWidgetData.editEnabled = aCategory.name.isEmpty;
       categWidgetData.category = aCategory;
-      categWidgetData.callback = deleteCateg;
+      categWidgetData.delete = deleteCateg;
+      categWidgetData.color = widget.data.colorOf(aCategory);
       var categoryWidget = new CategoryWidget(categWidgetData);
       extractedChildren.add(categoryWidget);
     }
