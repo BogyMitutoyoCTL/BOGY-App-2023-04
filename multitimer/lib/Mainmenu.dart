@@ -20,96 +20,93 @@ class _MainmenuState extends State<Mainmenu> {
 
   @override
   Widget build(BuildContext context) {
+    var width = 300.0;
     return Scaffold(
       appBar: new AppBar(
         title: new Text(AppLocalizations.of(context)!.mainmenu,
             style: Theme.of(context).textTheme.titleLarge),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(50.0),
-          child: new Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              new Text(
-                AppLocalizations.of(context)!.appname,
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              Expanded(
-                  child: new Container(width: double.infinity, height: 15)),
-              new Image.asset(
-                'assets/images/Hourglass.png',
-                width: 200,
-                height: 160,
-              ),
-              Expanded(
-                  child: new Container(width: double.infinity, height: 50)),
-              Container(
-                width: 300,
-                height: 43,
-                child: ElevatedButton.icon(
-                  //Neuer Timer
-                  onPressed: onCreate,
-                  icon: Icon(
-                    Icons.format_list_bulleted_add,
-                    size: 24.0,
-                  ),
-                  label: Text(AppLocalizations.of(context)!.newtimer,
-                      style: Theme.of(context).textTheme.titleMedium),
+      body: ListView(primary: true, scrollDirection: Axis.vertical, children: [
+        Center(
+          child: Padding(
+            padding: const EdgeInsets.all(50.0),
+            child: new Column(
+              children: [
+                new Text(
+                  AppLocalizations.of(context)!.appname,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
-              ),
-              Expanded(
-                  child: new Container(width: double.infinity, height: 50)),
-              Container(
-                width: 300,
-                height: 43,
-                child: ElevatedButton.icon(
-                  //Meine Timer
-                  onPressed: onCategories,
-                  icon: Icon(
-                    Icons.format_list_bulleted,
-                    size: 24.0,
-                  ),
-                  label: Text(AppLocalizations.of(context)!.mytimer,
-                      style: Theme.of(context).textTheme.titleMedium),
+                new Container(width: width, height: 15),
+                new Image.asset(
+                  'assets/images/Hourglass.png',
+                  width: 200,
+                  height: 160,
                 ),
-              ),
-              Expanded(
-                  child: new Container(width: double.infinity, height: 50)),
-              Container(
-                width: 300,
-                height: 43,
-                child: ElevatedButton.icon(
-                  //Aktive Timer
-                  onPressed: onActive,
-                  icon: Icon(
-                    Icons.hourglass_bottom,
-                    size: 24.0,
+                new Container(width: width, height: 50),
+                Container(
+                  width: width,
+                  height: 43,
+                  child: ElevatedButton.icon(
+                    //Neuer Timer
+                    onPressed: onCreate,
+                    icon: Icon(
+                      Icons.format_list_bulleted_add,
+                      size: 24.0,
+                    ),
+                    label: Text(AppLocalizations.of(context)!.newtimer,
+                        style: Theme.of(context).textTheme.titleMedium),
                   ),
-                  label: Text(AppLocalizations.of(context)!.timerlistbutton,
-                      style: Theme.of(context).textTheme.titleMedium),
                 ),
-              ),
-              Expanded(
-                  child: new Container(width: double.infinity, height: 50)),
-              Container(
-                width: 300,
-                height: 43,
-                child: ElevatedButton.icon(
-                  //Einstellungen
-                  onPressed: onSettings,
-                  icon: Icon(
-                    Icons.settings,
-                    size: 24.0,
+                new Container(width: width, height: 50),
+                Container(
+                  width: width,
+                  height: 43,
+                  child: ElevatedButton.icon(
+                    //Meine Timer
+                    onPressed: onCategories,
+                    icon: Icon(
+                      Icons.format_list_bulleted,
+                      size: 24.0,
+                    ),
+                    label: Text(AppLocalizations.of(context)!.mytimer,
+                        style: Theme.of(context).textTheme.titleMedium),
                   ),
-                  label: Text(AppLocalizations.of(context)!.settings,
-                      style: Theme.of(context).textTheme.titleMedium),
                 ),
-              )
-            ],
+                new Container(width: width, height: 50),
+                Container(
+                  width: width,
+                  height: 43,
+                  child: ElevatedButton.icon(
+                    //Aktive Timer
+                    onPressed: onActive,
+                    icon: Icon(
+                      Icons.hourglass_bottom,
+                      size: 24.0,
+                    ),
+                    label: Text(AppLocalizations.of(context)!.timerlistbutton,
+                        style: Theme.of(context).textTheme.titleMedium),
+                  ),
+                ),
+                new Container(width: width, height: 50),
+                Container(
+                  width: width,
+                  height: 43,
+                  child: ElevatedButton.icon(
+                    //Einstellungen
+                    onPressed: onSettings,
+                    icon: Icon(
+                      Icons.settings,
+                      size: 24.0,
+                    ),
+                    label: Text(AppLocalizations.of(context)!.settings,
+                        style: Theme.of(context).textTheme.titleMedium),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
-      ),
+      ]),
     );
   }
 
