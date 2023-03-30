@@ -61,8 +61,8 @@ class MultiTimerApp extends StatelessWidget {
                       iconTheme: IconThemeData(color: black),
                       iconButtonTheme: IconButtonThemeData(
                           style: ButtonStyle(
-                        foregroundColor: MaterialStatePropertyAll(Colors.white),
-                        backgroundColor: MaterialStatePropertyAll(Colors.black),
+                        foregroundColor: MaterialStatePropertyAll(black),
+                        backgroundColor: MaterialStatePropertyAll(white),
                       )),
                       appBarTheme: AppBarTheme(
                           iconTheme: IconThemeData(color: black),
@@ -108,8 +108,8 @@ class MultiTimerApp extends StatelessWidget {
                           counterStyle: TextStyle(color: Colors.white)),
                       iconButtonTheme: IconButtonThemeData(
                           style: ButtonStyle(
-                        foregroundColor: MaterialStatePropertyAll(Colors.white),
-                        backgroundColor: MaterialStatePropertyAll(Colors.black),
+                        foregroundColor: MaterialStatePropertyAll(white),
+                        backgroundColor: MaterialStatePropertyAll(black),
                       )),
                       appBarTheme: AppBarTheme(
                           iconTheme: IconThemeData(color: white),
