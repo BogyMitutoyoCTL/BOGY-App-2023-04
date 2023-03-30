@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'SplashScreen.dart';
@@ -17,6 +18,15 @@ Future<void> main() async {
   Data data = await storage.load();
   print(jsonEncode(data));
   var myApp = MultiTimerApp(data);
+  await Permission.notification.isDenied.then((value) {
+    print("Do we have permissions to send out a notification?");
+    if (value) {
+      print("No we don't, lets request...");
+      Permission.notification.request();
+    } else {
+      print("Yes we have. Lets send out some notifications. :-D");
+    }
+  });
   runApp(myApp);
 }
 
