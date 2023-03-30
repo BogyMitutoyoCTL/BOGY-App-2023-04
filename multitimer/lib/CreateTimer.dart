@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:multitimer/data/CategorySelectData.dart';
 import 'package:multitimer/data/Data.dart';
 
 import 'SubWidgets/Categoryselect.dart';
 import 'SubWidgets/NewTimer.dart';
+import 'data/Timer.dart';
 
 class CreateTimer extends StatefulWidget {
   Data data;
@@ -17,6 +19,7 @@ class CreateTimer extends StatefulWidget {
 class _CreateTimerState extends State<CreateTimer> {
   var timerName = "";
   TextEditingController nameController = TextEditingController(text: "");
+  CategorySelectData categorySelectionData = CategorySelectData();
 
   _CreateTimerState();
 
@@ -57,6 +60,9 @@ class _CreateTimerState extends State<CreateTimer> {
       plusButton = Container();
     }
 
+    categorySelectionData.categories = widget.data.categories;
+    categorySelectionData.selectedCategory = widget.data.categories.first;
+
     return Scaffold(
       appBar: new AppBar(
           title: new Text(
@@ -79,7 +85,7 @@ class _CreateTimerState extends State<CreateTimer> {
                 AppLocalizations.of(context)!.category + ":",
                 style: Theme.of(context).textTheme.titleMedium,
               ),
-              Categoyselect(widget.data),
+              Categoyselect(categorySelectionData),
               new Text(
                 AppLocalizations.of(context)!.time + ":",
                 style: Theme.of(context).textTheme.titleMedium,
@@ -92,15 +98,11 @@ class _CreateTimerState extends State<CreateTimer> {
               Container(
                 height: 30,
               ),
-              Center(
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    new ElevatedButton(
-                        onPressed: isInputValid() ? onSave : null,
-                        child: new Text(AppLocalizations.of(context)!.save, style: Theme.of(context).textTheme.bodySmall)),
-                  ],
-                ),
+              SizedBox(
+                width: 150,
+                child: new ElevatedButton(
+                    onPressed: isInputValid() ? onSave : null,
+                    child: new Text(AppLocalizations.of(context)!.save, style: Theme.of(context).textTheme.bodySmall)),
               ),
             ]),
           ),
@@ -119,10 +121,13 @@ class _CreateTimerState extends State<CreateTimer> {
 
   List<NewTimer> sections = [];
   void onSave() {
-    // TODO: create a timer
+    Timer timer = new Timer();
+    timer.name = timerName;
     // TODO: create sections
     // TODO: add sections to the timer
-    // TODO: put the timer into the category
+    categorySelectionData.selectedCategory.timers.add(timer);
+
+    goBack();
   }
 
   onChangedDropdown() {}
@@ -133,5 +138,9 @@ class _CreateTimerState extends State<CreateTimer> {
       valid &= true; // TODO: access info from subwidget
     }
     return valid;
+  }
+
+  void goBack() {
+    Navigator.of(context).pop();
   }
 }
