@@ -17,16 +17,14 @@ class ExpiredTimers extends StatefulWidget {
 class _ExpiredTimersState extends State<ExpiredTimers> {
   @override
   Widget build(BuildContext context) {
-    var timerlist = widget.data.getExpiredTimers();
+    var expiredTimers = widget.data.getExpiredTimers();
     List<Widget> widgetlist = [];
-    for (var j = 0; j < timerlist.length; j++) {
+    for (var expiredTimer in expiredTimers) {
       var expireddata = ExpiredTimerData();
       expireddata.refresh = refresh;
-      var timer = timerlist[j];
-      expireddata.timer = timer;
-      var remembercolor = widget.data.colorOf(timer.category);
+      expireddata.timer = expiredTimer;
+      expireddata.color = widget.data.colorOf(expiredTimer.category);
       var timerwidget = ExpiredTimer(expireddata);
-      expireddata.color = remembercolor;
       widgetlist.add(timerwidget);
     }
     return Scaffold(
@@ -38,30 +36,23 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
         body: Row(
           children: [
             new ElevatedButton(
-              onPressed: onTouched,
-              child: Icon(Icons.arrow_back_outlined),
+              onPressed: gotoActiveTimers,
               style: ElevatedButton.styleFrom(
                 shape: CircleBorder(),
                 padding: EdgeInsets.all(20),
               ),
+              child: Icon(Icons.arrow_back_outlined),
             ),
             Expanded(
-              child: ListView(
-                  primary: true,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    Column(children: widgetlist),
-                  ]),
+              child: ListView(primary: true, scrollDirection: Axis.vertical, children: [
+                Column(children: widgetlist),
+              ]),
             ),
           ],
         ));
   }
 
-  void onPressed() {}
-
-  void onClicked() {}
-
-  void onTouched() {
+  void gotoActiveTimers() {
     Navigator.of(context).pop();
   }
 
