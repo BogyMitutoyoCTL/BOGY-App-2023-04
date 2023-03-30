@@ -15,6 +15,13 @@ Um Nachrichten über abgelaufene Timer auf dem Sperrbildschirm anzuzeigen haben 
 flutter_local_notifications: ^9.7.0
 ```
 
+Dazu muss auch in der Datei `android\app\src\main\AndroidManifest.xml` folgendes eingetragen werden:
+
+```xml
+<!-- Permissions options for the `notification` group -->
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+```
+
 ### App Icon
 
 
