@@ -70,19 +70,19 @@ class MultiTimerApp extends StatelessWidget {
                           titleTextStyle: TextStyle(fontSize: 42, color: black),
                           backgroundColor: appbarColor),
                       textTheme: TextTheme(
-                        titleLarge: TextStyle(
-                            fontSize: 36,
-                            color: white,
-                            fontWeight: FontWeight.w300),
-                        titleMedium: TextStyle(
-                            fontSize: 22,
-                            color: black,
-                            fontWeight: FontWeight.w500),
-                        bodyLarge: TextStyle(fontSize: 38.0, color: black),
-                        bodyMedium: TextStyle(fontSize: 24.0, color: black),
-                        bodySmall: TextStyle(fontSize: 20.0, color: black),
-                        labelSmall: TextStyle(fontSize: 18.0, color: black),
-                      ),
+                          titleLarge: TextStyle(
+                              fontSize: 36,
+                              color: white,
+                              fontWeight: FontWeight.w300),
+                          titleMedium: TextStyle(
+                              fontSize: 22,
+                              color: black,
+                              fontWeight: FontWeight.w500),
+                          bodyLarge: TextStyle(fontSize: 38.0, color: black),
+                          bodyMedium: TextStyle(fontSize: 24.0, color: black),
+                          bodySmall: TextStyle(fontSize: 20.0, color: black),
+                          labelSmall: TextStyle(fontSize: 18.0, color: black),
+                          labelMedium: TextStyle(fontSize: 14.0, color: black)),
                       primarySwatch: Colors.blue,
                       scaffoldBackgroundColor: Colors.blueGrey,
                       colorScheme: new ColorScheme(

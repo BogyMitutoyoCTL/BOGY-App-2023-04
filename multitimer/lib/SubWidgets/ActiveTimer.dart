@@ -51,8 +51,8 @@ class _ActiveTimerState extends State<ActiveTimer> {
                           new IconButton(
                             onPressed: onDelete,
                             icon: Icon(
-                              Icons.restore_from_trash,
-                              size: 15,
+                              Icons.delete,
+                              size: 30,
                             ),
                             style: ElevatedButton.styleFrom(
                               shape: CircleBorder(),
@@ -60,20 +60,24 @@ class _ActiveTimerState extends State<ActiveTimer> {
                             ),
                           ),
                           new Text(AppLocalizations.of(context)!.discard,
-                              style: Theme.of(context).textTheme.labelSmall)
+                              style: Theme.of(context).textTheme.labelMedium)
                         ],
+                      ),
+                      new Container(
+                        height: 15,
+                        width: 30,
                       ),
                       Column(
                         children: [
                           new IconButton(
                               onPressed: onRestart,
-                              icon: Icon(Icons.restart_alt, size: 15),
+                              icon: Icon(Icons.restart_alt, size: 30),
                               style: ElevatedButton.styleFrom(
                                 shape: CircleBorder(),
                                 padding: EdgeInsets.all(20),
                               )),
                           new Text(AppLocalizations.of(context)!.restart,
-                              style: Theme.of(context).textTheme.labelSmall)
+                              style: Theme.of(context).textTheme.labelMedium)
                         ],
                       )
                     ],
