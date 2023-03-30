@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:multitimer/SplashScreen.dart';
+import 'package:multitimer/Mainmenu.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -57,10 +57,11 @@ class MultiTimerApp extends StatelessWidget {
                       elevatedButtonTheme: ElevatedButtonThemeData(
                           style:
                               ElevatedButton.styleFrom(foregroundColor: black)),
-                      iconTheme: IconThemeData(color: white),
+                      iconTheme: IconThemeData(color: black),
                       appBarTheme: AppBarTheme(
+                          iconTheme: IconThemeData(color: black),
                           centerTitle: true,
-                          titleTextStyle: TextStyle(fontSize: 42),
+                          titleTextStyle: TextStyle(fontSize: 42, color: black),
                           backgroundColor: appbarColor),
                       textTheme: TextTheme(
                         titleLarge: TextStyle(
@@ -77,6 +78,10 @@ class MultiTimerApp extends StatelessWidget {
                         labelSmall: TextStyle(fontSize: 18.0, color: black),
                       ),
                       primarySwatch: Colors.blue,
+                      dropdownMenuTheme: DropdownMenuThemeData(
+                          menuStyle: MenuStyle(
+                              backgroundColor:
+                                  MaterialStatePropertyAll(Colors.green))),
                       scaffoldBackgroundColor: Colors.blueGrey,
                       colorScheme: new ColorScheme(
                           brightness: Brightness.light,
@@ -98,12 +103,13 @@ class MultiTimerApp extends StatelessWidget {
                       inputDecorationTheme: InputDecorationTheme(
                           counterStyle: TextStyle(color: Colors.white)),
                       appBarTheme: AppBarTheme(
+                          iconTheme: IconThemeData(color: white),
                           centerTitle: true,
-                          titleTextStyle: TextStyle(fontSize: 42),
+                          titleTextStyle: TextStyle(fontSize: 42, color: white),
                           backgroundColor: appbarColor),
                       textTheme: TextTheme(
                         titleLarge: TextStyle(
-                            fontSize: 30,
+                            fontSize: 36,
                             color: white,
                             fontWeight: FontWeight.w300),
                         titleMedium: TextStyle(
@@ -133,7 +139,7 @@ class MultiTimerApp extends StatelessWidget {
                   localizationsDelegates:
                       AppLocalizations.localizationsDelegates,
                   supportedLocales: AppLocalizations.supportedLocales,
-                  home: SplashScreen(data),
+                  home: Mainmenu(data),
                 );
               });
         });

@@ -21,7 +21,7 @@ class _MainmenuState extends State<Mainmenu> {
 
   @override
   Widget build(BuildContext context) {
-    var width = 300.0;
+    var width = 360.0;
     return Scaffold(
       appBar: new AppBar(
         title: new Text(AppLocalizations.of(context)!.mainmenu,
@@ -113,7 +113,7 @@ class _MainmenuState extends State<Mainmenu> {
                       LocalNotificationService().showSimpleNotification(
                         title: 'Sample notification',
                         body:
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                       );
                     },
                     icon: Icon(

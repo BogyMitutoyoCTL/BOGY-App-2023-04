@@ -29,9 +29,8 @@ class _SettingsState extends State<Settings> {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: new Text(
-                AppLocalizations.of(context)!.settings,
-              ),
+              child: new Text(AppLocalizations.of(context)!.settings,
+                  style: Theme.of(context).textTheme.titleLarge),
             ),
             Icon(Icons.settings),
           ],

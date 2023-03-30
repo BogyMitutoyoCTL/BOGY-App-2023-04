@@ -44,43 +44,49 @@ class _NewTimerState extends State<NewTimer> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
-      child: Row(children: [
-        Container(
-          width: 200,
-          child: new TextField(
-              maxLength: 20,
-              controller: controller3,
-              decoration: InputDecoration(
-                counterStyle: Theme.of(context).textTheme.labelSmall,
-                border: UnderlineInputBorder(),
-                labelText: AppLocalizations.of(context)!.name,
-                labelStyle: Theme.of(context).textTheme.labelSmall,
-              )),
-        ),
-        Container(
-          width: 30,
-          height: 1,
-        ),
-        Container(
-          width: 55,
-          child: new TextField(
-              maxLength: 2,
-              controller: controller4,
-              decoration: InputDecoration(
-                counterStyle: Theme.of(context).textTheme.labelSmall,
-                border: UnderlineInputBorder(),
-                labelText: AppLocalizations.of(context)!.time,
-                labelStyle: Theme.of(context).textTheme.labelSmall,
-              ),
-              inputFormatters: [
-                FilteringTextInputFormatter.allow(RegExp("[0-9]")),
-              ]),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: new Text("min", style: Theme.of(context).textTheme.bodySmall),
-        ),
-      ]),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(mainAxisSize: MainAxisSize.min, children: [
+            Container(
+              width: 300,
+              child: new TextField(
+                  maxLength: 20,
+                  controller: controller3,
+                  decoration: InputDecoration(
+                    counterStyle: Theme.of(context).textTheme.labelSmall,
+                    border: UnderlineInputBorder(),
+                    labelText: AppLocalizations.of(context)!.name,
+                    labelStyle: Theme.of(context).textTheme.labelSmall,
+                  )),
+            ),
+            Container(
+              width: 30,
+              height: 1,
+            ),
+            Container(
+              width: 55,
+              child: new TextField(
+                  maxLength: 2,
+                  controller: controller4,
+                  decoration: InputDecoration(
+                    counterStyle: Theme.of(context).textTheme.labelSmall,
+                    border: UnderlineInputBorder(),
+                    labelText: AppLocalizations.of(context)!.time,
+                    labelStyle: Theme.of(context).textTheme.labelSmall,
+                  ),
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+                  ]),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child:
+                  new Text("min", style: Theme.of(context).textTheme.bodySmall),
+            ),
+          ]),
+        ],
+      ),
     );
   }
 
