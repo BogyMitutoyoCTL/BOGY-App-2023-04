@@ -27,7 +27,8 @@
   "categories": "Categories",
   "discard": "Discard",
   "restart": "Restart",
-    "finish": "Done",
-    "next": "Next Phase"
+  "finish": "Done",
+  "next": "Next Phase",
+  "notification": "Notification"
 
 }

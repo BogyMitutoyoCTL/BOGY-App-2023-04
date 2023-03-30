@@ -5,6 +5,7 @@ import 'package:multitimer/Categories.dart';
 import 'package:multitimer/CreateTimer.dart';
 import 'package:multitimer/Settings.dart';
 import 'package:multitimer/data/Data.dart';
+import 'package:multitimer/notification_service/local_notice_service.dart';
 
 class Mainmenu extends StatefulWidget {
   Data data;
@@ -99,6 +100,27 @@ class _MainmenuState extends State<Mainmenu> {
                       size: 24.0,
                     ),
                     label: Text(AppLocalizations.of(context)!.settings,
+                        style: Theme.of(context).textTheme.titleMedium),
+                  ),
+                ),
+                new Container(width: width, height: 50),
+                Container(
+                  width: width,
+                  height: 43,
+                  child: ElevatedButton.icon(
+                    //Benachrichtigungen
+                    onPressed: () {
+                      LocalNotificationService().showSimpleNotification(
+                        title: 'Sample notification',
+                        body:
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                      );
+                    },
+                    icon: Icon(
+                      Icons.notifications,
+                      size: 24.0,
+                    ),
+                    label: Text(AppLocalizations.of(context)!.notification,
                         style: Theme.of(context).textTheme.titleMedium),
                   ),
                 )

@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'SplashScreen.dart';
 import 'data/Data.dart';
 import 'data/Storage.dart';
+import 'notification_service/local_notice_service.dart';
 
 SharedPreferences? prefs;
 
@@ -17,19 +18,29 @@ Future<void> main() async {
   prefs = await SharedPreferences.getInstance();
   var storage = new Storage();
   Data data = await storage.load();
-  print(jsonEncode(data));
+  debugPrint(jsonEncode(data));
   var myApp = MultiTimerApp(data);
   if (!kIsWeb) {
     await Permission.notification.isDenied.then((value) {
-      print("Do we have permissions to send out a notification?");
+      debugPrint("Do we have permissions to send out a notification?");
       if (value) {
-        print("No we don't, lets request...");
+        debugPrint("No we don't, lets request...");
         Permission.notification.request();
       } else {
-        print("Yes we have. Lets send out some notifications. :-D");
+        debugPrint("Yes we have. Lets send out some notifications. :-D");
       }
     });
   }
+  await Permission.notification.isDenied.then((value) {
+    debugPrint("Do we have permissions to send out a notification?");
+    if (value) {
+      debugPrint("No we don't, lets request...");
+      Permission.notification.request();
+    } else {
+      debugPrint("Yes we have. Lets send out some notifications. :-D");
+    }
+  });
+  await LocalNotificationService().setup();
   runApp(myApp);
 }
 
