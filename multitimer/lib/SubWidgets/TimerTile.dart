@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multitimer/data/TimeTileData.dart';
 
@@ -19,81 +18,66 @@ class _TimerTileState extends State<TimerTile> {
   Widget build(BuildContext context) {
     var sectionTimerData = SectionTimerData();
     sectionTimerData.sections = widget.data.timer.sections;
-    return Expanded(
-      child: Padding(
-        //Nudeln kochen
-        padding: const EdgeInsets.all(30.0),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Expanded(
-              child: new Container(
-                width: 290,
-                height: 145,
-                color: Colors.yellow,
-                child: Center(
-                  child: Column(
-                    children: [
-                      new Text(widget.data.timer.name,
-                          style: Theme.of(context).textTheme.labelMedium),
-                      SectionTimer(sectionTimerData),
-                    ],
-                  ),
+    return Padding(
+      padding: const EdgeInsets.all(30.0),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Expanded(
+            child: new Container(
+              width: 290,
+              height: 145,
+              color: Colors.yellow,
+              child: Center(
+                child: Column(
+                  children: [
+                    new Text(widget.data.timer.name,
+                        style: Theme.of(context).textTheme.bodyMedium),
+                    SectionTimer(sectionTimerData),
+                  ],
                 ),
               ),
             ),
-            new Container(
-              width: 1,
-              height: 145,
-              color: Colors.black,
-            ),
-            new Container(
+          ),
+          Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            SizedBox(
               width: 100,
-              height: 145,
-              color: Colors.yellow,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 100,
-                      height: 48,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Icon(Icons.play_arrow),
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(),
-                          padding: EdgeInsets.all(20),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 100,
-                      height: 48,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Icon(Icons.edit),
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(),
-                          padding: EdgeInsets.all(20),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 100,
-                      height: 49,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Icon(CupertinoIcons.trash),
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(),
-                          padding: EdgeInsets.all(20),
-                        ),
-                      ),
-                    )
-                  ]),
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Icon(Icons.play_arrow),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(),
+                  padding: EdgeInsets.all(20),
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 100,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Icon(Icons.edit),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(),
+                  padding: EdgeInsets.all(20),
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 100,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Icon(Icons.delete_forever),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(),
+                  padding: EdgeInsets.all(20),
+                ),
+              ),
             )
-          ],
-        ),
+          ])
+        ],
       ),
     );
   }
