@@ -27,8 +27,7 @@ class Timer {
   Stopwatch? stopwatch;
 
   Section getCurrentSection() {
-    if (activesectionnumber < 0)
-      return Section(duration: Duration.zero, message: "Invalid timer");
+    if (activesectionnumber < 0) return Section(duration: Duration.zero, message: "Invalid timer");
     return sections[activesectionnumber];
   }
 
@@ -37,7 +36,7 @@ class Timer {
     isActive = true;
     isExpired = false;
     alarm = new Async.Timer(getCurrentSection().duration, () {
-      //expire();
+      expire();
     });
     stopwatch = Stopwatch();
     stopwatch?.start();

@@ -7,6 +7,7 @@ import 'package:multitimer/data/TimerCategory.dart';
 
 import 'SubWidgets/Categoryselect.dart';
 import 'data/CreateTimerData.dart';
+import 'data/Section.dart';
 import 'subwidgets/NewSection.dart';
 
 class CreateTimer extends StatefulWidget {
@@ -139,8 +140,13 @@ class _CreateTimerState extends State<CreateTimer> {
 
   Future<void> onSave() async {
     widget.data.timerToEdit.name = timerName;
-    // TODO: create sections
-    // TODO: add sections to the timer
+    widget.data.timerToEdit.sections.clear();
+    for (var sectionData in sections) {
+      Section s = new Section();
+      s.message = sectionData.message;
+      s.duration = sectionData.duration;
+      widget.data.timerToEdit.sections.add(s);
+    }
     widget.data.categoryOfTimer.timers.remove(widget.data.timerToEdit);
     widget.categorySelectionData.selectedCategory.timers.add(widget.data.timerToEdit);
     await Storage().save(widget.data.everything);
