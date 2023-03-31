@@ -33,7 +33,6 @@ class _SettingsState extends State<Settings> {
                   AppLocalizations.of(context)!.settings,
                   style: Theme.of(context).textTheme.titleLarge,
                 )),
-            Icon(Icons.settings),
           ],
         ),
         centerTitle: true,
