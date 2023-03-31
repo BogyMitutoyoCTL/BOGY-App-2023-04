@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/data/CategorySelectData.dart';
 import 'package:multitimer/data/NewSectionData.dart';
+import 'package:multitimer/data/TimerCategory.dart';
 
 import 'SubWidgets/Categoryselect.dart';
 import 'data/CreateTimerData.dart';
@@ -13,7 +14,10 @@ class CreateTimer extends StatefulWidget {
 
   CreateTimer(this.data, {Key? key}) : super(key: key) {
     categorySelectionData.categories = data.data.categories;
-    categorySelectionData.selectedCategory = data.data.categories.first;
+    if (data.categoryOfTimer == TimerCategory.empty)
+      categorySelectionData.selectedCategory = data.data.categories.first;
+    else
+      categorySelectionData.selectedCategory = data.categoryOfTimer;
   }
 
   @override
@@ -21,14 +25,13 @@ class CreateTimer extends StatefulWidget {
 }
 
 class _CreateTimerState extends State<CreateTimer> {
-  var timerName = "";
-  TextEditingController nameController = TextEditingController(text: "");
+  late String timerName = "xxx";
+  TextEditingController nameController = TextEditingController();
 
+  _CreateTimerState();
   void refresh() {
     setState(() {});
   }
-
-  _CreateTimerState();
 
   @override
   void initState() {
@@ -39,6 +42,8 @@ class _CreateTimerState extends State<CreateTimer> {
         timerName = nameController.text;
       });
     });
+    timerName = widget.data.timerToEdit.name;
+    nameController.text = timerName;
     // A new timer needs at least one time segment
     addSection();
   }

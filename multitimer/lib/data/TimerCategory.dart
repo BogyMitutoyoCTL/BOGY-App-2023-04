@@ -6,6 +6,8 @@ part 'TimerCategory.g.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: true)
 class TimerCategory {
+  static TimerCategory empty = TimerCategory();
+
   TimerCategory({String this.name = ""}) {}
 
   @JsonKey(defaultValue: [])
@@ -32,7 +34,8 @@ class TimerCategory {
   @override
   String toString() => toJson().toString();
 
-  factory TimerCategory.fromJson(Map<String, dynamic> json) => _$TimerCategoryFromJson(json);
+  factory TimerCategory.fromJson(Map<String, dynamic> json) =>
+      _$TimerCategoryFromJson(json);
 
   Map<String, dynamic> toJson() => _$TimerCategoryToJson(this);
 }
