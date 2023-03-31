@@ -73,7 +73,7 @@ class _NewSectionState extends State<NewSection> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    width: 40,
+                    width: 38,
                     child: new TextField(
                         maxLength: 3,
                         controller: timeController,

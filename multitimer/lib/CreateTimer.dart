@@ -85,40 +85,45 @@ class _CreateTimerState extends State<CreateTimer> {
       body: ListView(children: [
         Center(
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: new Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-              new Text(
-                "Name: ",
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              Container(width: 500, child: new TextField(controller: nameController)),
-              Container(
-                height: 10,
-              ),
-              new Text(
-                AppLocalizations.of(context)!.category + ":",
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              Categoyselect(widget.categorySelectionData),
-              new Text(
-                AppLocalizations.of(context)!.time + ":",
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              Column(children: sectionWidgets),
-              Container(
-                height: 30,
-              ),
-              plusButton,
-              Container(
-                height: 30,
-              ),
-              SizedBox(
-                width: 150,
-                child: new ElevatedButton(
-                    onPressed: isInputValid() ? onSave : null,
-                    child: new Text(AppLocalizations.of(context)!.save, style: Theme.of(context).textTheme.bodySmall)),
-              ),
-            ]),
+            padding: const EdgeInsets.all(10.0),
+            child: new Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  new Text(
+                    "Name: ",
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  Container(
+                      width: 500,
+                      child: new TextField(controller: nameController)),
+                  Container(
+                    height: 10,
+                  ),
+                  new Text(
+                    AppLocalizations.of(context)!.category + ":",
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  Categoyselect(widget.categorySelectionData),
+                  new Text(
+                    AppLocalizations.of(context)!.time + ":",
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  Column(children: sectionWidgets),
+                  Container(
+                    height: 30,
+                  ),
+                  plusButton,
+                  Container(
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: 150,
+                    child: new ElevatedButton(
+                        onPressed: isInputValid() ? onSave : null,
+                        child: new Text(AppLocalizations.of(context)!.save,
+                            style: Theme.of(context).textTheme.bodySmall)),
+                  ),
+                ]),
           ),
         ),
       ]),
@@ -136,6 +141,7 @@ class _CreateTimerState extends State<CreateTimer> {
   }
 
   List<NewSectionData> sections = [];
+
   Future<void> onSave() async {
     widget.data.timerToEdit.name = timerName;
     // TODO: create sections
