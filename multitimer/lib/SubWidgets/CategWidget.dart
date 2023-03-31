@@ -126,6 +126,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
       var timersInCategData = TimersInCategData();
       timersInCategData.category = widget.data.category;
       timersInCategData.color = widget.data.color;
+      timersInCategData.data = widget.data.data;
       return TimersInCategories(timersInCategData);
     })); //Neuer Timer
   }

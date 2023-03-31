@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:multitimer/CreateTimer.dart';
+import 'package:multitimer/data/Timer.dart';
 import 'package:multitimer/data/TimersInCategData.dart';
 
 import 'SubWidgets/TimerTile.dart';
+import 'data/CreateTimerData.dart';
 import 'data/TimeTileData.dart';
+import 'data/TimerCategory.dart';
 
 class TimersInCategories extends StatefulWidget {
   TimersInCategData data;
@@ -60,9 +64,18 @@ class _TimersInCategoriesState extends State<TimersInCategories> {
     );
   }
 
+  void onClickAdd() {
+    CreateTimerData data = new CreateTimerData();
+    data.data = widget.data.data;
+    data.timerToEdit = new Timer();
+    TimerCategory dummy = new TimerCategory();
+    dummy.timers.add(data.timerToEdit);
+    data.categoryOfTimer = widget.data.category;
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => CreateTimer(data))); //Neuer Timer
+  }
+
   void refresh() {
     setState(() {});
   }
-
-  void onClickAdd() {}
 }

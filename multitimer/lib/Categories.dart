@@ -29,6 +29,7 @@ class _CategoriesState extends State<Categories> {
       categWidgetData.category = aCategory;
       categWidgetData.delete = deleteCateg;
       categWidgetData.color = widget.data.colorOf(aCategory);
+      categWidgetData.data = widget.data;
       var categoryWidget = new CategoryWidget(categWidgetData);
       extractedChildren.add(categoryWidget);
     }
