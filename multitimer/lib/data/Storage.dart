@@ -4,10 +4,10 @@ import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:path_provider/path_provider.dart';
 
-import 'TimerCategory.dart';
 import 'Data.dart';
 import 'Section.dart';
 import 'Timer.dart';
+import 'TimerCategory.dart';
 
 class Storage {
   Future<void> save(Data data) async {
@@ -50,40 +50,42 @@ class Storage {
     data.categories.add(sport);
 
     var nudeltimer = new Timer(name: "Nudeln");
-    var erhitzen = new Section(message: "Wasser erhitzen", duration: new Duration(minutes: 2));
-    var nudelnkochen = new Section(message: "Nudeln kochen", duration: new Duration(minutes: 8));
+    var erhitzen = new Section(
+        message: "Wasser erhitzen", duration: new Duration(minutes: 2));
+    var nudelnkochen = new Section(
+        message: "Nudeln kochen", duration: new Duration(minutes: 8));
     nudeltimer.sections.add(erhitzen);
     nudeltimer.sections.add(nudelnkochen);
     kochen.timers.add(nudeltimer);
 
     var broetchentimer = new Timer(name: "Brötchen backen");
     kochen.timers.add(broetchentimer);
-    var backen = new Section(message: "backen", duration: new Duration(minutes: 10));
+    var backen =
+        new Section(message: "backen", duration: new Duration(minutes: 10));
     broetchentimer.sections.add(backen);
 
     var laufband = new Timer(name: "Auf dem Laufband laufen");
     sport.timers.add(laufband);
-    var laufen = new Section(message: "laufen", duration: new Duration(minutes: 45));
+    var laufen =
+        new Section(message: "laufen", duration: new Duration(minutes: 45));
     laufband.sections.add(laufen);
-
-    laufband.isExpired = true;
-    laufband.isActive = false;
+    laufband.activate();
+    laufband.expire();
 
     var waschmaschiene = new Timer(name: "Waschmaschine");
     haushalt.timers.add(waschmaschiene);
-    var waschen = new Section(message: "Wäsche waschen", duration: new Duration(minutes: 120));
+    var waschen = new Section(
+        message: "Wäsche waschen", duration: new Duration(minutes: 120));
     waschmaschiene.sections.add(waschen);
-
-    waschmaschiene.isExpired = false;
     waschmaschiene.activate();
 
     var buegeleisen = new Timer(name: "Bügeleisen");
     kochen.timers.add(buegeleisen);
-    var buegeln = new Section(message: "Wäsche bügeln", duration: new Duration(minutes: 30));
+    var buegeln = new Section(
+        message: "Wäsche bügeln", duration: new Duration(minutes: 30));
     buegeleisen.sections.add(buegeln);
-
-    buegeleisen.isExpired = true;
-    buegeleisen.isActive = false;
+    buegeleisen.activate();
+    buegeleisen.expire();
 
     return data;
   }
