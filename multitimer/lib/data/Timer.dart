@@ -35,11 +35,14 @@ class Timer {
     activesectionnumber = 0;
     isActive = true;
     isExpired = false;
+    _startTimerForCurrentSection();
+    _startNewStopwatch();
+  }
+
+  void _startTimerForCurrentSection() {
     alarm = new Async.Timer(getCurrentSection().duration, () {
       expire();
     });
-    stopwatch = Stopwatch();
-    stopwatch?.start();
   }
 
   void deactivate() {
@@ -81,11 +84,14 @@ class Timer {
   }
 
   void nextsection() {
-    isActive = true;
-    isExpired = false;
     activesectionnumber++;
     if (activesectionnumber >= sections.length) {
       deactivate();
+    } else {
+      _startNewStopwatch();
+      _startTimerForCurrentSection();
+      isActive = true;
+      isExpired = false;
     }
   }
 
@@ -98,4 +104,9 @@ class Timer {
   factory Timer.fromJson(Map<String, dynamic> json) => _$TimerFromJson(json);
 
   Map<String, dynamic> toJson() => _$TimerToJson(this);
+
+  Stopwatch? _startNewStopwatch() {
+    stopwatch = Stopwatch();
+    stopwatch?.start();
+  }
 }
