@@ -1,6 +1,6 @@
 class NewSectionData {
-  String message = "";
-  Duration duration = Duration.zero;
+  late String message;
+  late Duration duration;
 
   late void Function() refreshParent;
 }
