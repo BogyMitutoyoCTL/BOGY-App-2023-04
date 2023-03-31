@@ -13,8 +13,8 @@ class NewSection extends StatefulWidget {
 }
 
 class _NewSectionState extends State<NewSection> {
-  TextEditingController messageController = TextEditingController(text: "");
-  TextEditingController timeController = TextEditingController(text: "");
+  TextEditingController messageController = TextEditingController();
+  TextEditingController timeController = TextEditingController();
 
   @override
   void initState() {

@@ -47,7 +47,12 @@ class _CreateTimerState extends State<CreateTimer> {
     timerName = widget.data.timerToEdit.name;
     nameController.text = timerName;
     // A new timer needs at least one time segment
-    addSection();
+    for (var section in widget.data.timerToEdit.sections) {
+      NewSectionData s = new NewSectionData();
+      s.message = section.message;
+      s.duration = section.duration;
+      sectionData.add(s);
+    }
   }
 
   @override
@@ -59,7 +64,7 @@ class _CreateTimerState extends State<CreateTimer> {
   @override
   Widget build(BuildContext context) {
     Widget plusButton;
-    if (sections.length < 4) {
+    if (sectionData.length < 4) {
       plusButton = ElevatedButton(
         onPressed: addSection,
         style: ElevatedButton.styleFrom(
@@ -73,7 +78,7 @@ class _CreateTimerState extends State<CreateTimer> {
     }
 
     List<Widget> sectionWidgets = [];
-    for (var sectionData in sections) {
+    for (var sectionData in sectionData) {
       sectionWidgets.add(NewSection(sectionData));
     }
 
@@ -135,21 +140,21 @@ class _CreateTimerState extends State<CreateTimer> {
   }
 
   void addSection() {
-    if (sections.length < 4) {
+    if (sectionData.length < 4) {
       setState(() {
         var newSectionData = NewSectionData();
         newSectionData.refreshParent = refresh;
-        sections.add(newSectionData);
+        sectionData.add(newSectionData);
       });
     }
   }
 
-  List<NewSectionData> sections = [];
+  List<NewSectionData> sectionData = [];
 
   Future<void> onSave() async {
     widget.data.timerToEdit.name = timerName;
     widget.data.timerToEdit.sections.clear();
-    for (var sectionData in sections) {
+    for (var sectionData in sectionData) {
       Section s = new Section();
       s.message = sectionData.message;
       s.duration = sectionData.duration;
@@ -164,7 +169,7 @@ class _CreateTimerState extends State<CreateTimer> {
 
   bool isInputValid() {
     bool valid = timerName.isNotEmpty;
-    for (var section in sections) {
+    for (var section in sectionData) {
       valid &= section.message.isNotEmpty;
       valid &= section.duration.inMinutes != 0;
     }
