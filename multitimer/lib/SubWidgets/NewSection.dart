@@ -51,36 +51,42 @@ class _NewSectionState extends State<NewSection> {
       padding: const EdgeInsets.all(5.0),
       child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
         Row(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                width: 235,
-                child: new TextField(
-                    maxLength: 20,
-                    controller: messageController,
-                    decoration: InputDecoration(
-                      counterStyle: Theme.of(context).textTheme.labelSmall,
-                      border: UnderlineInputBorder(),
-                      labelText: AppLocalizations.of(context)!.name,
-                      labelStyle: Theme.of(context).textTheme.labelSmall,
-                    )),
-              ),
-              Row(children: [
-                Container(
-                  width: 40,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: 235,
                   child: new TextField(
-                      maxLength: 3,
-                      controller: timeController,
+                      maxLength: 20,
+                      controller: messageController,
                       decoration: InputDecoration(
                         counterStyle: Theme.of(context).textTheme.labelSmall,
                         border: UnderlineInputBorder(),
-                        labelText: AppLocalizations.of(context)!.time,
+                        labelText: AppLocalizations.of(context)!.name,
                         labelStyle: Theme.of(context).textTheme.labelSmall,
-                      ),
-                      inputFormatters: [
-                        FilteringTextInputFormatter.allow(RegExp("[0-9]")),
-                      ]),
+                      )),
+                ),
+              ),
+              Row(children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: 40,
+                    child: new TextField(
+                        maxLength: 3,
+                        controller: timeController,
+                        decoration: InputDecoration(
+                          counterStyle: Theme.of(context).textTheme.labelSmall,
+                          border: UnderlineInputBorder(),
+                          labelText: AppLocalizations.of(context)!.time,
+                          labelStyle: Theme.of(context).textTheme.labelSmall,
+                        ),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+                        ]),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
