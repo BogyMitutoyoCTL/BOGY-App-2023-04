@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multitimer/data/TimeTileData.dart';
 
@@ -20,65 +19,54 @@ class _TimerTileState extends State<TimerTile> {
         children: [
           Expanded(
             child: new Container(
-              width: 290,
-              height: 145,
+              width: 300,
+              height: 150,
               color: widget.data.color,
               child: Center(
                 child: Column(
                   children: [
                     new Text(widget.data.timer.name,
-                        style: Theme.of(context).textTheme.labelMedium),
-                    new Text("", style: Theme.of(context).textTheme.bodyMedium),
+                        style: Theme.of(context).textTheme.bodySmall),
+                    new Text("", style: Theme.of(context).textTheme.labelSmall),
                   ],
                 ),
               ),
             ),
           ),
           new Container(
-            width: 1,
-            height: 145,
-            color: Colors.black,
-          ),
-          new Container(
-            width: 100,
-            height: 145,
-            color: Colors.yellow,
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  Container(
                     width: 100,
-                    height: 48,
+                    height: 50,
                     child: ElevatedButton(
                       onPressed: onPlay,
                       child: Icon(Icons.play_arrow),
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(),
-                        padding: EdgeInsets.all(20),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  Container(
                     width: 100,
-                    height: 48,
+                    height: 50,
                     child: ElevatedButton(
                       onPressed: onEdit,
                       child: Icon(Icons.edit),
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(),
-                        padding: EdgeInsets.all(20),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  Container(
                     width: 100,
-                    height: 49,
+                    height: 50,
                     child: ElevatedButton(
                       onPressed: onTrash,
-                      child: Icon(CupertinoIcons.trash),
+                      child: Icon(Icons.delete_forever),
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(),
-                        padding: EdgeInsets.all(20),
                       ),
                     ),
                   )
