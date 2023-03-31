@@ -31,6 +31,7 @@ class _SettingsState extends State<Settings> {
                 padding: const EdgeInsets.all(8.0),
                 child: new Text(
                   AppLocalizations.of(context)!.settings,
+                  style: Theme.of(context).textTheme.titleLarge,
                 )),
             Icon(Icons.settings),
           ],
@@ -54,40 +55,54 @@ class _SettingsState extends State<Settings> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Radio(
-                    value: ThemeMode.light,
-                    groupValue: data.theme,
-                    onChanged: setTheme,
+                  Column(
+                    children: [
+                      Row(
+                        children: [
+                          Radio(
+                            value: ThemeMode.light,
+                            groupValue: data.theme,
+                            onChanged: setTheme,
+                          ),
+                          ElevatedButton(
+                            onPressed: onClickWhite,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white70,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0)),
+                              minimumSize: Size(60, 90),
+                            ),
+                            child: null,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                  ElevatedButton(
-                    onPressed: onClickWhite,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white70,
-                    ),
-                    child: Container(
-                      height: 90,
-                      width: 60,
-                    ),
-                  ),
-                  Container(
-                    height: 3,
-                    width: 90,
-                  ),
-                  Radio(
-                      value: ThemeMode.dark,
-                      groupValue: data.theme,
-                      onChanged: setTheme),
-                  ElevatedButton(
-                    onPressed: onClickBlack,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black54,
-                    ),
-                    child: Container(
-                      height: 90,
-                      width: 60,
-                    ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Radio(
+                              value: ThemeMode.dark,
+                              groupValue: data.theme,
+                              onChanged: setTheme),
+                          ElevatedButton(
+                            onPressed: onClickBlack,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.black54,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0)),
+                              minimumSize: Size(60, 90),
+                            ),
+                            child: null,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),

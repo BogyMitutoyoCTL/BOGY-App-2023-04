@@ -30,6 +30,7 @@ class _MainmenuState extends State<Mainmenu> {
       appBar: new AppBar(
           title: new Text(
         AppLocalizations.of(context)!.mainmenu,
+        style: Theme.of(context).textTheme.titleLarge,
       )),
       body: ListView(primary: true, scrollDirection: Axis.vertical, children: [
         Center(

@@ -32,13 +32,17 @@ class _ActiveTimersState extends State<ActiveTimers> {
         appBar: new AppBar(
             title: new Text(
           AppLocalizations.of(context)!.aktimer,
+          style: Theme.of(context).textTheme.titleLarge,
         )),
         body: Row(
           children: [
             Expanded(
-              child: ListView(primary: true, scrollDirection: Axis.vertical, children: [
-                Column(children: widgetlist),
-              ]),
+              child: ListView(
+                  primary: true,
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    Column(children: widgetlist),
+                  ]),
             ),
             new ElevatedButton(
               onPressed: goToExpired,
@@ -53,7 +57,8 @@ class _ActiveTimersState extends State<ActiveTimers> {
   }
 
   void goToExpired() {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ExpiredTimers(widget.data)));
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => ExpiredTimers(widget.data)));
   }
 
   void reload() {
