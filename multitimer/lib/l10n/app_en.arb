@@ -29,6 +29,8 @@
   "restart": "Restart",
   "finish": "Done",
   "next": "Next Phase",
-  "notification": "Notification"
+  "notification": "Notification",
+  "phase": "is active",
+  "oof": "of"
 
 }

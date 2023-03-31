@@ -29,6 +29,8 @@
   "newcateg": "Neue Kategorie",
   "timerlistbutton": "Aktive/Abgelaufene Timer",
   "categories": "Kategorien",
-  "notification": "Benachrichtigung"
+  "notification": "Benachrichtigung",
+  "phase": "ist aktiv",
+  "oof": "von"
 
 }
