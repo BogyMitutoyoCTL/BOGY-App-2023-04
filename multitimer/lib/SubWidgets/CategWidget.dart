@@ -48,9 +48,6 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   Widget build(BuildContext context) {
     Widget container;
     myController.text = widget.data.category.name;
-    if (myController.text == "") {
-      myController.text = AppLocalizations.of(context)!.newcateg;
-    }
     myController.addListener(() {
       widget.data.category.name = myController.text;
     });
@@ -68,7 +65,8 @@ class _CategoryWidgetState extends State<CategoryWidget> {
         enabled: widget.data.editEnabled,
       );
     } else {
-      container = Text(widget.data.category.name, style: Theme.of(context).textTheme.bodyMedium);
+      container = Text(widget.data.category.name,
+          style: Theme.of(context).textTheme.bodyMedium);
     }
     /////
     return Padding(
@@ -80,10 +78,14 @@ class _CategoryWidgetState extends State<CategoryWidget> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(widget.data.color)),
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStatePropertyAll(widget.data.color)),
                 onPressed: onCategoryPress,
                 child: Row(children: [
-                  Padding(padding: const EdgeInsets.all(8.0), child: Container(width: 180, child: container)),
+                  Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(width: 180, child: container)),
                   IconButton(
                     onPressed: onClickNameChange,
                     icon: Icon(Icons.edit),
