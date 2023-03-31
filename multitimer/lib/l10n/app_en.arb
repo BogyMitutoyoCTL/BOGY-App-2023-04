@@ -30,6 +30,7 @@
   "finish": "Done",
   "next": "Next Phase",
   "notification": "Notification",
-  "phase": "is active"
+  "phase": "is active",
+  "of": "of"
 
 }

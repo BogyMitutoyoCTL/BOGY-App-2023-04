@@ -30,6 +30,7 @@
   "timerlistbutton": "Aktive/Abgelaufene Timer",
   "categories": "Kategorien",
   "notification": "Benachrichtigung",
-  "phase": "ist aktiv"
+  "phase": "ist aktiv",
+  "of": "von"
 
 }
