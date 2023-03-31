@@ -24,52 +24,54 @@ class _TimerTileState extends State<TimerTile> {
               width: 300,
               height: 150,
               color: widget.data.color,
-              child: Center(
-                child: Column(
-                  children: [
-                    new Text(widget.data.timer.name, style: Theme.of(context).textTheme.bodySmall),
-                    new Text("", style: Theme.of(context).textTheme.labelSmall),
-                  ],
-                ),
+              child: Column(
+                children: [
+                  new Text(widget.data.timer.name,
+                      style: Theme.of(context).textTheme.bodySmall),
+                  new Text(timerPhasen(),
+                      style: Theme.of(context).textTheme.labelSmall),
+                ],
               ),
             ),
           ),
           new Container(
-            child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-              Container(
-                width: 100,
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: onPlay,
-                  child: Icon(Icons.play_arrow),
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 100,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: onPlay,
+                      child: Icon(Icons.play_arrow),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Container(
-                width: 100,
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: onEdit,
-                  child: Icon(Icons.edit),
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(),
+                  Container(
+                    width: 100,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: onEdit,
+                      child: Icon(Icons.edit),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Container(
-                width: 100,
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: onTrash,
-                  child: Icon(Icons.delete_forever),
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(),
-                  ),
-                ),
-              )
-            ]),
+                  Container(
+                    width: 100,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: onTrash,
+                      child: Icon(Icons.delete_forever),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(),
+                      ),
+                    ),
+                  )
+                ]),
           )
         ],
       ),
@@ -97,5 +99,19 @@ class _TimerTileState extends State<TimerTile> {
       widget.data.refresh();
       widget.data.timer.category.timers.remove(widget.data.timer);
     });
+  }
+
+  String timerPhasen() {
+    String phasen = "";
+    for (int i = 0; i < widget.data.timer.sections.length; i++) {
+      int ii = i + 1;
+      phasen = phasen +
+          "Phase $ii: " +
+          widget.data.timer.sections[i].message +
+          " " +
+          widget.data.timer.sections[i].getRemainingTime() +
+          "\n";
+    }
+    return phasen;
   }
 }
