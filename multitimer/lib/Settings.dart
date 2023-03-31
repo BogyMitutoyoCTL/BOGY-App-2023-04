@@ -72,7 +72,7 @@ class _SettingsState extends State<Settings> {
                               backgroundColor: Colors.white70,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20.0)),
-                              minimumSize: Size(60, 90),
+                              minimumSize: Size(80, 110),
                             ),
                             child: null,
                           ),
@@ -96,7 +96,7 @@ class _SettingsState extends State<Settings> {
                               backgroundColor: Colors.black54,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20.0)),
-                              minimumSize: Size(60, 90),
+                              minimumSize: Size(80, 110),
                             ),
                             child: null,
                           ),

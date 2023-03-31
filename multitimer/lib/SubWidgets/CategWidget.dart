@@ -47,6 +47,9 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   Widget build(BuildContext context) {
     Widget container;
     myController.text = widget.data.category.name;
+    if (myController.text == "") {
+      myController.text = AppLocalizations.of(context)!.newcateg;
+    }
     myController.addListener(() {
       widget.data.category.name = myController.text;
     });

@@ -35,11 +35,26 @@ class _TimersInCategoriesState extends State<TimersInCategories> {
           scrollDirection: Axis.vertical,
           primary: true,
           children: [
-            Center(
-              child: new Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: timerListe,
-              ),
+            Column(
+              children: [
+                Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        onPressed: onClickAdd,
+                        icon: Icon(Icons.add_circle),
+                        padding: EdgeInsets.all(20.0),
+                        splashRadius: 30.0,
+                        iconSize: 50,
+                      ),
+                    ],
+                  ),
+                ),
+                Column(
+                  children: timerListe,
+                )
+              ],
             ),
           ]),
     );
@@ -48,4 +63,6 @@ class _TimersInCategoriesState extends State<TimersInCategories> {
   void refresh() {
     setState(() {});
   }
+
+  void onClickAdd() {}
 }
