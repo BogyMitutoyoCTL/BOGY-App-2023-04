@@ -7,6 +7,10 @@ class LocalNotificationService {
   final _localNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
   Future<void> setup() async {
+    _localNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.requestPermission();
     // Generate Settings for needed Platforms
     const androidSetting = AndroidInitializationSettings('spend_time');
     const iosSetting = IOSInitializationSettings();

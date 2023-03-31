@@ -79,7 +79,7 @@ class _CreateTimerState extends State<CreateTimer> {
       body: ListView(children: [
         Center(
           child: Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: const EdgeInsets.all(20.0),
             child: new Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -140,7 +140,8 @@ class _CreateTimerState extends State<CreateTimer> {
     // TODO: create sections
     // TODO: add sections to the timer
     widget.data.categoryOfTimer.timers.remove(widget.data.timerToEdit);
-    widget.categorySelectionData.selectedCategory.timers.add(widget.data.timerToEdit);
+    widget.categorySelectionData.selectedCategory.timers
+        .add(widget.data.timerToEdit);
 
     goBack();
   }
