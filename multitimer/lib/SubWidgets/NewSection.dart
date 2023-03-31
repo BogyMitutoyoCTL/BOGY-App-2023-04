@@ -49,49 +49,47 @@ class _NewSectionState extends State<NewSection> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Row(mainAxisSize: MainAxisSize.min, children: [
-            Container(
-              width: 210,
-              child: new TextField(
-                  maxLength: 20,
-                  controller: messageController,
-                  decoration: InputDecoration(
-                    counterStyle: Theme.of(context).textTheme.labelSmall,
-                    border: UnderlineInputBorder(),
-                    labelText: AppLocalizations.of(context)!.name,
-                    labelStyle: Theme.of(context).textTheme.labelSmall,
-                  )),
-            ),
-            Container(
-              width: 20,
-              height: 1,
-            ),
-            Container(
-              width: 55,
-              child: new TextField(
-                  maxLength: 3,
-                  controller: timeController,
-                  decoration: InputDecoration(
-                    counterStyle: Theme.of(context).textTheme.labelSmall,
-                    border: UnderlineInputBorder(),
-                    labelText: AppLocalizations.of(context)!.time,
-                    labelStyle: Theme.of(context).textTheme.labelSmall,
-                  ),
-                  inputFormatters: [
-                    FilteringTextInputFormatter.allow(RegExp("[0-9]")),
-                  ]),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child:
-                  new Text("min", style: Theme.of(context).textTheme.bodySmall),
-            ),
-          ]),
-        ],
-      ),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                width: 235,
+                child: new TextField(
+                    maxLength: 20,
+                    controller: messageController,
+                    decoration: InputDecoration(
+                      counterStyle: Theme.of(context).textTheme.labelSmall,
+                      border: UnderlineInputBorder(),
+                      labelText: AppLocalizations.of(context)!.name,
+                      labelStyle: Theme.of(context).textTheme.labelSmall,
+                    )),
+              ),
+              Row(children: [
+                Container(
+                  width: 40,
+                  child: new TextField(
+                      maxLength: 3,
+                      controller: timeController,
+                      decoration: InputDecoration(
+                        counterStyle: Theme.of(context).textTheme.labelSmall,
+                        border: UnderlineInputBorder(),
+                        labelText: AppLocalizations.of(context)!.time,
+                        labelStyle: Theme.of(context).textTheme.labelSmall,
+                      ),
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+                      ]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: new Text("min",
+                      style: Theme.of(context).textTheme.bodySmall),
+                ),
+              ]),
+            ]),
+      ]),
     );
   }
 }
