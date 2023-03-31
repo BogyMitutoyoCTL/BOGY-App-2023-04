@@ -54,11 +54,12 @@ class _SettingsState extends State<Settings> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
                     children: [
                       Row(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           Radio(
                             value: ThemeMode.light,
@@ -80,10 +81,9 @@ class _SettingsState extends State<Settings> {
                     ],
                   ),
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           Radio(
                               value: ThemeMode.dark,
