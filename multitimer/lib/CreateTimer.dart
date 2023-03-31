@@ -84,7 +84,7 @@ class _CreateTimerState extends State<CreateTimer> {
       body: ListView(children: [
         Center(
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(10.0),
             child: new Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
