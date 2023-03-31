@@ -96,5 +96,11 @@ class _TimerTileState extends State<TimerTile> {
 
   void onEdit() {}
 
-  void onTrash() {}
+  void onTrash() {
+    setState(() {
+      widget.data.timer.deactivate();
+      widget.data.refresh();
+      widget.data.timer.category.timers.remove(widget.data.timer);
+    });
+  }
 }

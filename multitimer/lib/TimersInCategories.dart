@@ -17,11 +17,11 @@ class _TimersInCategoriesState extends State<TimersInCategories> {
   @override
   Widget build(BuildContext context) {
     List<Widget> timerListe = [];
-    for (int i = 0; i < widget.data.category.timers.length; i++) {
-      var aTimer = widget.data.category.timers[i];
+    for (var aTimer in widget.data.category.getStartableTimers()) {
       var timersWidgetData = TimerTileData();
       timersWidgetData.timer = aTimer;
       timersWidgetData.color = widget.data.color;
+      timersWidgetData.refresh = refresh;
       var timerWidget = new TimerTile(timersWidgetData);
       timerListe.add(timerWidget);
     }
@@ -34,5 +34,9 @@ class _TimersInCategoriesState extends State<TimersInCategories> {
         ),
       ),
     );
+  }
+
+  void refresh() {
+    setState(() {});
   }
 }
