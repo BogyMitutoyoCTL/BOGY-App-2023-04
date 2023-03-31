@@ -36,44 +36,40 @@ class _TimersInCategoriesState extends State<TimersInCategories> {
         widget.data.category.name,
         style: Theme.of(context).textTheme.titleLarge,
       )),
-      body: new ListView(
-          scrollDirection: Axis.vertical,
-          primary: true,
+      body: new ListView(scrollDirection: Axis.vertical, primary: true, children: [
+        Column(
           children: [
-            Column(
-              children: [
-                Center(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: onClickAdd,
-                        icon: Icon(Icons.add_circle),
-                        padding: EdgeInsets.all(20.0),
-                        splashRadius: 30.0,
-                        iconSize: 50,
-                      ),
-                    ],
+            Center(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    onPressed: onClickAdd,
+                    icon: Icon(Icons.add_circle),
+                    padding: EdgeInsets.all(20.0),
+                    splashRadius: 30.0,
+                    iconSize: 50,
                   ),
-                ),
-                Column(
-                  children: timerListe,
-                )
-              ],
+                ],
+              ),
             ),
-          ]),
+            Column(
+              children: timerListe,
+            )
+          ],
+        ),
+      ]),
     );
   }
 
   void onClickAdd() {
     CreateTimerData data = new CreateTimerData();
-    data.data = widget.data.data;
+    data.everything = widget.data.data;
     data.timerToEdit = new Timer();
     TimerCategory dummy = new TimerCategory();
     dummy.timers.add(data.timerToEdit);
     data.categoryOfTimer = widget.data.category;
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => CreateTimer(data))); //Neuer Timer
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreateTimer(data))); //Neuer Timer
   }
 
   void refresh() {

@@ -58,8 +58,7 @@ class _MainmenuState extends State<Mainmenu> {
                       Icons.format_list_bulleted_add,
                       size: 24.0,
                     ),
-                    label: Text(AppLocalizations.of(context)!.newtimer,
-                        style: Theme.of(context).textTheme.titleMedium),
+                    label: Text(AppLocalizations.of(context)!.newtimer, style: Theme.of(context).textTheme.titleMedium),
                   ),
                 ),
                 new Container(width: width, height: 50),
@@ -73,8 +72,7 @@ class _MainmenuState extends State<Mainmenu> {
                       Icons.format_list_bulleted,
                       size: 24.0,
                     ),
-                    label: Text(AppLocalizations.of(context)!.mytimer,
-                        style: Theme.of(context).textTheme.titleMedium),
+                    label: Text(AppLocalizations.of(context)!.mytimer, style: Theme.of(context).textTheme.titleMedium),
                   ),
                 ),
                 new Container(width: width, height: 50),
@@ -88,8 +86,7 @@ class _MainmenuState extends State<Mainmenu> {
                       Icons.hourglass_bottom,
                       size: 24.0,
                     ),
-                    label: Text(AppLocalizations.of(context)!.timerlistbutton,
-                        style: Theme.of(context).textTheme.titleMedium),
+                    label: Text(AppLocalizations.of(context)!.timerlistbutton, style: Theme.of(context).textTheme.titleMedium),
                   ),
                 ),
                 new Container(width: width, height: 50),
@@ -103,8 +100,7 @@ class _MainmenuState extends State<Mainmenu> {
                       Icons.settings,
                       size: 24.0,
                     ),
-                    label: Text(AppLocalizations.of(context)!.settings,
-                        style: Theme.of(context).textTheme.titleMedium),
+                    label: Text(AppLocalizations.of(context)!.settings, style: Theme.of(context).textTheme.titleMedium),
                   ),
                 ),
                 new Container(width: width, height: 50),
@@ -115,17 +111,13 @@ class _MainmenuState extends State<Mainmenu> {
                     //Benachrichtigungen
                     onPressed: () {
                       LocalNotificationService().showDelayedNotification(
-                          title: 'Sample notification',
-                          body:
-                              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                          delayInSeconds: 5);
+                          title: 'Sample notification', body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', delayInSeconds: 5);
                     },
                     icon: Icon(
                       Icons.notifications,
                       size: 24.0,
                     ),
-                    label: Text(AppLocalizations.of(context)!.notification,
-                        style: Theme.of(context).textTheme.titleMedium),
+                    label: Text(AppLocalizations.of(context)!.notification, style: Theme.of(context).textTheme.titleMedium),
                   ),
                 )
               ],
@@ -138,27 +130,23 @@ class _MainmenuState extends State<Mainmenu> {
 
   void onCreate() {
     CreateTimerData data = new CreateTimerData();
-    data.data = widget.data;
+    data.everything = widget.data;
     data.timerToEdit = new Timer();
     TimerCategory dummy = TimerCategory.empty;
     dummy.timers.add(data.timerToEdit);
     data.categoryOfTimer = dummy;
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => CreateTimer(data))); //Neuer Timer
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreateTimer(data))); //Neuer Timer
   }
 
   void onCategories() {
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => Categories(widget.data))); //Meine Timer
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => Categories(widget.data))); //Meine Timer
   }
 
   void onActive() {
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => ActiveTimers(widget.data))); //Aktive Timer
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ActiveTimers(widget.data))); //Aktive Timer
   }
 
   void onSettings() {
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => Settings(widget.data))); //Einstellungen
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => Settings(widget.data))); //Einstellungen
   }
 }

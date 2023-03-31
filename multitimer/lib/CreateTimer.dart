@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/data/CategorySelectData.dart';
 import 'package:multitimer/data/NewSectionData.dart';
+import 'package:multitimer/data/Storage.dart';
 import 'package:multitimer/data/TimerCategory.dart';
 
 import 'SubWidgets/Categoryselect.dart';
@@ -13,9 +14,9 @@ class CreateTimer extends StatefulWidget {
   CategorySelectData categorySelectionData = CategorySelectData();
 
   CreateTimer(this.data, {Key? key}) : super(key: key) {
-    categorySelectionData.categories = data.data.categories;
+    categorySelectionData.categories = data.everything.categories;
     if (data.categoryOfTimer == TimerCategory.empty)
-      categorySelectionData.selectedCategory = data.data.categories.first;
+      categorySelectionData.selectedCategory = data.everything.categories.first;
     else
       categorySelectionData.selectedCategory = data.categoryOfTimer;
   }
@@ -85,44 +86,39 @@ class _CreateTimerState extends State<CreateTimer> {
         Center(
           child: Padding(
             padding: const EdgeInsets.all(20.0),
-            child: new Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  new Text(
-                    "Name: ",
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  Container(
-                      width: 500,
-                      child: new TextField(controller: nameController)),
-                  Container(
-                    height: 10,
-                  ),
-                  new Text(
-                    AppLocalizations.of(context)!.category + ":",
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  Categoyselect(widget.categorySelectionData),
-                  new Text(
-                    AppLocalizations.of(context)!.time + ":",
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  Column(children: sectionWidgets),
-                  Container(
-                    height: 30,
-                  ),
-                  plusButton,
-                  Container(
-                    height: 30,
-                  ),
-                  SizedBox(
-                    width: 150,
-                    child: new ElevatedButton(
-                        onPressed: isInputValid() ? onSave : null,
-                        child: new Text(AppLocalizations.of(context)!.save,
-                            style: Theme.of(context).textTheme.bodySmall)),
-                  ),
-                ]),
+            child: new Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+              new Text(
+                "Name: ",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Container(width: 500, child: new TextField(controller: nameController)),
+              Container(
+                height: 10,
+              ),
+              new Text(
+                AppLocalizations.of(context)!.category + ":",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Categoyselect(widget.categorySelectionData),
+              new Text(
+                AppLocalizations.of(context)!.time + ":",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Column(children: sectionWidgets),
+              Container(
+                height: 30,
+              ),
+              plusButton,
+              Container(
+                height: 30,
+              ),
+              SizedBox(
+                width: 150,
+                child: new ElevatedButton(
+                    onPressed: isInputValid() ? onSave : null,
+                    child: new Text(AppLocalizations.of(context)!.save, style: Theme.of(context).textTheme.bodySmall)),
+              ),
+            ]),
           ),
         ),
       ]),
@@ -140,14 +136,13 @@ class _CreateTimerState extends State<CreateTimer> {
   }
 
   List<NewSectionData> sections = [];
-  void onSave() {
+  Future<void> onSave() async {
     widget.data.timerToEdit.name = timerName;
     // TODO: create sections
     // TODO: add sections to the timer
     widget.data.categoryOfTimer.timers.remove(widget.data.timerToEdit);
-    widget.categorySelectionData.selectedCategory.timers
-        .add(widget.data.timerToEdit);
-
+    widget.categorySelectionData.selectedCategory.timers.add(widget.data.timerToEdit);
+    await Storage().save(widget.data.everything);
     goBack();
   }
 

@@ -4,7 +4,7 @@ import 'Data.dart';
 import 'Timer.dart';
 
 class CreateTimerData {
-  late Data data;
+  late Data everything;
   late Timer timerToEdit;
   late TimerCategory categoryOfTimer;
 }

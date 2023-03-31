@@ -4,6 +4,7 @@ import 'package:multitimer/SubWidgets/CategWidget.dart';
 import 'package:multitimer/data/CategWidgetData.dart';
 import 'package:multitimer/data/Data.dart';
 
+import 'data/Storage.dart';
 import 'data/TimerCategory.dart';
 
 class Categories extends StatefulWidget {
@@ -40,9 +41,7 @@ class _CategoriesState extends State<Categories> {
         mainAxisSize: MainAxisSize.min,
         children: [
           new Text(
-            AppLocalizations.of(context)!.categories +
-                ": " +
-                widget.data.categories.length.toString(),
+            AppLocalizations.of(context)!.categories + ": " + widget.data.categories.length.toString(),
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ],
@@ -88,6 +87,7 @@ class _CategoriesState extends State<Categories> {
       setState(() {
         var category = new TimerCategory();
         widget.data.categories.add(category);
+        Storage().save(widget.data);
       });
     }
   }
@@ -95,8 +95,7 @@ class _CategoriesState extends State<Categories> {
   void deleteCateg(TimerCategory categoryWhole) {
     setState(() {
       widget.data.categories.remove(categoryWhole);
+      Storage().save(widget.data);
     });
   }
 }
-
-///////
