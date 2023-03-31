@@ -75,6 +75,7 @@ class _CreateTimerState extends State<CreateTimer> {
       appBar: new AppBar(
           title: new Text(
         AppLocalizations.of(context)!.newtimer,
+        style: Theme.of(context).textTheme.titleLarge,
       )),
       body: ListView(children: [
         Center(

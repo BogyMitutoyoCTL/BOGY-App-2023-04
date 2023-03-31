@@ -26,7 +26,11 @@ class _TimersInCategoriesState extends State<TimersInCategories> {
       timerListe.add(timerWidget);
     }
     return Scaffold(
-      appBar: new AppBar(title: new Text(widget.data.category.name)),
+      appBar: new AppBar(
+          title: new Text(
+        widget.data.category.name,
+        style: Theme.of(context).textTheme.titleLarge,
+      )),
       body: new ListView(
           scrollDirection: Axis.vertical,
           primary: true,

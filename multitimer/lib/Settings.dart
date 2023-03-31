@@ -31,6 +31,7 @@ class _SettingsState extends State<Settings> {
                 padding: const EdgeInsets.all(8.0),
                 child: new Text(
                   AppLocalizations.of(context)!.settings,
+                  style: Theme.of(context).textTheme.titleLarge,
                 )),
             Icon(Icons.settings),
           ],
@@ -90,7 +91,7 @@ class _SettingsState extends State<Settings> {
                               groupValue: data.theme,
                               onChanged: setTheme),
                           ElevatedButton(
-                            onPressed: onClickWhite,
+                            onPressed: onClickBlack,
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.black54,
                               shape: RoundedRectangleBorder(

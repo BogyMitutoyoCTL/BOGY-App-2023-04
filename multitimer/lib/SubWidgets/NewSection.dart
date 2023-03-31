@@ -54,7 +54,7 @@ class _NewSectionState extends State<NewSection> {
         children: [
           Row(mainAxisSize: MainAxisSize.min, children: [
             Container(
-              width: 240,
+              width: 210,
               child: new TextField(
                   maxLength: 20,
                   controller: messageController,
@@ -66,7 +66,7 @@ class _NewSectionState extends State<NewSection> {
                   )),
             ),
             Container(
-              width: 30,
+              width: 20,
               height: 1,
             ),
             Container(
@@ -86,7 +86,8 @@ class _NewSectionState extends State<NewSection> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: new Text("min", style: Theme.of(context).textTheme.bodySmall),
+              child:
+                  new Text("min", style: Theme.of(context).textTheme.bodySmall),
             ),
           ]),
         ],

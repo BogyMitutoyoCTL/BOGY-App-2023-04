@@ -31,6 +31,7 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
         appBar: new AppBar(
           title: new Text(
             AppLocalizations.of(context)!.extimer,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
         body: Row(
@@ -44,9 +45,12 @@ class _ExpiredTimersState extends State<ExpiredTimers> {
               child: Icon(Icons.arrow_back_outlined),
             ),
             Expanded(
-              child: ListView(primary: true, scrollDirection: Axis.vertical, children: [
-                Column(children: widgetlist),
-              ]),
+              child: ListView(
+                  primary: true,
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    Column(children: widgetlist),
+                  ]),
             ),
           ],
         ));
