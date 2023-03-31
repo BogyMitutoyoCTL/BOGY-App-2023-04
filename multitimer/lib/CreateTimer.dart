@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/data/CategorySelectData.dart';
-import 'package:multitimer/data/Data.dart';
 import 'package:multitimer/data/NewSectionData.dart';
 
 import 'SubWidgets/Categoryselect.dart';
-import 'data/Timer.dart';
+import 'data/CreateTimerData.dart';
 import 'subwidgets/NewSection.dart';
 
 class CreateTimer extends StatefulWidget {
-  Data data;
+  CreateTimerData data;
   CategorySelectData categorySelectionData = CategorySelectData();
 
-  CreateTimer(Data this.data, {Key? key}) : super(key: key) {
-    categorySelectionData.categories = data.categories;
-    categorySelectionData.selectedCategory = data.categories.first;
+  CreateTimer(this.data, {Key? key}) : super(key: key) {
+    categorySelectionData.categories = data.data.categories;
+    categorySelectionData.selectedCategory = data.data.categories.first;
   }
 
   @override
@@ -80,7 +79,7 @@ class _CreateTimerState extends State<CreateTimer> {
       body: ListView(children: [
         Center(
           child: Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: const EdgeInsets.all(20.0),
             child: new Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -137,11 +136,12 @@ class _CreateTimerState extends State<CreateTimer> {
 
   List<NewSectionData> sections = [];
   void onSave() {
-    Timer timer = new Timer();
-    timer.name = timerName;
+    widget.data.timerToEdit.name = timerName;
     // TODO: create sections
     // TODO: add sections to the timer
-    widget.categorySelectionData.selectedCategory.timers.add(timer);
+    widget.data.categoryOfTimer.timers.remove(widget.data.timerToEdit);
+    widget.categorySelectionData.selectedCategory.timers
+        .add(widget.data.timerToEdit);
 
     goBack();
   }
