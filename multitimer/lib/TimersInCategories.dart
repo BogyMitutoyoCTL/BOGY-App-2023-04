@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:multitimer/data/TimersInCategData.dart';
 
-import '../data/TimeTileData.dart';
-import 'TimerTile.dart';
+import 'SubWidgets/TimerTile.dart';
+import 'data/TimeTileData.dart';
 
 class TimersInCategories extends StatefulWidget {
   TimersInCategData data;

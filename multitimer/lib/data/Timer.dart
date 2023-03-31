@@ -34,7 +34,7 @@ class Timer {
     isActive = true;
     isExpired = false;
     alarm = new Async.Timer(getCurrentSection().duration, () {
-      print("Now what`?");
+      expire();
     });
     stopwatch = Stopwatch();
     stopwatch?.start();

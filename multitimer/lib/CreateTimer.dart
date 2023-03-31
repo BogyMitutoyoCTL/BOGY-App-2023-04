@@ -10,8 +10,12 @@ import 'subwidgets/NewSection.dart';
 
 class CreateTimer extends StatefulWidget {
   Data data;
+  CategorySelectData categorySelectionData = CategorySelectData();
 
-  CreateTimer(Data this.data, {Key? key}) : super(key: key);
+  CreateTimer(Data this.data, {Key? key}) : super(key: key) {
+    categorySelectionData.categories = data.categories;
+    categorySelectionData.selectedCategory = data.categories.first;
+  }
 
   @override
   State<CreateTimer> createState() => _CreateTimerState();
@@ -20,7 +24,6 @@ class CreateTimer extends StatefulWidget {
 class _CreateTimerState extends State<CreateTimer> {
   var timerName = "";
   TextEditingController nameController = TextEditingController(text: "");
-  CategorySelectData categorySelectionData = CategorySelectData();
 
   void refresh() {
     setState(() {});
@@ -48,9 +51,7 @@ class _CreateTimerState extends State<CreateTimer> {
   }
 
   @override
-  Widget build(
-    BuildContext context,
-  ) {
+  Widget build(BuildContext context) {
     Widget plusButton;
     if (sections.length < 4) {
       plusButton = ElevatedButton(
@@ -64,9 +65,6 @@ class _CreateTimerState extends State<CreateTimer> {
     } else {
       plusButton = Container();
     }
-
-    categorySelectionData.categories = widget.data.categories;
-    categorySelectionData.selectedCategory = widget.data.categories.first;
 
     List<Widget> sectionWidgets = [];
     for (var sectionData in sections) {
@@ -82,44 +80,39 @@ class _CreateTimerState extends State<CreateTimer> {
         Center(
           child: Padding(
             padding: const EdgeInsets.all(30.0),
-            child: new Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  new Text(
-                    "Name: ",
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  Container(
-                      width: 500,
-                      child: new TextField(controller: nameController)),
-                  Container(
-                    height: 10,
-                  ),
-                  new Text(
-                    AppLocalizations.of(context)!.category + ":",
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  Categoyselect(categorySelectionData),
-                  new Text(
-                    AppLocalizations.of(context)!.time + ":",
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  Column(children: sectionWidgets),
-                  Container(
-                    height: 30,
-                  ),
-                  plusButton,
-                  Container(
-                    height: 30,
-                  ),
-                  SizedBox(
-                    width: 150,
-                    child: new ElevatedButton(
-                        onPressed: isInputValid() ? onSave : null,
-                        child: new Text(AppLocalizations.of(context)!.save,
-                            style: Theme.of(context).textTheme.bodySmall)),
-                  ),
-                ]),
+            child: new Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+              new Text(
+                "Name: ",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Container(width: 500, child: new TextField(controller: nameController)),
+              Container(
+                height: 10,
+              ),
+              new Text(
+                AppLocalizations.of(context)!.category + ":",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Categoyselect(widget.categorySelectionData),
+              new Text(
+                AppLocalizations.of(context)!.time + ":",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Column(children: sectionWidgets),
+              Container(
+                height: 30,
+              ),
+              plusButton,
+              Container(
+                height: 30,
+              ),
+              SizedBox(
+                width: 150,
+                child: new ElevatedButton(
+                    onPressed: isInputValid() ? onSave : null,
+                    child: new Text(AppLocalizations.of(context)!.save, style: Theme.of(context).textTheme.bodySmall)),
+              ),
+            ]),
           ),
         ),
       ]),
@@ -142,7 +135,7 @@ class _CreateTimerState extends State<CreateTimer> {
     timer.name = timerName;
     // TODO: create sections
     // TODO: add sections to the timer
-    categorySelectionData.selectedCategory.timers.add(timer);
+    widget.categorySelectionData.selectedCategory.timers.add(timer);
 
     goBack();
   }

@@ -33,6 +33,10 @@ class Data {
     return filterTimers((Timer timer) => timer.isActive);
   }
 
+  List<Timer> getStartableTimers() {
+    return filterTimers((Timer timer) => !timer.isActive);
+  }
+
   List<Timer> filterTimers(bool Function(Timer timer) filter) {
     List<Timer> activeTimers = [];
     for (var category in categories) {
