@@ -34,7 +34,7 @@ class _MainmenuState extends State<Mainmenu> {
       body: ListView(primary: true, scrollDirection: Axis.vertical, children: [
         Center(
           child: Padding(
-            padding: const EdgeInsets.all(50.0),
+            padding: const EdgeInsets.all(30.0),
             child: new Column(
               children: [
                 new Text(
@@ -50,7 +50,7 @@ class _MainmenuState extends State<Mainmenu> {
                 new Container(width: width, height: 50),
                 Container(
                   width: width,
-                  height: 43,
+                  height: 50,
                   child: ElevatedButton.icon(
                     //Neuer Timer
                     onPressed: onCreate,
@@ -65,7 +65,7 @@ class _MainmenuState extends State<Mainmenu> {
                 new Container(width: width, height: 50),
                 Container(
                   width: width,
-                  height: 43,
+                  height: 50,
                   child: ElevatedButton.icon(
                     //Meine Timer
                     onPressed: onCategories,
@@ -80,7 +80,7 @@ class _MainmenuState extends State<Mainmenu> {
                 new Container(width: width, height: 50),
                 Container(
                   width: width,
-                  height: 43,
+                  height: 50,
                   child: ElevatedButton.icon(
                     //Aktive Timer
                     onPressed: onActive,
@@ -95,7 +95,7 @@ class _MainmenuState extends State<Mainmenu> {
                 new Container(width: width, height: 50),
                 Container(
                   width: width,
-                  height: 43,
+                  height: 50,
                   child: ElevatedButton.icon(
                     //Einstellungen
                     onPressed: onSettings,
@@ -110,7 +110,7 @@ class _MainmenuState extends State<Mainmenu> {
                 new Container(width: width, height: 50),
                 Container(
                   width: width,
-                  height: 43,
+                  height: 50,
                   child: ElevatedButton.icon(
                     //Benachrichtigungen
                     onPressed: () {
