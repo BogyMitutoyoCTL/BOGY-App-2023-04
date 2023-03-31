@@ -87,7 +87,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                 child: Row(children: [
                   Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(width: 200, child: container)),
+                      child: Container(width: 180, child: container)),
                   IconButton(
                     onPressed: onClickNameChange,
                     icon: Icon(Icons.edit),
