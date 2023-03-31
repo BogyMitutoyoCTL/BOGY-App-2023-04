@@ -52,7 +52,7 @@ class _TimerTileState extends State<TimerTile> {
                       width: 100,
                       height: 48,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: onPlay,
                         child: Icon(Icons.play_arrow),
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(),
@@ -64,7 +64,7 @@ class _TimerTileState extends State<TimerTile> {
                       width: 100,
                       height: 48,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: onEdit,
                         child: Icon(Icons.edit),
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(),
@@ -76,7 +76,7 @@ class _TimerTileState extends State<TimerTile> {
                       width: 100,
                       height: 49,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: onTrash,
                         child: Icon(CupertinoIcons.trash),
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(),
@@ -91,4 +91,10 @@ class _TimerTileState extends State<TimerTile> {
       ),
     );
   }
+
+  void onPlay() {}
+
+  void onEdit() {}
+
+  void onTrash() {}
 }
