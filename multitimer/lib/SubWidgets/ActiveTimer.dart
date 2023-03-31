@@ -62,6 +62,27 @@ class _ActiveTimerState extends State<ActiveTimer> {
                       Column(
                         children: [
                           new IconButton(
+                            onPressed: onEnd,
+                            icon: Icon(
+                              Icons.stop_circle,
+                              size: 30,
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              shape: CircleBorder(),
+                              padding: EdgeInsets.all(20),
+                            ),
+                          ),
+                          new Text(AppLocalizations.of(context)!.finish,
+                              style: Theme.of(context).textTheme.labelMedium),
+                        ],
+                      ),
+                      new Container(
+                        height: 15,
+                        width: 30,
+                      ),
+                      Column(
+                        children: [
+                          new IconButton(
                             onPressed: onDelete,
                             icon: Icon(
                               Icons.delete,
@@ -115,6 +136,13 @@ class _ActiveTimerState extends State<ActiveTimer> {
     setState(() {
       widget.data.timer.deactivate();
       widget.data.timer.activate();
+      widget.data.reload();
+    });
+  }
+
+  void onEnd() {
+    setState(() {
+      widget.data.timer.finish();
       widget.data.reload();
     });
   }
