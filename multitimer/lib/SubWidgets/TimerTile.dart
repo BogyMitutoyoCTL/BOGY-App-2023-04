@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:multitimer/CreateTimer.dart';
+import 'package:multitimer/data/CreateTimerData.dart';
 import 'package:multitimer/data/TimeTileData.dart';
 
 class TimerTile extends StatefulWidget {
@@ -79,7 +81,16 @@ class _TimerTileState extends State<TimerTile> {
 
   void onPlay() {}
 
-  void onEdit() {}
+  void onEdit() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+      var createTimerData = CreateTimerData();
+      createTimerData.data = widget.data.data;
+      createTimerData.categoryOfTimer = widget.data.timer.category;
+      createTimerData.timerToEdit = widget.data.timer;
+
+      return CreateTimer(createTimerData);
+    }));
+  }
 
   void onTrash() {
     setState(() {
