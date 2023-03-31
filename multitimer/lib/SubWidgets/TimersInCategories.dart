@@ -27,12 +27,17 @@ class _TimersInCategoriesState extends State<TimersInCategories> {
     }
     return Scaffold(
       appBar: new AppBar(title: new Text(widget.data.category.name)),
-      body: Center(
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: timerListe,
-        ),
-      ),
+      body: new ListView(
+          scrollDirection: Axis.vertical,
+          primary: true,
+          children: [
+            Center(
+              child: new Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: timerListe,
+              ),
+            ),
+          ]),
     );
   }
 }
