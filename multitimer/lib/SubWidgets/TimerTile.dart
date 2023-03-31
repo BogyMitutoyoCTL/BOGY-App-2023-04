@@ -79,7 +79,9 @@ class _TimerTileState extends State<TimerTile> {
     );
   }
 
-  void onPlay() {}
+  void onPlay() {
+    widget.data.timer.activate();
+  }
 
   void onEdit() {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
