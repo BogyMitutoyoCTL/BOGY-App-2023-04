@@ -90,7 +90,13 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
     );
   }
 
-  void onNext() {}
+  void onNext() {
+    setState(() {
+      print("start next section");
+      widget.data.timer.nextsection();
+      widget.data.refresh();
+    });
+  }
 
   void onDone() {
     setState(() {
