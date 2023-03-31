@@ -111,11 +111,11 @@ class _MainmenuState extends State<Mainmenu> {
                   child: ElevatedButton.icon(
                     //Benachrichtigungen
                     onPressed: () {
-                      LocalNotificationService().showSimpleNotification(
-                        title: 'Sample notification',
-                        body:
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                      );
+                      LocalNotificationService().showDelayedNotification(
+                          title: 'Sample notification',
+                          body:
+                              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                          delayInSeconds: 5);
                     },
                     icon: Icon(
                       Icons.notifications,

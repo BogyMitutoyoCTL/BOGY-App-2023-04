@@ -1,10 +1,8 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/SplashScreen.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data/Data.dart';
@@ -20,23 +18,13 @@ Future<void> main() async {
   Data data = await storage.load();
   debugPrint(jsonEncode(data));
   var myApp = MultiTimerApp(data);
-  if (!kIsWeb) {
-    await Permission.notification.isDenied.then((value) {
-      debugPrint("Do we have permissions to send out a notification?");
-      if (value) {
-        debugPrint("No we don't, lets request...");
-        Permission.notification.request();
-      } else {
-        debugPrint("Yes we have. Lets send out some notifications. :-D");
-      }
-    });
-  }
   await LocalNotificationService().setup();
   runApp(myApp);
 }
 
 class MultiTimerApp extends StatelessWidget {
   Data data;
+
   MultiTimerApp(this.data, {super.key});
 
   @override
@@ -54,7 +42,8 @@ class MultiTimerApp extends StatelessWidget {
                   title: "MituTimer",
                   themeMode: mode,
                   theme: ThemeData(
-                      canvasColor: appbarColor, //drop down list color
+                      canvasColor: appbarColor,
+                      //drop down list color
                       elevatedButtonTheme: ElevatedButtonThemeData(
                           style:
                               ElevatedButton.styleFrom(foregroundColor: black)),
