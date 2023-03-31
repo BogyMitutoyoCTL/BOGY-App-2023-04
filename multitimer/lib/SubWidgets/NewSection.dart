@@ -23,6 +23,7 @@ class _NewSectionState extends State<NewSection> {
     messageController.addListener(() {
       setState(() {
         widget.data.message = messageController.text;
+        widget.data.refreshParent();
       });
     });
 
@@ -32,6 +33,7 @@ class _NewSectionState extends State<NewSection> {
         var minutes = int.tryParse(timeController.text);
         minutes ??= 0;
         widget.data.duration = Duration(minutes: minutes);
+        widget.data.refreshParent();
       });
     });
   }
