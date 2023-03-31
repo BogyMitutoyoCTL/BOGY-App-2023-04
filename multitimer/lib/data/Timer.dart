@@ -63,7 +63,7 @@ class Timer {
     if (stopwatch == null) return Duration.zero;
     var planned = getCurrentSection().duration;
     var passed = stopwatch!.elapsed;
-    var diff = planned - passed;
+    var diff = planned - passed + Duration(milliseconds: 300);
     if (diff < Duration.zero) return Duration.zero;
     return diff;
   }
