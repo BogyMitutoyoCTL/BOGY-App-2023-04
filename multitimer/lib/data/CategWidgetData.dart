@@ -1,7 +1,10 @@
-import 'Category.dart';
+import 'dart:ui';
+
+import 'TimerCategory.dart';
 
 class CategWidgetData {
-  late Category category;
+  late TimerCategory category;
   late bool editEnabled;
-  late void Function(Category categoryWhole) callback;
+  late void Function(TimerCategory category) delete;
+  late Color color;
 }

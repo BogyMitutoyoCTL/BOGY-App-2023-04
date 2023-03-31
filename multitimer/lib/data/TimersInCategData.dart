@@ -1,5 +1,8 @@
-import 'Category.dart';
+import 'dart:ui';
+
+import 'TimerCategory.dart';
 
 class TimersInCategData {
-  late Category category;
+  late TimerCategory category;
+  late Color color;
 }

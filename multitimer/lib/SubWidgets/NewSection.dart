@@ -1,34 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:multitimer/data/NewSectionData.dart';
 
-class NewTimer extends StatefulWidget {
-  const NewTimer({Key? key}) : super(key: key);
+class NewSection extends StatefulWidget {
+  NewSectionData data;
+
+  NewSection(this.data, {Key? key}) : super(key: key);
 
   @override
-  State<NewTimer> createState() => _NewTimerState();
+  State<NewSection> createState() => _NewSectionState();
 }
 
-class _NewTimerState extends State<NewTimer> {
-  var text3 = "";
-  var text4 = "";
-  TextEditingController controller3 = TextEditingController(text: "");
-  TextEditingController controller4 = TextEditingController(text: "");
+class _NewSectionState extends State<NewSection> {
+  TextEditingController messageController = TextEditingController(text: "");
+  TextEditingController timeController = TextEditingController(text: "");
 
   @override
   void initState() {
     super.initState();
-    controller3.text = text3;
-    controller3.addListener(() {
+    messageController.text = widget.data.message;
+    messageController.addListener(() {
       setState(() {
-        text3 = controller3.text;
+        widget.data.message = messageController.text;
       });
     });
 
-    controller4.text = text4;
-    controller4.addListener(() {
+    timeController.text = widget.data.duration.inMinutes.toString();
+    timeController.addListener(() {
       setState(() {
-        text4 = controller4.text;
+        var minutes = int.tryParse(timeController.text);
+        minutes ??= 0;
+        widget.data.duration = Duration(minutes: minutes);
       });
     });
   }
@@ -36,8 +39,8 @@ class _NewTimerState extends State<NewTimer> {
   @override
   void dispose() {
     super.dispose();
-    controller3.dispose();
-    controller4.dispose();
+    messageController.dispose();
+    timeController.dispose();
   }
 
   @override
@@ -52,7 +55,7 @@ class _NewTimerState extends State<NewTimer> {
               width: 240,
               child: new TextField(
                   maxLength: 20,
-                  controller: controller3,
+                  controller: messageController,
                   decoration: InputDecoration(
                     counterStyle: Theme.of(context).textTheme.labelSmall,
                     border: UnderlineInputBorder(),
@@ -68,7 +71,7 @@ class _NewTimerState extends State<NewTimer> {
               width: 55,
               child: new TextField(
                   maxLength: 3,
-                  controller: controller4,
+                  controller: timeController,
                   decoration: InputDecoration(
                     counterStyle: Theme.of(context).textTheme.labelSmall,
                     border: UnderlineInputBorder(),
@@ -81,16 +84,11 @@ class _NewTimerState extends State<NewTimer> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child:
-                  new Text("min", style: Theme.of(context).textTheme.bodySmall),
+              child: new Text("min", style: Theme.of(context).textTheme.bodySmall),
             ),
           ]),
         ],
       ),
     );
   }
-
-  void onSave() {}
-
-  void onNeueZeile() {}
 }

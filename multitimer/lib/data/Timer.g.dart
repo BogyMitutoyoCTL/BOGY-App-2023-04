@@ -13,16 +13,13 @@ Timer _$TimerFromJson(Map<String, dynamic> json) {
   );
   return Timer(
     name: json['name'] as String? ?? "",
-  )
-    ..sections = (json['sections'] as List<dynamic>?)
-            ?.map((e) => Section.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        []
-    ..isActive = json['isActive'] as bool;
+  )..sections = (json['sections'] as List<dynamic>?)
+          ?.map((e) => Section.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      [];
 }
 
 Map<String, dynamic> _$TimerToJson(Timer instance) => <String, dynamic>{
       'sections': instance.sections.map((e) => e.toJson()).toList(),
       'name': instance.name,
-      'isActive': instance.isActive,
     };

@@ -17,13 +17,15 @@ class ActiveTimers extends StatefulWidget {
 class _ActiveTimersState extends State<ActiveTimers> {
   @override
   Widget build(BuildContext context) {
-    var timerlist = widget.data.getActiveTimers();
+    var activeTimers = widget.data.getActiveTimers();
     List<Widget> widgetlist = [];
-    for (var i = 0; i < timerlist.length; i++) {
+    for (var activeTimer in activeTimers) {
       var activedata = ActiveTimerdata();
-      activedata.timer = timerlist[i];
-      var widget = ActiveTimer(activedata);
-      widgetlist.add(widget);
+      activedata.reload = reload;
+      activedata.timer = activeTimer;
+      activedata.color = widget.data.colorOf(activeTimer.category);
+      var subwidget = ActiveTimer(activedata);
+      widgetlist.add(subwidget);
     }
 
     return Scaffold(
@@ -34,31 +36,27 @@ class _ActiveTimersState extends State<ActiveTimers> {
         body: Row(
           children: [
             Expanded(
-              child: ListView(
-                  primary: true,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    Column(children: widgetlist),
-                  ]),
+              child: ListView(primary: true, scrollDirection: Axis.vertical, children: [
+                Column(children: widgetlist),
+              ]),
             ),
             new ElevatedButton(
-              onPressed: onTouched,
-              child: Icon(Icons.arrow_forward_outlined),
+              onPressed: goToExpired,
               style: ElevatedButton.styleFrom(
                 shape: CircleBorder(),
                 padding: EdgeInsets.all(20),
               ),
+              child: Icon(Icons.arrow_forward_outlined),
             ),
           ],
         ));
   }
 
-  void onPressed() {}
+  void goToExpired() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ExpiredTimers(widget.data)));
+  }
 
-  void onClicked() {}
-
-  void onTouched() {
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => ExpiredTimers(widget.data)));
+  void reload() {
+    setState(() {});
   }
 }

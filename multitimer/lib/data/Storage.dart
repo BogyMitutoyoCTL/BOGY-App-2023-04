@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:path_provider/path_provider.dart';
 
-import 'Category.dart';
+import 'TimerCategory.dart';
 import 'Data.dart';
 import 'Section.dart';
 import 'Timer.dart';
@@ -39,11 +39,11 @@ class Storage {
 
   Data _createDemoData() {
     var data = new Data();
-    var kochen = new Category(name: "Kochen");
+    var kochen = new TimerCategory(name: "Kochen");
     data.categories.add(kochen);
-    var haushalt = new Category(name: "Haushalt");
+    var haushalt = new TimerCategory(name: "Haushalt");
     data.categories.add(haushalt);
-    var sport = new Category(name: "Sport");
+    var sport = new TimerCategory(name: "Sport");
     data.categories.add(sport);
 
     var nudeltimer = new Timer(name: "Nudeln");

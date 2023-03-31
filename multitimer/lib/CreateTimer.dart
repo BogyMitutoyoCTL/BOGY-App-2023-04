@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:multitimer/data/CategorySelectData.dart';
 import 'package:multitimer/data/Data.dart';
+import 'package:multitimer/data/NewSectionData.dart';
 
-import 'SubWidgets/NewTimerCreate.dart';
-
-List<String> categList = <String>['one', 'two', 'three', 'four'];
+import 'SubWidgets/Categoryselect.dart';
+import 'data/Timer.dart';
+import 'subwidgets/NewSection.dart';
 
 class CreateTimer extends StatefulWidget {
   Data data;
@@ -16,55 +18,59 @@ class CreateTimer extends StatefulWidget {
 }
 
 class _CreateTimerState extends State<CreateTimer> {
-  var text = "";
-  var text2 = "";
-  TextEditingController controller = TextEditingController(text: "");
-  TextEditingController controller2 = TextEditingController(text: "");
+  var timerName = "";
+  TextEditingController nameController = TextEditingController(text: "");
+  CategorySelectData categorySelectionData = CategorySelectData();
+
+  void refresh() {
+    setState(() {});
+  }
 
   _CreateTimerState();
 
   @override
   void initState() {
     super.initState();
-    controller.text = text;
-    controller.addListener(() {
+    nameController.text = timerName;
+    nameController.addListener(() {
       setState(() {
-        text = controller.text;
+        timerName = nameController.text;
       });
     });
-
-    controller2.text = text2;
-    controller2.addListener(() {
-      setState(() {
-        text2 = controller2.text;
-      });
-    });
+    // A new timer needs at least one time segment
+    addSection();
   }
 
   @override
   void dispose() {
     super.dispose();
-    controller.dispose();
-    controller2.dispose();
+    nameController.dispose();
   }
 
   @override
   Widget build(
     BuildContext context,
   ) {
-    List<Widget> children2;
-    var elevatedPlusButton = ElevatedButton(
-      onPressed: onClickAdd,
-      child: Icon(Icons.add),
-      style: ElevatedButton.styleFrom(
-        shape: CircleBorder(),
-        padding: EdgeInsets.all(20),
-      ),
-    );
-    if (extractedChildren.length < 4) {
-      children2 = [elevatedPlusButton];
+    Widget plusButton;
+    if (sections.length < 4) {
+      plusButton = ElevatedButton(
+        onPressed: addSection,
+        style: ElevatedButton.styleFrom(
+          shape: CircleBorder(),
+          padding: EdgeInsets.all(20),
+        ),
+        child: Icon(Icons.add),
+      );
     } else {
-      children2 = [];
+      plusButton = Container();
+    }
+
+    categorySelectionData.categories = widget.data.categories;
+    categorySelectionData.selectedCategory = widget.data.categories.first;
+
+    List<Widget> sectionWidgets = [];
+    for (var sectionData in sections) {
+      sectionWidgets.add(NewSection(sectionData));
     }
 
     return Scaffold(
@@ -76,126 +82,76 @@ class _CreateTimerState extends State<CreateTimer> {
         Center(
           child: Padding(
             padding: const EdgeInsets.all(30.0),
-            child: new Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: new Text(
-                      "Name: ",
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                  ),
-                  Container(
-                      width: 500, child: new TextField(controller: controller)),
-                  Container(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: new Text(
-                      AppLocalizations.of(context)!.category + ":",
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0), /////////////////
-                    child: DropdownButtonExample(),
-                    /*new DropdownButton(
-                      hint: Text(
-                        "Choose a Category",
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                      items: list,
-                      onChanged: onChangedDropdown(),
-                    ),*/
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: new Text(
-                      AppLocalizations.of(context)!.time + ":",
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                  ),
-                  Column(children: extractedChildren),
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: Center(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: children2,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: Center(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          new ElevatedButton(
-                              onPressed: onSave,
-                              child: new Text(
-                                  AppLocalizations.of(context)!.save,
-                                  style:
-                                      Theme.of(context).textTheme.bodySmall)),
-                        ],
-                      ),
-                    ),
-                  ),
-                ]),
+            child: new Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+              new Text(
+                "Name: ",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Container(width: 500, child: new TextField(controller: nameController)),
+              Container(
+                height: 10,
+              ),
+              new Text(
+                AppLocalizations.of(context)!.category + ":",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Categoyselect(categorySelectionData),
+              new Text(
+                AppLocalizations.of(context)!.time + ":",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Column(children: sectionWidgets),
+              Container(
+                height: 30,
+              ),
+              plusButton,
+              Container(
+                height: 30,
+              ),
+              SizedBox(
+                width: 150,
+                child: new ElevatedButton(
+                    onPressed: isInputValid() ? onSave : null,
+                    child: new Text(AppLocalizations.of(context)!.save, style: Theme.of(context).textTheme.bodySmall)),
+              ),
+            ]),
           ),
         ),
       ]),
     );
   }
 
-  void onClickAdd() {
-    if (extractedChildren.length < 4) {
+  void addSection() {
+    if (sections.length < 4) {
       setState(() {
-        extractedChildren.add(NewTimer());
+        var newSectionData = NewSectionData();
+        newSectionData.refreshParent = refresh;
+        sections.add(newSectionData);
       });
     }
   }
 
-  List<Widget> extractedChildren = <Widget>[];
-  void onSave() {}
+  List<NewSectionData> sections = [];
+  void onSave() {
+    Timer timer = new Timer();
+    timer.name = timerName;
+    // TODO: create sections
+    // TODO: add sections to the timer
+    categorySelectionData.selectedCategory.timers.add(timer);
 
-  void onChangedDropdown() {}
-}
+    goBack();
+  }
 
-class DropdownButtonExample extends StatefulWidget {
-  const DropdownButtonExample({super.key});
+  bool isInputValid() {
+    bool valid = timerName.isNotEmpty;
+    for (var section in sections) {
+      valid &= section.message.isNotEmpty;
+      valid &= section.duration.inMinutes != 0;
+    }
+    return valid;
+  }
 
-  @override
-  State<DropdownButtonExample> createState() => _DropdownButtonExampleState();
-}
-
-class _DropdownButtonExampleState extends State<DropdownButtonExample> {
-  String dropdownValue = categList.first;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: DropdownButton<String>(
-        hint: Text("", style: Theme.of(context).textTheme.labelSmall),
-        value: dropdownValue,
-        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-        icon: Icon(Icons.arrow_downward),
-        style: Theme.of(context).textTheme.labelSmall,
-        onChanged: (String? value) {
-          // This is called when the user selects an item.
-          setState(() {
-            dropdownValue = value!;
-          });
-        },
-        items: categList.map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
-          );
-        }).toList(),
-      ),
-    );
+  void goBack() {
+    Navigator.of(context).pop();
   }
 }

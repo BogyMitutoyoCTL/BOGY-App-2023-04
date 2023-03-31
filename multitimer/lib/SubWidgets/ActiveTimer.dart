@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import 'package:multitimer/data/Timer.dart';
+import 'dart:async' as Async;
 import '../data/Activetimerdata.dart';
 
 class ActiveTimer extends StatefulWidget {
@@ -13,6 +14,18 @@ class ActiveTimer extends StatefulWidget {
 }
 
 class _ActiveTimerState extends State<ActiveTimer> {
+  late Async.Timer refreshTimer;
+
+  _ActiveTimerState() {
+    refreshTimer = new Async.Timer.periodic(Duration(seconds: 1), (t) => setState(() => {}));
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    refreshTimer.cancel();
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Column(
@@ -20,7 +33,7 @@ class _ActiveTimerState extends State<ActiveTimer> {
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
           child: new Container(
-            color: Colors.yellow,
+            color: widget.data.color,
             child: Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
               child: Column(
@@ -34,15 +47,12 @@ class _ActiveTimerState extends State<ActiveTimer> {
                     ),
                   ),
                   new Text(
-                    widget.data.timer.sections[0].message,
+                    widget.data.timer.getCurrentSection().message,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
-                  new Text("Wasser zum kochen bringen.",
-                      style: Theme.of(context).textTheme.bodySmall),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                    child: new Text("Klingelt in 2:56 min",
-                        style: Theme.of(context).textTheme.bodySmall),
+                    child: new Text(widget.data.timer.getRemainingTime(), style: Theme.of(context).textTheme.bodySmall),
                   ),
                   Row(
                     children: [
@@ -59,8 +69,7 @@ class _ActiveTimerState extends State<ActiveTimer> {
                               padding: EdgeInsets.all(20),
                             ),
                           ),
-                          new Text(AppLocalizations.of(context)!.discard,
-                              style: Theme.of(context).textTheme.labelMedium)
+                          new Text(AppLocalizations.of(context)!.discard, style: Theme.of(context).textTheme.labelMedium)
                         ],
                       ),
                       new Container(
@@ -76,8 +85,7 @@ class _ActiveTimerState extends State<ActiveTimer> {
                                 shape: CircleBorder(),
                                 padding: EdgeInsets.all(20),
                               )),
-                          new Text(AppLocalizations.of(context)!.restart,
-                              style: Theme.of(context).textTheme.labelMedium)
+                          new Text(AppLocalizations.of(context)!.restart, style: Theme.of(context).textTheme.labelMedium)
                         ],
                       )
                     ],
@@ -91,7 +99,12 @@ class _ActiveTimerState extends State<ActiveTimer> {
     );
   }
 
-  void onDelete() {}
+  void onDelete() {
+    setState(() {
+      widget.data.timer.deactivate();
+      widget.data.reload();
+    });
+  }
 
   void onRestart() {}
 }
