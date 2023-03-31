@@ -27,8 +27,7 @@ class _TimerTileState extends State<TimerTile> {
               child: Center(
                 child: Column(
                   children: [
-                    new Text(widget.data.timer.name,
-                        style: Theme.of(context).textTheme.bodySmall),
+                    new Text(widget.data.timer.name, style: Theme.of(context).textTheme.bodySmall),
                     new Text("", style: Theme.of(context).textTheme.labelSmall),
                   ],
                 ),
@@ -36,43 +35,41 @@ class _TimerTileState extends State<TimerTile> {
             ),
           ),
           new Container(
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 100,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: onPlay,
-                      child: Icon(Icons.play_arrow),
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(),
-                      ),
-                    ),
+            child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+              Container(
+                width: 100,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: onPlay,
+                  child: Icon(Icons.play_arrow),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(),
                   ),
-                  Container(
-                    width: 100,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: onEdit,
-                      child: Icon(Icons.edit),
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(),
-                      ),
-                    ),
+                ),
+              ),
+              Container(
+                width: 100,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: onEdit,
+                  child: Icon(Icons.edit),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(),
                   ),
-                  Container(
-                    width: 100,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: onTrash,
-                      child: Icon(Icons.delete_forever),
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(),
-                      ),
-                    ),
-                  )
-                ]),
+                ),
+              ),
+              Container(
+                width: 100,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: onTrash,
+                  child: Icon(Icons.delete_forever),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(),
+                  ),
+                ),
+              )
+            ]),
           )
         ],
       ),
@@ -86,7 +83,7 @@ class _TimerTileState extends State<TimerTile> {
   void onEdit() {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
       var createTimerData = CreateTimerData();
-      createTimerData.data = widget.data.data;
+      createTimerData.everything = widget.data.data;
       createTimerData.categoryOfTimer = widget.data.timer.category;
       createTimerData.timerToEdit = widget.data.timer;
 

@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:multitimer/data/CategWidgetData.dart';
 
 import '../TimersInCategories.dart';
+import '../data/Storage.dart';
 import '../data/TimersInCategData.dart';
 
 class CategoryWidget extends StatefulWidget {
@@ -67,8 +68,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
         enabled: widget.data.editEnabled,
       );
     } else {
-      container = Text(widget.data.category.name,
-          style: Theme.of(context).textTheme.bodyMedium);
+      container = Text(widget.data.category.name, style: Theme.of(context).textTheme.bodyMedium);
     }
     /////
     return Padding(
@@ -80,14 +80,10 @@ class _CategoryWidgetState extends State<CategoryWidget> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStatePropertyAll(widget.data.color)),
+                style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(widget.data.color)),
                 onPressed: onCategoryPress,
                 child: Row(children: [
-                  Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(width: 180, child: container)),
+                  Padding(padding: const EdgeInsets.all(8.0), child: Container(width: 180, child: container)),
                   IconButton(
                     onPressed: onClickNameChange,
                     icon: Icon(Icons.edit),
@@ -114,11 +110,13 @@ class _CategoryWidgetState extends State<CategoryWidget> {
     setState(() {
       widget.data.editEnabled = !widget.data.editEnabled;
       widget.data.category.name = myController.text;
+      Storage().save(widget.data.data);
     });
   }
 
   void onClickDeleteCategory() {
     widget.data.delete(widget.data.category);
+    Storage().save(widget.data.data);
   }
 
   void onCategoryPress() {
