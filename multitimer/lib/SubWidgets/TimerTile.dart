@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multitimer/ActiveTimers.dart';
 import 'package:multitimer/CreateTimer.dart';
 import 'package:multitimer/data/CreateTimerData.dart';
 import 'package:multitimer/data/TimeTileData.dart';
@@ -80,6 +81,8 @@ class _TimerTileState extends State<TimerTile> {
 
   void onPlay() {
     widget.data.timer.activate();
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => ActiveTimers(widget.data.data)));
   }
 
   void onEdit() {
