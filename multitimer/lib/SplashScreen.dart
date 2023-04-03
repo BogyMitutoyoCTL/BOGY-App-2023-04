@@ -9,17 +9,16 @@ import 'Mainmenu.dart';
 class SplashScreen extends StatefulWidget {
   Data data;
 
-  SplashScreen(Data this.data, {Key? key}) : super(key: key);
+  SplashScreen(this.data, {Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState(data);
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  _SplashScreenState(Data data) {
+  _SplashScreenState() {
     Timer(const Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => Mainmenu(data)));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Mainmenu(widget.data)));
     });
   }
 
