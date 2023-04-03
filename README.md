@@ -1,4 +1,56 @@
 # Android Timer App
+## Freitag 31.3.2023
+
+### Abend der Technik
+
+Der Abend der Technik findet am Mittwoch, 3.5.2023, statt. Die dort vorgestellte Präsentation arbeitet ihr bitte bis Freitag 28.4.2023 aus. Didi und Thomas kommen am 28.4. ins LFZ. Dort könnt ihr die Präsentation einmal probbehalten.
+
+Unsere Vorgaben für den Abend der Technik:
+
+1. Poloshirts anziehen
+
+2. Präsentation auf Basis der [Vorlage von Mitutoyo](AbendDerTechnik/Vorlage.potx) erstellen
+
+3. Lasst euch vorher die Bühne zeigen, damit ihr wisst, wo es hinauf und hinunter geht
+
+4. Aufbau der Präsentation
+
+   1. Zuschauer motivieren, dass sie die nächsten 5-10 Minuten auch zuhören
+      1. Interesse wecken: "Hatten Sie nicht auch schon das Problem, dass ..."
+      2. Nicht die Lösung verraten
+   2. [Firma vorstellen](Firmenpräsentation.pptx): 1 Folie genügt
+   3. Ablauf des Praktikums erklären
+      1. Nachmittage: Rundgang, Installation [Android Studio](AndroidStudio.pptx), [Dart](Dart.pptx), [Flutter](Flutter.pptx)
+         
+         Fachbegriffe kurz erklären
+         
+         Dart: Programmiersprache, ähnlich wie Arduino / C++
+         
+         Flutter: Bibliotheken (geschrieben in Dart) für die Oberfläche, z.B. Buttons, Icons, Scrollbalken, Text, Farben, ...
+      2. BOGY-Woche: Ein Problem gelöst / App programmiert
+   4. Details
+      1. Bildschirme auf Papier aufgemalt (Bild/Foto vom gescannnten Papier)
+      2. In einem Online-Kollaborationstool ([Figma](https://www.figma.com)) etwas realistischer gezeichnet (Bild zeigen)
+      3. Umsetzung in Widgets (Programmierarbeit) (Screenshot von *Timer anlegen*)
+      4. Code austauschen über Github (Push + Pull), 
+         1. Github ist eine Versionsverwaltung 
+         2. Github ist auch ein Kollaborationstool (Screenshot zeigen von [Github Issues](https://github.com/BogyMitutoyoCTL/BOGY-App-2023-04/issues))
+      5. Wiederverwendbare Unter-Widgets
+      6. Daten + Business Logik (dass die App was tut)
+      7. Testen (im Browser + im Emulator)  + Fehler finden + Fehler eintragen (bei Github) + Fehler beheben + Abläufe optimieren
+   5. Lösung / Ergebnis: hier die coolsten und besten Bilder zeigen
+      1. Settings Dialog
+      2. Categories
+      3. Video von einem Timer der abläuft
+      4. ...
+   6. Vielen Dank
+   7. Fragen: bitte kommt zu unserem Stand
+
+Messestand: 
+
+* Messestand bringen wir mit
+* Laptops zum Ausprobieren bringen wir mit
+
 ## Donnerstag 30.3.2023
 
 ### Vereinfachung des Datenaustauschs
