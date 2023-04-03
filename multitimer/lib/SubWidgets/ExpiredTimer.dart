@@ -31,7 +31,14 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   new Text(
-                    "Phase 1 von 3 ist aktiv:",
+                    "Phase " +
+                        (widget.data.timer.activesectionnumber + 1).toString() +
+                        " " +
+                        AppLocalizations.of(context)!.oof +
+                        " " +
+                        widget.data.timer.sections.length.toString() +
+                        " " +
+                        AppLocalizations.of(context)!.phase,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   new Text(widget.data.timer.sections[0].message,
@@ -91,6 +98,9 @@ class _ExpiredTimerState extends State<ExpiredTimer> {
   }
 
   void onNext() {
+    if (widget.data.timer.activesectionnumber ==widget.data.timer.sections) {
+      widget.data
+    }
     setState(() {
       print("start next section");
       widget.data.timer.nextsection();
